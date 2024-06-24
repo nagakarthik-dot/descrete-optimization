@@ -29,7 +29,7 @@ class FinalTable:
                     print(store_row)
                     print("-" * len(header))
 
-            elif self.variables['problem'] == 3 or self.variables['problem']==4:
+            elif self.variables['problem'] == 3 :
                 header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2])
                 print(header)
 
@@ -42,6 +42,28 @@ class FinalTable:
                     print(sell_row)
                     print(store_row)
                     print("-" * len(header))
+                
+                
+            elif self.variables['problem']==4:
+                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2])
+                print(header)
+
+                for i in range(6):
+                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['items'][i][j].solution_value():<10.2f}" for j in range(7)])
+                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['sell'][i][j].solution_value():<10.2f}" for j in range(7)])
+                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(7)])
+                    
+                    print(item_row)
+                    print(sell_row)
+                    print(store_row)
+                    print("-" * len(header))
+                
+                header="month      "+ "grinding     "+"Vertical drilling     "+"hori            "+"boner    "+"planer    "
+                print(header)
+                for i in range(6):
+                    row=item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['maintaince'][i][j].solution_value():<10.2f}" for j in range(7)])
+                    print(row)
+                    print("-"*len(header))
 
             elif self.variables['problem'] == 5 or self.variables['problem'] == 51:
                 months = ["Year 1", "Year 2", "Year 3"]
