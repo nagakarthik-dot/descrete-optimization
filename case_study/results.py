@@ -29,7 +29,7 @@ class FinalTable:
                     print(store_row)
                     print("-" * len(header))
 
-            elif self.variables['problem'] == 3:
+            elif self.variables['problem'] == 3 or self.variables['problem']==4:
                 header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2])
                 print(header)
 

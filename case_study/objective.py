@@ -14,7 +14,7 @@ class Objective:
                     result += -self.data.prices[i][j] * kwargs['buy'][i][j] + 150 * kwargs['used'][i][j] - 5 * kwargs['store'][i][j]
             self.solver.Maximize(result)
 
-        elif self.problem == 3:
+        elif self.problem == 3 or self.problem==4:
             for i in range(6):
                 for j in range(7):
                     result += self.data.cost[j] * kwargs['sell'][i][j] - 0.5 * kwargs['store'][i][j]

@@ -72,6 +72,25 @@ class Constraints:
                         self.solver.Add(kwargs['items'][i][j] + kwargs['store'][i-1][j] == kwargs['sell'][i][j] + kwargs['store'][i][j])
             for j in range(7):
                 self.solver.Add(kwargs['store'][5][j] == 50)
+        if self.problem==4:
+            for i in range(6):
+                for j in range(7):
+                    self.solver.Add(kwargs['items'][i][j] <= self.data.limit[i][j])
+                for j in range(5):
+                    self.solver.Add(sum(self.data.hours[j][k] * kwargs['items'][i][k] for k in range(7)) <= self.data.machines[j] * 24 * 16-kwargs['maintaince'][i][j]*24*16)
+            for i in range(6):
+                for j in range(7):
+                    if i == 0:
+                        self.solver.Add(kwargs['items'][i][j] == kwargs['sell'][i][j] + kwargs['store'][i][j])
+                    else:
+                        self.solver.Add(kwargs['items'][i][j] + kwargs['store'][i-1][j] == kwargs['sell'][i][j] + kwargs['store'][i][j])
+            for j in range(7):
+                self.solver.Add(kwargs['store'][5][j] == 50)
+            self.solver.Add(sum(kwargs['maintaince'][i][0] for i in range(6))==2)
+            self.solver.Add(sum(kwargs['maintaince'][i][0] for i in range(6))==2)
+            self.solver.Add(sum(kwargs['maintaince'][i][0] for i in range(6))==3)
+            self.solver.Add(sum(kwargs['maintaince'][i][0] for i in range(6))==1)
+            self.solver.Add(sum(kwargs['maintaince'][i][0] for i in range(6))==1)
 
         if self.problem == 5 or self.problem ==51:
             self.solver.Add(kwargs['tSK'][0] == 1000)

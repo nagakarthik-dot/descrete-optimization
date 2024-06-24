@@ -23,6 +23,13 @@ class DecisionVariables:
             # Assuming these were intended to be added to self.variables:
             self.variables['sell'] = [[self.solver.NumVar(0, self.solver.infinity(), f'sell[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
             self.variables['store'] = [[self.solver.NumVar(0, 100, f'store[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
+        if self.problem==4:
+            self.variables['items'] = [[self.solver.NumVar(0, self.solver.infinity(), f'items[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
+            # Assuming these were intended to be added to self.variables:
+            self.variables['sell'] = [[self.solver.NumVar(0, self.solver.infinity(), f'sell[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
+            self.variables['store'] = [[self.solver.NumVar(0, 100, f'store[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
+            self.variables['maintaince']=[[self.solver.BoolVar(f'maintain[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
+
         if self.problem == 5 or self.problem == 51:
             self.variables['tSK'] = [self.solver.NumVar(0, self.solver.infinity(), f'tSK[{i}]') for i in range(4)]
             self.variables['tSS'] = [self.solver.NumVar(0, self.solver.infinity(), f'tSS[{i}]') for i in range(4)]
