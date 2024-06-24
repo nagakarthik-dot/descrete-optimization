@@ -5,7 +5,7 @@ from input_data import InputData
 from constraints import Constraints
 from objective import Objective
 from final_table import FinalTable
-from decision import DecisionVariables
+from decision_variable import DecisionVariables
 
 def solve_problem(problem):
     solver = pywraplp.Solver.CreateSolver('SCIP')
