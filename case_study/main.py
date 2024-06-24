@@ -5,6 +5,7 @@ from input_data import InputData
 from constraints import Constraints
 from objective import Objective
 from final_table import FinalTable
+from decision import DecisionVariables
 
 def solve_problem(problem):
     solver = pywraplp.Solver.CreateSolver('SCIP')
@@ -106,15 +107,18 @@ def solve_problem(problem):
     
     
     if problem ==10:
-        open = [[solver.BoolVar(f'city_{i}_has_dept_{j}') for j in range(5)] for i in range(3)]
-        path= [[[[solver.BoolVar(f'city_{i}_has_dept_{j}_and_city_{k}_has_dept_{l}')for l in range(5)]for k in range(3)]for j in range(5)]for i in range(3)]
+        ##open = [[solver.BoolVar(f'city_{i}_has_dept_{j}') for j in range(5)] for i in range(3)]
+        ##path= [[[[solver.BoolVar(f'city_{i}_has_dept_{j}_and_city_{k}_has_dept_{l}')for l in range(5)]for k in range(3)]for j in range(5)]for i in range(3)]
+        decision_variables = DecisionVariables(solver, problem)
+        decision_variables.create_variables()
+        variables = decision_variables.get_variables()
         constraints = Constraints(solver, data, problem)
-        constraints.add_constraints(open=open,path=path)
+        constraints.add_constraints(**variables)
 
         objective = Objective(solver, data, problem)
-        objective.set_objective(open=open,path=path)
+        objective.set_objective(**variables)
 
-        final_table = FinalTable(solver, open=open,path=path, problem=problem)
+        final_table = FinalTable(solver, **variables, problem=problem)
         final_table.print_table()
 
 
