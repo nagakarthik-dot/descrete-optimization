@@ -20,12 +20,10 @@ class DecisionVariables:
             self.variables['usedby'] = [[self.solver.BoolVar(f'oil {j} used in month {i}') for j in range(5)] for i in range(6)]
         if self.problem == 3:
             self.variables['items'] = [[self.solver.NumVar(0, self.solver.infinity(), f'items[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
-            # Assuming these were intended to be added to self.variables:
             self.variables['sell'] = [[self.solver.NumVar(0, self.solver.infinity(), f'sell[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
             self.variables['store'] = [[self.solver.NumVar(0, 100, f'store[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
         if self.problem==4:
             self.variables['items'] = [[self.solver.NumVar(0, self.solver.infinity(), f'items[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
-            # Assuming these were intended to be added to self.variables:
             self.variables['sell'] = [[self.solver.NumVar(0, self.solver.infinity(), f'sell[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
             self.variables['store'] = [[self.solver.NumVar(0, 100, f'store[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
             self.variables['maintaince']=[[self.solver.BoolVar(f'maintain[{i}][{j}]') for j in range(data.num_products)] for i in range(data.num_months)]
