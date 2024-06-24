@@ -4,7 +4,7 @@ from ortools.linear_solver import pywraplp
 from input_data import InputData
 from constraints import Constraints
 from objective import Objective
-from final_table import FinalTable
+from results import FinalTable
 from decision_variable import DecisionVariables
 
 def solve_problem(problem):
@@ -23,8 +23,8 @@ def solve_problem(problem):
     objective = Objective(solver, data, problem)
     objective.set_objective(**variables)
 
-    final_table = FinalTable(solver, **variables, problem=problem)
-    final_table.print_table()
+    solution = FinalTable(solver, **variables, problem=problem)
+    solution.print_table()
 
 
 
