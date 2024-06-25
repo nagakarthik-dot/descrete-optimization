@@ -97,5 +97,7 @@ class Objective:
                     result+=kwargs['depottocust'][i][j]*self.data.dat3[i][j]
 
             self.solver.Minimize(result)
+        elif self.problem ==17:
+            self.solver.Minimize(sum(kwargs['lines'][i] for i in range(49)))
 
 

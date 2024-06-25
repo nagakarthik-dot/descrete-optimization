@@ -246,7 +246,7 @@ class Constraints:
                 for j in range(6):
                     temp+=kwargs['facttocust'][i][j]
                 self.solver.Add(temp<=self.data.f_c[i])
-                
+
             ###  depot check 
             for i in range(4):
                 self.solver.Add(sum(kwargs['facttodepot'][j][i] for j in range(2))>=sum(kwargs['depottocust'][i][j] for j in range(6)))
@@ -277,3 +277,8 @@ class Constraints:
                     for j in range(4):
                         self.solver.Add(kwargs['depottocust'][2][5]>=kwargs['depottocust'][j][i])
                         self.solver.Add(kwargs['depottocust'][3][i]>=kwargs['depottocust'][j][i])
+        if self.problem ==17:
+            self.solver.Add(sum(kwargs['cell'][i] for i in range(27))==14)
+            for i in range(49):
+                self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]-kwargs['lines'][i]<=2)
+                self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]-kwargs['lines'][i]>=1)

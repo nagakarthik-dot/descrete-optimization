@@ -122,6 +122,10 @@ class FinalTable:
                 for i in range(4):
                     for j in range(6):
                         output += f'depot{i} to cust{j} = {self.variables["depottocust"][i][j].solution_value()}\n'
+            elif problem ==17:
+                print()
+                
 
             self.save_output(f'problem_{problem}.txt', output)
+            
 
