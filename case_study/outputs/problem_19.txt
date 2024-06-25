@@ -1,0 +1,49 @@
+Solution:
+Objective value = 227500.0
+
+factory0 to depot0 = 35000.0
+factory0 to depot1 = 0.0
+factory0 to depot2 = 0.0
+factory0 to depot3 = 0.0
+factory1 to depot0 = 0.0
+factory1 to depot1 = 50000.0
+factory1 to depot2 = 35000.0
+factory1 to depot3 = 40000.0
+
+factory0 to cust0 = 50000.0
+factory0 to cust1 = 0.0
+factory0 to cust2 = 0.0
+factory0 to cust3 = 0.0
+factory0 to cust4 = 0.0
+factory0 to cust5 = 5000.0
+factory1 to cust0 = 0.0
+factory1 to cust1 = 0.0
+factory1 to cust2 = 0.0
+factory1 to cust3 = 0.0
+factory1 to cust4 = 0.0
+factory1 to cust5 = 0.0
+
+depot0 to cust0 = 0.0
+depot0 to cust1 = 5000.0
+depot0 to cust2 = 5000.0
+depot0 to cust3 = 20000.0
+depot0 to cust4 = 0.0
+depot0 to cust5 = 5000.0
+depot1 to cust0 = 0.0
+depot1 to cust1 = 5000.0
+depot1 to cust2 = 0.0
+depot1 to cust3 = 15000.0
+depot1 to cust4 = 30000.0
+depot1 to cust5 = 0.0
+depot2 to cust0 = 0.0
+depot2 to cust1 = 0.0
+depot2 to cust2 = 0.0
+depot2 to cust3 = 0.0
+depot2 to cust4 = 30000.0
+depot2 to cust5 = 5000.0
+depot3 to cust0 = 0.0
+depot3 to cust1 = 0.0
+depot3 to cust2 = 35000.0
+depot3 to cust3 = 0.0
+depot3 to cust4 = 0.0
+depot3 to cust5 = 5000.0

@@ -1,5 +1,4 @@
-# final_table.py
-
+import os
 from ortools.linear_solver import pywraplp
 
 class FinalTable:
@@ -10,115 +9,119 @@ class FinalTable:
         self.products1 = ["veg 1", "veg 2", "oil 1", "oil 2", "oil 3"]
         self.products2 = ["Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Product 6", "Product 7"]
 
+    def save_output(self, filename, content):
+        os.makedirs("case_study/outputs", exist_ok=True)
+        with open(f"case_study/outputs/{filename}", "w") as file:
+            file.write(content)
+
     def print_table(self):
         if self.solver.Solve() == pywraplp.Solver.OPTIMAL:
-            print('Solution:')
-            print(f'Objective value = {self.solver.Objective().Value()}')
-
-            if self.variables['problem'] == 1 or self.variables['problem'] == 2:
-                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products1])
-                print(header)
-
-                for i in range(6):
-                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['buy'][i][j].solution_value():<10.2f}" for j in range(5)])
-                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['used'][i][j].solution_value():<10.2f}" for j in range(5)])
-                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(5)])
-                    
-                    print(item_row)
-                    print(sell_row)
-                    print(store_row)
-                    print("-" * len(header))
-
-            elif self.variables['problem'] == 3 :
-                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2])
-                print(header)
-
-                for i in range(6):
-                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['items'][i][j].solution_value():<10.2f}" for j in range(7)])
-                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['sell'][i][j].solution_value():<10.2f}" for j in range(7)])
-                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(7)])
-                    
-                    print(item_row)
-                    print(sell_row)
-                    print(store_row)
-                    print("-" * len(header))
+            output = 'Solution:\n'
+            output += f'Objective value = {self.solver.Objective().Value()}\n\n'
+            problem = self.variables['problem']
+            
+            if problem == 1 or problem == 2:
+                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products1]) + '\n'
+                output += header
                 
-                
-            elif self.variables['problem']==4:
-                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2])
-                print(header)
-
                 for i in range(6):
-                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['items'][i][j].solution_value():<10.2f}" for j in range(7)])
-                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['sell'][i][j].solution_value():<10.2f}" for j in range(7)])
-                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(7)])
+                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['buy'][i][j].solution_value():<10.2f}" for j in range(5)]) + '\n'
+                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['used'][i][j].solution_value():<10.2f}" for j in range(5)]) + '\n'
+                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(5)]) + '\n'
                     
-                    print(item_row)
-                    print(sell_row)
-                    print(store_row)
-                    print("-" * len(header))
-                
-                header="month      "+ "grinding     "+"Vertical drilling     "+"hori            "+"boner    "+"planer    "
-                print(header)
-                for i in range(6):
-                    row=item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['maintaince'][i][j].solution_value():<10.2f}" for j in range(7)])
-                    print(row)
-                    print("-"*len(header))
+                    output += item_row
+                    output += sell_row
+                    output += store_row
+                    output += "-" * len(header) + '\n'
+            
+            elif problem == 3:
+                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2]) + '\n'
+                output += header
 
-            elif self.variables['problem'] == 5 or self.variables['problem'] == 51:
+                for i in range(6):
+                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['items'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['sell'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    
+                    output += item_row
+                    output += sell_row
+                    output += store_row
+                    output += "-" * len(header) + '\n'
+            
+            elif problem == 4:
+                header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2]) + '\n'
+                output += header
+
+                for i in range(6):
+                    item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['items'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    sell_row = f"{'':<12}" + "  ".join([f"{self.variables['sell'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    
+                    output += item_row
+                    output += sell_row
+                    output += store_row
+                    output += "-" * len(header) + '\n'
+                
+                header = "month      " + "grinding     " + "Vertical drilling     " + "hori            " + "boner    " + "planer    " + '\n'
+                output += header
+                for i in range(6):
+                    row = item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['maintaince'][i][j].solution_value():<10.2f}" for j in range(7)]) + '\n'
+                    output += row
+                    output += "-" * len(header) + '\n'
+
+            elif problem == 5 or problem == 51:
                 months = ["Year 1", "Year 2", "Year 3"]
                 variables = ["tSK", "tSS", "tUS", "uSK", "uSS", "uUS", "vUSSS", "vSSSK", "vSKSS", "uSKUS", "vSSUS", "wSK", "wSS", "wUS", "xSK", "xSS", "xUS", "ySK", "ySS", "yUS"]
                 # Print header
-                header = "Variable".ljust(10) + " ".join([f"{month:<10}" for month in months])
-                print(header)
+                header = "Variable".ljust(10) + " ".join([f"{month:<10}" for month in months]) + '\n'
+                output += header
                 # Print variable values
                 for var in variables:
                     var_name = var.ljust(10)
-                    var_values = " ".join([f"{self.variables[var][i].solution_value():<10.2f}" for i in range(3)])
-                    print(var_name + var_values)
-            
-            elif self.variables['problem']==7:
-                print("| {:<10} | {:<10} | {:<10} | {:<15} | {:<15}|".format("Index", "Year", "Operate","Open", "Output (millions)"))
+                    var_values = " ".join([f"{self.variables[var][i].solution_value():<10.2f}" for i in range(3)]) + '\n'
+                    output += var_name + var_values
+
+            elif problem == 7:
+                output += "| {:<10} | {:<10} | {:<10} | {:<15} | {:<15}|\n".format("Index", "Year", "Operate","Open", "Output (millions)")
                 for j in range(len(self.variables["operate"])):
                     for i in range(len(self.variables["operate"][j])):
                         operate_value = self.variables["operate"][j][i].solution_value()
                         ope_value = self.variables["ope"][j][i].solution_value()
                         output_value = self.variables["output"][j][i].solution_value() / (10**6)
-                        print("| {:<10} | {:<10} | {:<10} | {:<15.2f} |  {:<15.2f}|".format(i+1, j+1, operate_value,ope_value, output_value))
+                        output += "| {:<10} | {:<10} | {:<10} | {:<15.2f} |  {:<15.2f}|\n".format(i+1, j+1, operate_value,ope_value, output_value)
 
-            elif self.variables['problem']==10:
+            elif problem == 10:
                 for i in range(3):
-                    print(f'City {i}:')
+                    output += f'City {i}:\n'
                     for j in range(5):
                         if self.variables['open'][i][j].solution_value() == 1:
-                            print(f'- Department {j}')
-            
-            elif self.variables['problem']==11 or self.variables['problem']==111:
-                print(f'a = {self.variables['a'].solution_value()}')
-                print(f'b = {self.variables['b'].solution_value()}')
-            
-            elif self.variables['problem']==13:
+                            output += f'- Department {j}\n'
+
+            elif problem == 11 or problem == 111:
+                output += f'a = {self.variables["a"].solution_value()}\n'
+                output += f'b = {self.variables["b"].solution_value()}\n'
+
+            elif problem == 13:
                 for i in range(23):
-                    print(f'M{i+1} belongs to D1: {self.variables['open'][i].solution_value()}')
-            
-            elif self.variables['problem']==15:
+                    output += f'M{i+1} belongs to D1: {self.variables["open"][i].solution_value()}\n'
+
+            elif problem == 15:
                 for i in range(5):
                     for j in range(3):
-                        print(f'Period {i + 1}, Ty {j + 1}:  Num = {self.variables['num'][j][i].solution_value()}')
-                        #print(f'  Ty = {ty[j][i].solution_value()}')
-                    
-                        ##print(f'  Num = {self.variables['num'][j][i].solution_value()}')
-                        #print(f'  Start = {start[j][i].solution_value()}')
-            elif self.variables['problem']==19:
+                        output += f'Period {i + 1}, Ty {j + 1}:  Num = {self.variables["num"][j][i].solution_value()}\n'
+            
+            elif problem == 19:
                 for i in range(2):
                     for j in range(4):
-                        print(f'factory{i} to depot{j} =', self.variables['facttodepot'][i][j].solution_value())
-                print()
+                        output += f'factory{i} to depot{j} = {self.variables["facttodepot"][i][j].solution_value()}\n'
+                output += '\n'
                 for i in range(2):
                     for j in range(6):
-                        print(f'factory{i} to cust{j} =', self.variables['facttocust'][i][j].solution_value())
-                print()
+                        output += f'factory{i} to cust{j} = {self.variables["facttocust"][i][j].solution_value()}\n'
+                output += '\n'
                 for i in range(4):
                     for j in range(6):
-                        print(f'depot{i} to cust{j} =', self.variables['depottocust'][i][j].solution_value())
-                           
+                        output += f'depot{i} to cust{j} = {self.variables["depottocust"][i][j].solution_value()}\n'
+
+            self.save_output(f'problem_{problem}.txt', output)
+

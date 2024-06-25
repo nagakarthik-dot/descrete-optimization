@@ -1,0 +1,18 @@
+Solution:
+Objective value = 256640.0
+
+Period 1, Ty 1:  Num = 12.0
+Period 1, Ty 2:  Num = 2.0
+Period 1, Ty 3:  Num = 0.0
+Period 2, Ty 1:  Num = 12.0
+Period 2, Ty 2:  Num = 8.0
+Period 2, Ty 3:  Num = 0.0
+Period 3, Ty 1:  Num = 12.0
+Period 3, Ty 2:  Num = 8.0
+Period 3, Ty 3:  Num = 0.0
+Period 4, Ty 1:  Num = 12.0
+Period 4, Ty 2:  Num = 8.0
+Period 4, Ty 3:  Num = 2.0
+Period 5, Ty 1:  Num = 12.0
+Period 5, Ty 2:  Num = 8.0
+Period 5, Ty 3:  Num = 2.0

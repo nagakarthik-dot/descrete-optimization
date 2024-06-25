@@ -1,0 +1,26 @@
+Solution:
+Objective value = 18.99999999999997
+
+M1 belongs to D1: 0.0
+M2 belongs to D1: 1.0
+M3 belongs to D1: 0.0
+M4 belongs to D1: 0.0
+M5 belongs to D1: 0.0
+M6 belongs to D1: 1.0
+M7 belongs to D1: 1.0
+M8 belongs to D1: 0.0
+M9 belongs to D1: 1.0
+M10 belongs to D1: 0.0
+M11 belongs to D1: 0.0
+M12 belongs to D1: 1.0
+M13 belongs to D1: 1.0
+M14 belongs to D1: 1.0
+M15 belongs to D1: 1.0
+M16 belongs to D1: 0.0
+M17 belongs to D1: 0.0
+M18 belongs to D1: 0.0
+M19 belongs to D1: 0.0
+M20 belongs to D1: 0.0
+M21 belongs to D1: 0.0
+M22 belongs to D1: 0.0
+M23 belongs to D1: 1.0
