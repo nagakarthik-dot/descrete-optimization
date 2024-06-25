@@ -92,4 +92,21 @@ class FinalTable:
                     for j in range(5):
                         if self.variables['open'][i][j].solution_value() == 1:
                             print(f'- Department {j}')
+            
+            elif self.variables['problem']==11 or self.variables['problem']==111:
+                print(f'a = {self.variables['a'].solution_value()}')
+                print(f'b = {self.variables['b'].solution_value()}')
+            
+            elif self.variables['problem']==13:
+                for i in range(23):
+                    print(f'M{i+1} belongs to D1: {self.variables['open'][i].solution_value()}')
+            
+            elif self.variables['problem']==15:
+                for i in range(5):
+                    for j in range(3):
+                        print(f'Period {i + 1}, Ty {j + 1}:  Num = {self.variables['num'][j][i].solution_value()}')
+                        #print(f'  Ty = {ty[j][i].solution_value()}')
+                    
+                        ##print(f'  Num = {self.variables['num'][j][i].solution_value()}')
+                        #print(f'  Start = {start[j][i].solution_value()}')
                            

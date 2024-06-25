@@ -48,3 +48,39 @@ class Objective:
                 for j in range(3):
                     result-=(self.data.dept[j][i]*kwargs['open'][j][i])
             self.solver.Minimize(result)
+
+        elif self.problem==11:
+            self.solver.Minimize(self.solver.Sum(kwargs['abs_diff']))
+        elif self.problem==111:
+            self.solver.Minimize(kwargs['res'])
+        elif self.problem==13:
+            intermediate_values = kwargs.get('intermediate_values', {})
+            temp2 = intermediate_values.get('temp2', 1)
+            temp4 = intermediate_values.get('temp4', 1)
+            temp7 = intermediate_values.get('temp7', 1)
+            t7 = intermediate_values.get('t7', 1)
+            temp9 = intermediate_values.get('temp9', 1)
+            t2 = intermediate_values.get('t2', 1)
+            t4 = intermediate_values.get('t4', 1)
+
+            self.solver.Minimize(
+                kwargs['deviations'][0] / (0.4 * temp2) +
+                kwargs['deviations'][1] / (0.4 * temp4) +
+                kwargs['deviations'][2] / (0.4 * temp7) +
+                kwargs['deviations'][3] / (0.4 * t7) +
+                kwargs['deviations'][4] / (0.4 * temp9) +
+                kwargs['deviations'][5] / (0.4 * t2) +
+                kwargs['deviations'][6] / (0.4 * t4)
+            )
+        
+        elif self.problem ==15:
+            total_cost = 0
+            for i in range(5):
+                for j in range(3):
+                    total_cost += self.data.setup[j] * kwargs['start'][j][i]
+                    total_cost += kwargs['num'][j][i] * self.data.costmin[j]
+                    total_cost +=   (kwargs['ty'][j][i] - self.data.minwatt[j]*kwargs['num'][j][i]) * self.data.costex[j]
+
+            self.solver.Minimize(total_cost)
+
+

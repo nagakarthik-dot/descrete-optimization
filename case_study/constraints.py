@@ -139,3 +139,87 @@ class Constraints:
                             self.solver.Add(kwargs['path'][i][j][k][l] <= kwargs['open'][i][j])
                             self.solver.Add(kwargs['path'][i][j][k][l] <= kwargs['open'][k][l])
                             self.solver.Add(kwargs['path'][i][j][k][l] >= kwargs['open'][i][j] + kwargs['open'][k][l]-1 )
+        
+        if self.problem==11:
+            for i in range(len(self.data.x)):
+                self.solver.Add(kwargs['abs_diff'][i] >= (kwargs['a'] * self.data.x[i] + kwargs['b'] - self.data.y[i]))
+                self.solver.Add(kwargs['abs_diff'][i] >= -(kwargs['a'] * self.data.x[i] + kwargs['b'] - self.data.y[i]))
+        
+        if self.problem==111:
+            for i in range(len(self.data.x)):
+                self.solver.Add(kwargs['res'] >= (kwargs['a'] * self.data.x[i] + kwargs['b'] - self.data.y[i]))
+                self.solver.Add(kwargs['res'] >= -(kwargs['a'] * self.data.x[i] + kwargs['b'] - self.data.y[i]))
+        
+        if self.problem==13:
+            temp1=temp2=temp3=temp4=temp6=temp7=temp8=temp9=t1=t2=t3=t4=t6=t7=0
+            for i in range(len(self.data.dict)):
+                temp1+=self.data.dict[i][2]*kwargs['open'][i]
+                temp2+=self.data.dict[i][2]
+                temp3+=self.data.dict[i][3]*kwargs['open'][i]
+                temp4+=self.data.dict[i][3]
+                if self.data.dict[i][0]==1:
+                    temp6+=self.data.dict[i][1]*kwargs['open'][i]
+                    temp7+=self.data.dict[i][1]
+                if self.data.dict[i][0]==2:
+                    temp8+=self.data.dict[i][1]*kwargs['open'][i]
+                    temp9+=self.data.dict[i][1]
+                if self.data.dict[i][0]==3:
+                    t6+=self.data.dict[i][1]*kwargs['open'][i]
+                    t7+=self.data.dict[i][1]
+                if self.data.dict[i][4]=='A':
+                    t1+=kwargs['open'][i]
+                    t2+=1
+                if self.data.dict[i][4]=='B':
+                    t3+=kwargs['open'][i]
+                    t4+=1
+            self.solver.Add(temp1<=0.45*temp2)
+            self.solver.Add(temp1>=0.35*temp2)
+            self.solver.Add(temp3<=0.45*temp4)
+            self.solver.Add(temp3>=0.35*temp4)
+            self.solver.Add(temp6<=0.45*temp7)
+            self.solver.Add(temp6>=0.35*temp7)
+            self.solver.Add(t6<=0.45*t7)
+            self.solver.Add(t6>=0.35*t7)
+            self.solver.Add(temp8<=0.45*temp9)
+            self.solver.Add(temp8>=0.35*temp9)
+            self.solver.Add(t1<=0.45*t2)
+            self.solver.Add(t1>=0.35*t2)
+            self.solver.Add(t3<=0.45*t4)
+            self.solver.Add(t3>=0.35*t4)
+            self.solver.Add(kwargs['deviations'][0]>=temp1-0.4*temp2)
+            self.solver.Add(kwargs['deviations'][0]>=-temp1+0.4*temp2)
+            self.solver.Add(kwargs['deviations'][1]>=temp3-0.4*temp4)
+            self.solver.Add(kwargs['deviations'][1]>=-temp3+0.4*temp4)
+            self.solver.Add(kwargs['deviations'][2]>=temp6-0.4*temp7)
+            self.solver.Add(kwargs['deviations'][2]>=-temp6+0.4*temp7)
+            self.solver.Add(kwargs['deviations'][3]>=t6-0.4*t7)
+            self.solver.Add(kwargs['deviations'][3]>=-t6+0.4*t7)
+            self.solver.Add(kwargs['deviations'][4]>=temp8-0.4*temp9)
+            self.solver.Add(kwargs['deviations'][4]>=-temp8+0.4*temp9)
+            self.solver.Add(kwargs['deviations'][5]>=t1-0.4*t2)
+            self.solver.Add(kwargs['deviations'][5]>=-t1+0.4*t2)
+            self.solver.Add(kwargs['deviations'][6]>=t3-0.4*t4)
+            self.solver.Add(kwargs['deviations'][6]>=-t3+0.4*t4)
+            kwargs['intermediate_values'] = {
+                'temp2': temp2,
+                'temp4': temp4,
+                'temp7': temp7,
+                't7': t7,
+                'temp9': temp9,
+                't2': t2,
+                't4': t4
+            }
+        
+        if self.problem ==15:
+            for i in range(5):
+                for j in range(3):
+                    self.solver.Add(kwargs['ty'][j][i]>=self.data.minwatt[j]*kwargs['num'][j][i])
+                    self.solver.Add(kwargs['ty'][j][i]<=self.data.maxwatt[j]*kwargs['num'][j][i])
+                    self.solver.Add(kwargs['num'][j][i]<=self.data.avail[j])
+                    if i == 0:
+                        self.solver.Add(kwargs['start'][j][i] == kwargs['num'][j][i])
+                    else:
+                        self.solver.Add(kwargs['start'][j][i] == kwargs['num'][j][i] - kwargs['num'][j][i - 1])
+                self.solver.Add(sum(kwargs['ty'][j][i] for j in range(3))>=self.data.demand[i])
+                self.solver.Add(sum(kwargs['num'][j][i]*self.data.maxwatt[j] for j in range(3))>=1.15*self.data.demand[i])
+            

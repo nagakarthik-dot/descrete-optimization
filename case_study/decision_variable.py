@@ -63,6 +63,28 @@ class DecisionVariables:
         if self.problem == 10:
             self.variables['open'] = [[self.solver.BoolVar(f'city_{i}_has_dept_{j}') for j in range(5)] for i in range(3)]
             self.variables['path'] = [[[[self.solver.BoolVar(f'city_{i}_has_dept_{j}_and_city_{k}_has_dept_{l}') for l in range(5)] for k in range(3)] for j in range(5)] for i in range(3)]
+        
+        if self.problem==11:
+            self.variables['a']=self.solver.NumVar(-self.solver.infinity(),self.solver.infinity(),'a')
+            self.variables['b']=self.solver.NumVar(-self.solver.infinity(),self.solver.infinity(),'b')
+            self.variables['abs_diff'] = [self.solver.NumVar(0, self.solver.infinity(), f'abs_diff_{i}') for i in range(len(data.x))]
+        
+        if self.problem==111:
+            self.variables['a']=self.solver.NumVar(-self.solver.infinity(),self.solver.infinity(),'a')
+            self.variables['b']=self.solver.NumVar(-self.solver.infinity(),self.solver.infinity(),'b')
+            self.variables['res']=self.solver.NumVar(0,self.solver.infinity(),'res')
+        
+        if self.problem ==13:
+            self.variables['open'] = [self.solver.BoolVar(f'M{i} belongs to D1') for i in range(23)]
+            self.variables['deviations']=[self.solver.NumVar(0, self.solver.infinity(), f'deviation{i}') for i in range(7)]
+        
+        if self.problem ==15:
+            self.variables['ty'] = [[self.solver.IntVar(0, self.solver.infinity(), f'ty{i + 1} in period{j + 1}') for j in range(5)] for i in range(3)]
+            ###open = [[self.solver.BoolVar(f'open{i + 1} in period{j + 1}') for j in range(5)] for i in range(3)]
+            self.variables['num'] = [[self.solver.IntVar(0, self.solver.infinity(), f'num{i + 1} in period{j + 1}') for j in range(5)] for i in range(3)]
+            self.variables['start'] = [[self.solver.IntVar(0, self.solver.infinity(), f'start{i + 1} in period{j + 1}') for j in range(5)] for i in range(3)]
+
+
 
     def get_variables(self):
         return self.variables
