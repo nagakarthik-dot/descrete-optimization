@@ -109,4 +109,16 @@ class FinalTable:
                     
                         ##print(f'  Num = {self.variables['num'][j][i].solution_value()}')
                         #print(f'  Start = {start[j][i].solution_value()}')
+            elif self.variables['problem']==19:
+                for i in range(2):
+                    for j in range(4):
+                        print(f'factory{i} to depot{j} =', self.variables['facttodepot'][i][j].solution_value())
+                print()
+                for i in range(2):
+                    for j in range(6):
+                        print(f'factory{i} to cust{j} =', self.variables['facttocust'][i][j].solution_value())
+                print()
+                for i in range(4):
+                    for j in range(6):
+                        print(f'depot{i} to cust{j} =', self.variables['depottocust'][i][j].solution_value())
                            

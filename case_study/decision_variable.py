@@ -84,6 +84,11 @@ class DecisionVariables:
             self.variables['num'] = [[self.solver.IntVar(0, self.solver.infinity(), f'num{i + 1} in period{j + 1}') for j in range(5)] for i in range(3)]
             self.variables['start'] = [[self.solver.IntVar(0, self.solver.infinity(), f'start{i + 1} in period{j + 1}') for j in range(5)] for i in range(3)]
 
+        if self.problem ==19:
+            self.variables['facttodepot']=[[self.solver.IntVar(0,self.solver.infinity(),f'factory{i} to depot{j}') for j in range(4)] for i in range(2)]
+            self.variables['facttocust']=[[self.solver.IntVar(0,self.solver.infinity(),f'factory{i} to cust{j}') for j in range(6)] for i in range(2)]
+            self.variables['depottocust']=[[self.solver.IntVar(0,self.solver.infinity(),f'depot{i} to cust{j}') for j in range(6)] for i in range(4)]
+
 
 
     def get_variables(self):

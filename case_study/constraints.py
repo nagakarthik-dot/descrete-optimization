@@ -222,4 +222,58 @@ class Constraints:
                         self.solver.Add(kwargs['start'][j][i] == kwargs['num'][j][i] - kwargs['num'][j][i - 1])
                 self.solver.Add(sum(kwargs['ty'][j][i] for j in range(3))>=self.data.demand[i])
                 self.solver.Add(sum(kwargs['num'][j][i]*self.data.maxwatt[j] for j in range(3))>=1.15*self.data.demand[i])
-            
+        
+        if self.problem ==19:
+            ### have 0 possiblility 
+            self.solver.Add(kwargs['facttodepot'][1][0]==0)
+            self.solver.Add(kwargs['facttocust'][0][1]==0)
+            self.solver.Add(kwargs['facttocust'][0][4]==0)
+            for i in range(1,6):
+                self.solver.Add(kwargs['facttocust'][1][i]==0)
+            self.solver.Add(kwargs['depottocust'][0][0]==0)
+            self.solver.Add(kwargs['depottocust'][0][4]==0)
+            self.solver.Add(kwargs['depottocust'][1][5]==0)
+            self.solver.Add(kwargs['depottocust'][2][0]==0)
+            self.solver.Add(kwargs['depottocust'][2][3]==0)
+            self.solver.Add(kwargs['depottocust'][3][0]==0)
+            self.solver.Add(kwargs['depottocust'][3][1]==0)
+
+            ###   capacity of fcatory check 
+            for i in range(2):
+                temp=0
+                for j in range(4):
+                    temp+=kwargs['facttodepot'][i][j]
+                for j in range(6):
+                    temp+=kwargs['facttocust'][i][j]
+                self.solver.Add(temp<=self.data.f_c[i])
+
+            ###  depot check 
+            for i in range(4):
+                self.solver.Add(sum(kwargs['facttodepot'][j][i] for j in range(2))>=sum(kwargs['depottocust'][i][j] for j in range(6)))
+                self.solver.Add(sum(kwargs['facttodepot'][j][i] for j in range(2))<=self.data.d_c[i])
+
+            ## customer check 
+            for i in range(6):
+                self.solver.Add(sum(kwargs['depottocust'][j][i] for j in range(4))+sum(kwargs['facttocust'][j][i] for j in range(2))>=self.data.demand[i])
+                if i==0:
+                    for j in range(2):
+                        self.solver.Add(kwargs['facttocust'][0][0]>=kwargs['facttocust'][j][i])
+                    for j in range(4):
+                        self.solver.Add(kwargs['facttocust'][0][0]>=kwargs['depottocust'][j][i])
+                if i==1:
+                    for j in range(2):
+                        self.solver.Add(kwargs['depottocust'][0][1]>=kwargs['facttocust'][j][i])
+                    for j in range(4):
+                        self.solver.Add(kwargs['depottocust'][0][1]>=kwargs['depottocust'][j][i])
+                if i==4:
+                    for j in range(2):
+                        self.solver.Add(kwargs['depottocust'][1][4]>=kwargs['facttocust'][j][i])
+                    for j in range(4):
+                        self.solver.Add(kwargs['depottocust'][1][4]>=kwargs['depottocust'][j][i])
+                if i==5:
+                    for j in range(2):
+                        self.solver.Add(kwargs['depottocust'][2][5]>=kwargs['facttocust'][j][i])
+                        self.solver.Add(kwargs['depottocust'][3][i]>=kwargs['facttocust'][j][i])
+                    for j in range(4):
+                        self.solver.Add(kwargs['depottocust'][2][5]>=kwargs['depottocust'][j][i])
+                        self.solver.Add(kwargs['depottocust'][3][i]>=kwargs['depottocust'][j][i])

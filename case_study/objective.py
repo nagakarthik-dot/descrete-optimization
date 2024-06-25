@@ -82,5 +82,20 @@ class Objective:
                     total_cost +=   (kwargs['ty'][j][i] - self.data.minwatt[j]*kwargs['num'][j][i]) * self.data.costex[j]
 
             self.solver.Minimize(total_cost)
+        
+        elif self.problem==19:
+            result=0
+            for i in range(2):
+                for j in range(4):
+                    result+=kwargs['facttodepot'][i][j]*self.data.dat1[j][i]
+                    result+=0
+            for i in range(2):
+                for j in range(6):
+                    result+=kwargs['facttocust'][i][j]*self.data.dat2[i][j]
+            for i in range(4):
+                for j in range(6):
+                    result+=kwargs['depottocust'][i][j]*self.data.dat3[i][j]
+
+            self.solver.Minimize(result)
 
 
