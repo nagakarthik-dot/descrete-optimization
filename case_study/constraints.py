@@ -246,7 +246,7 @@ class Constraints:
                 for j in range(6):
                     temp+=kwargs['facttocust'][i][j]
                 self.solver.Add(temp<=self.data.f_c[i])
-
+                
             ###  depot check 
             for i in range(4):
                 self.solver.Add(sum(kwargs['facttodepot'][j][i] for j in range(2))>=sum(kwargs['depottocust'][i][j] for j in range(6)))
