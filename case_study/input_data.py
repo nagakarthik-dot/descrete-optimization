@@ -185,6 +185,5 @@ class InputData:
     [35, 20, 20, 10, 25, 70, 45, 30, 45, 15, 45, 34, 30, 0, 27],  # Islington
     [82, 40, 90, 21, 25, 27, 30, 10, 13, 25, 65, 56, 40, 27, 0]   # Woolwich
 ]            
-            self.num_cities = len(self.distance_matrix) 
+            self.num_cities = 15
             self.num_vehicles = 6
-            
