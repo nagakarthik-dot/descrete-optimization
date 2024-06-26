@@ -282,3 +282,22 @@ class Constraints:
             for i in range(49):
                 self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]-kwargs['lines'][i]<=2)
                 self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]+kwargs['lines'][i]>=1)
+        if self.problem==27:
+            for k in range(self.data.num_vehicles):
+                for i in range(self.data.num_cities):
+                    for j in range(self.data.num_cities):
+                        self.solver.Add(kwargs['path'][k][j][j] == 0)
+                        self.solver.Add(kwargs['visit'][k][j] <= kwargs['used'][k])
+                        #self.solver.Add(kwargs['path'][k][j][0] == 0)
+                        self.solver.Add(sum(kwargs['path'][k][j][i] for i in range(self.data.num_cities)) == kwargs['visit'][k][j])
+                        self.solver.Add(sum(kwargs['path'][k][i][j] for i in range(self.data.num_cities)) == kwargs['visit'][k][j])
+
+                self.solver.Add(sum(self.data.distance_matrix[i][j] * kwargs['path'][k][i][j] for i in range(self.data.num_cities) for j in range(1,self.data.num_cities)) <= 120)
+
+            for i in range(self.data.num_cities):
+                if i == 0:
+                    self.solver.Add(sum(kwargs['visit'][k][i]-kwargs['used'][k] for k in range(self.data.num_vehicles)) == 0)
+                else:
+                    self.solver.Add(sum(kwargs['visit'][k][i] for k in range(self.data.num_vehicles)) == 1)
+            for k in range(self.data.num_vehicles):
+                self.solver.Add(kwargs['visit'][k][0]==kwargs['used'][k])

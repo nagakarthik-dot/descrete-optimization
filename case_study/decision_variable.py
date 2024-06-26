@@ -92,6 +92,10 @@ class DecisionVariables:
         if self.problem==17:
             self.variables['lines']=[self.solver.BoolVar(f'line {i} has all same ') for i in range(49)]
             self.variables['cell']=[self.solver.BoolVar(f'cell layer{i} is black') for i in range(27)] 
+        if self.problem==27:
+            self.variables['used'] = [self.solver.BoolVar(f'vehicle_{i}_used') for i in range(data.num_vehicles)]
+            self.variables['path'] = [[[self.solver.BoolVar(f'vehicle_{k}_from_{i}_to_{j}') for j in range(data.num_cities)] for i in range(data.num_cities)] for k in range(data.num_vehicles)]
+            self.variables['visit'] = [[self.solver.BoolVar(f'vehicle_{k}_visits_city_{i}') for i in range(data.num_cities)] for k in range(data.num_vehicles)]
 
     def get_variables(self):
         return self.variables

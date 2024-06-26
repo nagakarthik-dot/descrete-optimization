@@ -124,7 +124,10 @@ class FinalTable:
                         output += f'depot{i} to cust{j} = {self.variables["depottocust"][i][j].solution_value()}\n'
             elif problem ==17:
                 print()
-                
+            elif problem==27:
+                print()
+
+
 
             self.save_output(f'problem_{problem}.txt', output)
             

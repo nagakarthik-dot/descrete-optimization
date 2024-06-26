@@ -99,5 +99,7 @@ class Objective:
             self.solver.Minimize(result)
         elif self.problem ==17:
             self.solver.Minimize(sum(kwargs['lines'][i] for i in range(49)))
+        elif self.problem==27:
+            self.solver.Minimize(sum(kwargs['used'][k] for k in range(self.data.num_vehicles)))
 
 
