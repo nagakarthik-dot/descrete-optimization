@@ -281,4 +281,4 @@ class Constraints:
             self.solver.Add(sum(kwargs['cell'][i] for i in range(27))==14)
             for i in range(49):
                 self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]-kwargs['lines'][i]<=2)
-                self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]-kwargs['lines'][i]>=1)
+                self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]+kwargs['lines'][i]>=1)
