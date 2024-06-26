@@ -31,7 +31,7 @@ def solve_problem(problem):
 
 
 if __name__ == '__main__':
-    print('Done:  [1,2,3,4,5,7,10,11,13,14,15,19,27]')
+    print('Done:  [1,2,3,4,5,7,10,11,13,14,15,17,19,27]')
     problem_choice = input("Enter Problem num: ")
     
     solve_problem(int(problem_choice))
