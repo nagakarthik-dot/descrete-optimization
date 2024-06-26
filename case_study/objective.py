@@ -101,5 +101,23 @@ class Objective:
             self.solver.Minimize(sum(kwargs['lines'][i] for i in range(49)))
         elif self.problem==27:
             self.solver.Minimize(sum(kwargs['used'][k] for k in range(self.data.num_vehicles)))
+        elif self.problem==14:
+            result=0
+            for i in range(4):
+                if i==0:
+                    for j in range(14,30):
+                        result+=kwargs['remove'][j]*(self.data.value[j]*2000-3000)
+                if i==1:
+                    for j in range(5,14):
+                        result+=kwargs['remove'][j]*(self.data.value[j]*2000-6000)
+                if i==2:
+                    for j in range(1,5):
+                        result+=kwargs['remove'][j]*(self.data.value[j]*2000-8000)
+                if i==3:
+                    for j in range(1):
+                        result+=kwargs['remove'][j]*(self.data.value[j]*2000-10000)
+            self.solver.Maximize(result)
+
+
 
 

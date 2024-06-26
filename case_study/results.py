@@ -127,6 +127,14 @@ class FinalTable:
             elif problem == 27:
     
                 print()
+            elif problem==14:
+                output+='\n'
+                output+="extracted blocks"
+                output+='\n'
+                for i in range(30):
+                    if self.variables['remove'][i].solution_value()>0.5:
+                        output+= f'{i}'
+                        output+='   ->   '
             
 
 

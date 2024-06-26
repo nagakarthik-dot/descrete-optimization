@@ -301,3 +301,8 @@ class Constraints:
                     self.solver.Add(sum(kwargs['visit'][k][i] for k in range(self.data.num_vehicles)) == 1)
             for k in range(self.data.num_vehicles):
                 self.solver.Add(kwargs['visit'][k][0]==kwargs['used'][k])
+        
+        if self.problem==14:
+            for i in self.data.above.keys():
+                for j in self.data.above[i]:
+                    self.solver.Add(kwargs['remove'][j]>=kwargs['remove'][i])

@@ -96,6 +96,8 @@ class DecisionVariables:
             self.variables['used'] = [self.solver.BoolVar(f'vehicle_{i}_used') for i in range(data.num_vehicles)]
             self.variables['path'] = [[[self.solver.BoolVar(f'vehicle_{k}_from_{i}_to_{j}') for j in range(data.num_cities)] for i in range(data.num_cities)] for k in range(data.num_vehicles)]
             self.variables['visit'] = [[self.solver.BoolVar(f'vehicle_{k}_visits_city_{i}') for i in range(data.num_cities)] for k in range(data.num_vehicles)]
+        if self.problem==14:
+            self.variables['remove']=[self.solver.BoolVar(f'block{i} is removed') for i in range(30)]
 
     def get_variables(self):
         return self.variables
