@@ -135,6 +135,10 @@ class FinalTable:
                     if self.variables['remove'][i].solution_value()>0.5:
                         output+= f'{i}'
                         output+='   ->   '
+            elif problem ==18:
+                for i in range(8):
+                    output+=f'a[{i}] = {self.variables['a'][i].solution_value()}\n'
+                output+= f'arhs = {self.variables['arhs'].solution_value()}\n'
             
 
 

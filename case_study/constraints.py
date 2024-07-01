@@ -1,7 +1,7 @@
 # constraints.py
 
 from ortools.linear_solver import pywraplp
-
+from itertools import combinations 
 class Constraints:
     def __init__(self, solver, data, problem):
         self.solver = solver
@@ -306,3 +306,37 @@ class Constraints:
             for i in self.data.above.keys():
                 for j in self.data.above[i]:
                     self.solver.Add(kwargs['remove'][j]>=kwargs['remove'][i])
+        
+        if self.problem==18:
+            for i in range(7):
+                self.solver.Add(kwargs['a'][i] >= kwargs['a'][i + 1])
+
+            ceilings = []
+            roofs = []
+
+            for i in range(8):
+                combs = combinations(range(8), i)
+                for j in combs:
+                    res = sum(self.data.coff[k] for k in j)
+                    if res <= self.data.rhs:
+                        ceilings.append(j)
+                    if res >= self.data.rhs + 1:
+                        roofs.append(j)
+            new_ceilings = []
+
+            for i in range(len(ceilings)):
+                is_maximal = True
+                for j in range(len(ceilings)):
+                    if i != j and set(ceilings[i]).issubset(set(ceilings[j])):
+                        is_maximal = False
+                        break
+                if is_maximal:
+                    new_ceilings.append(ceilings[i])
+
+            ##print(new_ceilings)
+
+            for i in new_ceilings:
+                self.solver.Add(sum(kwargs['a'][j] for j in i) <= kwargs['arhs'])
+
+            for i in roofs:
+                self.solver.Add(sum(kwargs['a'][j] for j in i) >= kwargs['arhs'] + 1)
