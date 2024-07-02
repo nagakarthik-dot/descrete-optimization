@@ -1,0 +1,5 @@
+Solution:
+Objective value = 1.725
+
+a = 0.625
+b = -0.39999999999999974
