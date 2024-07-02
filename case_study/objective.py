@@ -1,5 +1,5 @@
 # objective.py
-
+import math
 class Objective:
     def __init__(self, solver, data, problem):
         self.solver = solver
@@ -121,6 +121,17 @@ class Objective:
             ##result = kwargs['arhs'] - kwargs['a'][2] - kwargs['a'][5]
             result=sum(kwargs['a'][i] for i in range(8))
             self.solver.Minimize(result)
+        elif self.problem==23:
+            def distance(i, j):
+                return math.sqrt((self.data.farms_data[i]["Position"][0] - self.data.farms_data[j]["Position"][0])**2 +
+                     (self.data.farms_data[i]["Position"][1] - self.data.farms_data[j]["Position"][1])**2)
+            total_distance = 0
+            for k in range(self.data.num_days):
+                for i in range(21):
+                    for j in range(21):
+                        total_distance += distance(i, j) * kwargs['x'][i][j][k]
+
+            self.solver.Minimize(total_distance)
 
 
 

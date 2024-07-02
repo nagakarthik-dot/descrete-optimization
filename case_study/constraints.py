@@ -2,6 +2,7 @@
 
 from ortools.linear_solver import pywraplp
 from itertools import combinations 
+import math
 class Constraints:
     def __init__(self, solver, data, problem):
         self.solver = solver
@@ -340,3 +341,27 @@ class Constraints:
 
             for i in roofs:
                 self.solver.Add(sum(kwargs['a'][j] for j in i) >= kwargs['arhs'] + 1)
+        
+        if self.problem==23:
+            for k in range(self.data.num_days):
+                for i in range(21):
+                    self.solver.Add(kwargs['x'][i][i][k]==0)
+
+                    if i < 10:
+                        self.solver.Add(kwargs['y'][i][k] == 1)  
+                    else:
+                        self.solver.Add(kwargs['y'][i][0]+kwargs['y'][i][1]==  1)  
+                    self.solver.Add(sum(kwargs['x'][i][j][k] for j in range(21)) == kwargs['y'][i][k])  
+                    self.solver.Add(sum(kwargs['x'][j][i][k] for j in range(21)) == kwargs['y'][i][k])  
+
+                for i in range(21):
+                    for j in range(21):
+                        self.solver.Add(kwargs['x'][i][j][k] + kwargs['x'][j][i][k] <= 1)  
+                for i in range(1, 21):
+                    for j in range(1, 21):
+                        if i != j:
+                            self.solver.Add(kwargs['u'][i][k] - kwargs['u'][j][k] + 21 * kwargs['x'][i][j][k] <= 20)
+                self.solver.Add(kwargs['u'][0][k]==0)
+
+                # Capacity constraint for each day
+                self.solver.Add(sum(kwargs['y'][i][k] * self.data.farms_data[i]["Requirement"] for i in range(21)) <= 80)

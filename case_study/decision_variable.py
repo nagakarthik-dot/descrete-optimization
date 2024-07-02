@@ -101,6 +101,11 @@ class DecisionVariables:
         if self.problem==18:
             self.variables['a']=[self.solver.IntVar(0,self.solver.infinity(),f'coff{i}') for i in range(8)]
             self.variables['arhs']=self.solver.IntVar(0,self.solver.infinity(),'arhs')
+        if self.problem ==23:
+            self.variables['x'] = [[[self.solver.BoolVar(f'GOES from {i} to {j} in day {k}') for k in range(data.num_days)] for j in range(data.num_farms)] for i in range(data.num_farms)]
+            self.variables['y'] = [[self.solver.BoolVar(f'goes to city{i} in day {k}') for k in range(data.num_days)] for i in range(data.num_farms)]
+            self.variables['u'] = [[self.solver.NumVar(0, 21, f'position of city{i} in day {k}') for k in range(data.num_days)] for i in range(data.num_farms)]
+
 
     def get_variables(self):
         return self.variables

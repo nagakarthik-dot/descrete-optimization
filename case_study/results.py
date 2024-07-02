@@ -139,6 +139,28 @@ class FinalTable:
                 for i in range(8):
                     output+=f'a[{i}] = {self.variables['a'][i].solution_value()}\n'
                 output+= f'arhs = {self.variables['arhs'].solution_value()}\n'
+            
+            elif problem ==23:
+                for k in range(2):
+                    
+                    start = 0
+                    path = []
+                    while True:
+                        path.append(start+1)
+                        next_found = False
+                        for j in range(21):
+                            if self.variables['x'][start][j][k].solution_value() >= 0.5:
+                                start = j
+                                next_found = True
+                                break
+                        if not next_found or start == 0:
+                            break
+                    path.append(1)
+                    output+=f'path for day {k} \n'
+                    for i in path :
+                        output+= str(i)
+                        output+= "-> "
+                    output+="\n"
 
         
 

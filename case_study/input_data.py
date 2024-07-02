@@ -194,3 +194,29 @@ class InputData:
         if problem ==18:
             self.coff=[23, 21, 19, 17, 14, 13, 13, 9]
             self.rhs=70
+        if problem ==23:
+            self.num_farms = 21
+            self.num_days = 2
+            self.farms_data = {
+    0: {"Position": (0, 0), "Collection Frequency": None, "Requirement": 0},
+    1: {"Position": (-3, 3), "Collection Frequency": "Every day", "Requirement": 5},
+    2: {"Position": (1, 11), "Collection Frequency": "Every day", "Requirement": 4},
+    3: {"Position": (4, 7), "Collection Frequency": "Every day", "Requirement": 3},
+    4: {"Position": (-5, 9), "Collection Frequency": "Every day", "Requirement": 6},
+    5: {"Position": (-5, -2), "Collection Frequency": "Every day", "Requirement": 7},
+    6: {"Position": (-4, -7), "Collection Frequency": "Every day", "Requirement": 3},
+    7: {"Position": (6, 0), "Collection Frequency": "Every day", "Requirement": 4},
+    8: {"Position": (3, -6), "Collection Frequency": "Every day", "Requirement": 6},
+    9: {"Position": (-1, -3), "Collection Frequency": "Every day", "Requirement": 5},
+    10: {"Position": (0, -6), "Collection Frequency": "Every other day", "Requirement": 4},
+    11: {"Position": (6, 4), "Collection Frequency": "Every other day", "Requirement": 7},
+    12: {"Position": (2, 5), "Collection Frequency": "Every other day", "Requirement": 3},
+    13: {"Position": (-2, 8), "Collection Frequency": "Every other day", "Requirement": 4},
+    14: {"Position": (6, 10), "Collection Frequency": "Every other day", "Requirement": 5},
+    15: {"Position": (1, 8), "Collection Frequency": "Every other day", "Requirement": 6},
+    16: {"Position": (-3, 1), "Collection Frequency": "Every other day", "Requirement": 8},
+    17: {"Position": (-6, 5), "Collection Frequency": "Every other day", "Requirement": 5},
+    18: {"Position": (2, 9), "Collection Frequency": "Every other day", "Requirement": 7},
+    19: {"Position": (-6, -5), "Collection Frequency": "Every other day", "Requirement": 6},
+    20: {"Position": (5, -4), "Collection Frequency": "Every other day", "Requirement": 6},
+}
