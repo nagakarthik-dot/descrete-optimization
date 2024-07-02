@@ -120,7 +120,7 @@ class Objective:
         elif self.problem ==18:
             ##result = kwargs['arhs'] - kwargs['a'][2] - kwargs['a'][5]
             result=sum(kwargs['a'][i] for i in range(8))
-            self.solver.Minimize(result-2*kwargs['a'][2]-2*kwargs['a'][5])
+            self.solver.Minimize(result)
 
 
 
