@@ -1,5 +1,5 @@
 # main.py (need to run this)
-
+from gurobipy import Model, GRB
 from ortools.linear_solver import pywraplp
 from input_data import InputData
 from constraints import Constraints
@@ -28,10 +28,10 @@ def solve_problem(problem):
 
 
 ### check 18 once 
-
+### using gurobi for 21
 
 if __name__ == '__main__':
-    print('Done:  [1,2,3,4,5,7,10,11,13,14,15,17,18,19,23,27]')
+    print('Done:  [1,2,3,4,5,7,10,11,13,14,15,17,18,19,21,23,27]')
     problem_choice = input("Enter Problem num: ")
     
     solve_problem(int(problem_choice))

@@ -365,3 +365,4 @@ class Constraints:
 
                 # Capacity constraint for each day
                 self.solver.Add(sum(kwargs['y'][i][k] * self.data.farms_data[i]["Requirement"] for i in range(21)) <= 80)
+        

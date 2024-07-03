@@ -194,6 +194,7 @@ class InputData:
         if problem ==18:
             self.coff=[23, 21, 19, 17, 14, 13, 13, 9]
             self.rhs=70
+        
         if problem ==23:
             self.num_farms = 21
             self.num_days = 2

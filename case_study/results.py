@@ -17,7 +17,8 @@ class FinalTable:
             file.write(content)
 
     def print_table(self):
-        if self.solver.Solve() == pywraplp.Solver.OPTIMAL:
+        
+        if self.solver.Solve() == pywraplp.Solver.OPTIMAL  :
             output = 'Solution:\n'
             output += f'Objective value = {self.solver.Objective().Value()}\n\n'
             problem = self.variables['problem']
@@ -163,6 +164,8 @@ class FinalTable:
                         output+= str(i)
                         output+= "-> "
                     output+="\n"
+            
+
 
         
 

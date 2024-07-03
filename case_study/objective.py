@@ -1,7 +1,7 @@
 # objective.py
 ## has the objective
 
-
+from gurobipy import Model, GRB
 import math
 class Objective:
     def __init__(self, solver, data, problem):
@@ -135,7 +135,4 @@ class Objective:
                         total_distance += distance(i, j) * kwargs['x'][i][j][k]
 
             self.solver.Minimize(total_distance)
-
-
-
-
+        
