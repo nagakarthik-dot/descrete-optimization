@@ -45,7 +45,7 @@ class Objective:
                 for j in range(5):
                     for k in range(3):
                         for l in range(5):
-                            if  l > j and  k>=i:
+                            if   l>j:
                                 result+=(kwargs['path'][i][j][k][l]*self.data.city[i][k]*self.data.comm[j][l])
             for i in range(5):
                 for j in range(3):

@@ -1,11 +1,11 @@
 Solution:
-Objective value = -54.5
+Objective value = -14.900000000000006
 
 City 0:
-- Department 3
-- Department 4
-City 1:
 - Department 0
+- Department 3
+City 1:
 - Department 1
 - Department 2
+- Department 4
 City 2:
