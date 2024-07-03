@@ -126,10 +126,21 @@ class FinalTable:
                     for j in range(6):
                         output += f'depot{i} to cust{j} = {self.variables["depottocust"][i][j].solution_value()}\n'
             elif problem ==17:
-                print()
+                output+="balck: "
+                for i in range(27):
+                    if self.variables["cell"][i].solution_value()>=0.5:
+                        output+=f'    {i} ---->'
+
             elif problem == 27:
+                for i in range(6):
+                    if self.variables['used'][i].solution_value()>=1:
+                        output+='\n'+f'path for day {i}'+'\n'
+                        for j in range(15):
+                            for k in range(15):
+                                if self.variables['path'][i][j][k].solution_value()>=1:
+                                    output+=f'{j} to {k}        '
+
     
-                print()
             elif problem==14:
                 output+='\n'
                 output+="extracted blocks"
