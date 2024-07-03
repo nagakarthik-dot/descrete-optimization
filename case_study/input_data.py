@@ -1,5 +1,5 @@
 # input_data.py
-
+# contains all the input data
 class InputData:
     def __init__(self, problem):
         if problem == 1:

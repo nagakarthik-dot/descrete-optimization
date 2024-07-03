@@ -1,4 +1,4 @@
-# main.py
+# main.py (need to run this)
 
 from ortools.linear_solver import pywraplp
 from input_data import InputData

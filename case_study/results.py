@@ -1,3 +1,5 @@
+### prints the final table with all the results 
+
 import os
 from ortools.linear_solver import pywraplp
 

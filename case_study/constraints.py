@@ -1,5 +1,5 @@
 # constraints.py
-
+## has all  yhe constraints
 from ortools.linear_solver import pywraplp
 from itertools import combinations 
 import math

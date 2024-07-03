@@ -1,4 +1,7 @@
 # objective.py
+## has the objective
+
+
 import math
 class Objective:
     def __init__(self, solver, data, problem):
