@@ -132,13 +132,26 @@ class FinalTable:
                         output+=f'    {i} ---->'
 
             elif problem == 27:
-                for i in range(6):
-                    if self.variables['used'][i].solution_value()>=1:
-                        output+='\n'+f'path for day {i}'+'\n'
-                        for j in range(15):
-                            for k in range(15):
-                                if self.variables['path'][i][j][k].solution_value()>=1:
-                                    output+=f'{j} to {k}        '
+                for k in range(6):
+                    if self.variables['used'][k].solution_value() == 1:
+                        output+=f'Route for vehicle {k}:'
+                        route = ''
+                        current_city = 0
+                        while True:
+                            route+=str(current_city+1)
+                            route+='  --> '
+                            next_city = None
+                            for j in range(15):
+                                if self.variables['path'][k][current_city][j].solution_value() > 0.5:
+                                    next_city = j
+                                    break
+                            if next_city is None or next_city == 0:
+                                break
+                            current_city = next_city
+                        output+= route
+                        output+='\n'
+
+
 
     
             elif problem==14:

@@ -283,28 +283,6 @@ class Constraints:
             for i in range(49):
                 self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]-kwargs['lines'][i]<=2)
                 self.solver.Add(kwargs['cell'][self.data.cells_line[i][0]-1]+kwargs['cell'][self.data.cells_line[i][1]-1]+kwargs['cell'][self.data.cells_line[i][2]-1]+kwargs['lines'][i]>=1)
-        if self.problem==27:
-            for k in range(self.data.num_vehicles):
-                for i in range(self.data.num_cities):
-                    for j in range(self.data.num_cities):
-                        self.solver.Add(kwargs['path'][k][j][j] == 0)
-                        self.solver.Add(kwargs['visit'][k][j] <= kwargs['used'][k])
-                        #self.solver.Add(kwargs['path'][k][j][0] == 0)
-                    self.solver.Add(sum(kwargs['path'][k][j][i] for j in range(self.data.num_cities)) == kwargs['visit'][k][i])
-                    self.solver.Add(sum(kwargs['path'][k][i][j] for j in range(self.data.num_cities)) == kwargs['visit'][k][i])
-            
-
-                self.solver.Add(sum(self.data.distance_matrix[i][j] * kwargs['path'][k][i][j] for i in range(self.data.num_cities) for j in range(1,self.data.num_cities)) <= 120)
-            for i in range(6):
-                for j in range(6):
-                    if i<=j:
-                        self.solver.Add(sum(kwargs['visit'][i][k] for k in range(self.data.num_cities))>=sum(kwargs['visit'][j][k] for k in range(self.data.num_cities)))
-
-            for i in range(self.data.num_cities):
-                if i!=0:
-                    self.solver.Add(sum(kwargs['visit'][k][i] for k in range(self.data.num_vehicles)) == 1)
-            for k in range(self.data.num_vehicles):
-                self.solver.Add(kwargs['visit'][k][0]==kwargs['used'][k])
         
         if self.problem==14:
             for i in self.data.above.keys():
@@ -368,4 +346,38 @@ class Constraints:
 
                 # Capacity constraint for each day
                 self.solver.Add(sum(kwargs['y'][i][k] * self.data.farms_data[i]["Requirement"] for i in range(21)) <= 80)
-        
+        if self.problem==27:
+            for k in range(self.data.num_vehicles):
+                for i in range(self.data.num_cities):
+                    self.solver.Add(kwargs['path'][k][i][i] == 0)  
+                    self.solver.Add(kwargs['visit'][k][i] <= kwargs['used'][k])  
+                    self.solver.Add(sum(kwargs['path'][k][j][i] for j in range(self.data.num_cities)) == kwargs['visit'][k][i])
+                    self.solver.Add(sum(kwargs['path'][k][i][j] for j in range(self.data.num_cities)) == kwargs['visit'][k][i])  
+                self.solver.Add(sum(self.data.distance_matrix[i][j] * kwargs['path'][k][i][j] for i in range(self.data.num_cities) for j in range(1,self.data.num_cities)) <= 120)
+                
+            for i in range(self.data.num_cities):
+                if i == 0:
+                    for k in range(self.data.num_vehicles):
+                        self.solver.Add(kwargs['visit'][k][i] == kwargs['used'][k])
+                else:
+                    self.solver.Add(sum(kwargs['visit'][k][i] for k in range(self.data.num_vehicles)) == 1)
+
+            for k in range(self.data.num_vehicles):
+                self.solver.Add(sum(kwargs['path'][k][0][j] for j in range(1, self.data.num_cities)) == kwargs['used'][k])
+                self.solver.Add(sum(kwargs['path'][k][j][0] for j in range(1, self.data.num_cities)) == kwargs['used'][k])
+
+            for k in range(self.data.num_vehicles):
+                for i in range(1, self.data.num_cities):
+                    for j in range(1, self.data.num_cities):
+                        if i != j:
+                            self.solver.Add(kwargs['u'][k][i] - kwargs['u'][k][j] + self.data.num_cities * kwargs['path'][k][i][j] <= self.data.num_cities - 1)
+
+            for k in range(self.data.num_vehicles):
+                for i in range(self.data.num_cities):
+                    self.solver.Add(kwargs['u'][k][i] >= kwargs['visit'][k][i])
+                    self.solver.Add(kwargs['u'][k][i] <= self.data.num_cities * kwargs['visit'][k][i])
+            for i in range(6):
+                for j in range(6):
+                    if i<=j:
+                        self.solver.Add(sum(kwargs['visit'][i][k] for k in range(self.data.num_cities))>=sum(kwargs['visit'][j][k] for k in range(self.data.num_cities)))
+                    

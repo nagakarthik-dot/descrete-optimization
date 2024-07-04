@@ -184,7 +184,7 @@ class InputData:
     [44, 37, 24, 12, 15, 63, 27, 20, 61, 7, 12, 14, 0, 30, 40],   # Battersea
     [35, 20, 20, 10, 25, 70, 45, 30, 45, 15, 45, 34, 30, 0, 27],  # Islington
     [82, 40, 90, 21, 25, 27, 30, 10, 13, 25, 65, 56, 40, 27, 0]   # Woolwich
-]            
+]
             self.num_cities = 15
             self.num_vehicles = 6
         if problem ==14:
