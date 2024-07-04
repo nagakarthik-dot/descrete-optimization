@@ -1,5 +1,4 @@
 # main.py (need to run this)
-###good
 
 from gurobipy import Model, GRB
 from ortools.linear_solver import pywraplp
