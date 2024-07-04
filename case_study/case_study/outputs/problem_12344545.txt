@@ -1,0 +1,3 @@
+Solution:
+Objective value = 0.0
+
