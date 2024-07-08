@@ -1,5 +1,5 @@
 Solution:
-Objective value = 88.99999999999996
+Objective value = 26.000000000000018
 
 a[0] = 16.0
 a[1] = 14.0

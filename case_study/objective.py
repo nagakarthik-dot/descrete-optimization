@@ -121,8 +121,8 @@ class Objective:
                         result+=kwargs['remove'][j]*(self.data.value[j]*2000-10000)
             self.solver.Maximize(result)
         elif self.problem ==18:
-            ##result = kwargs['arhs'] - kwargs['a'][2] - kwargs['a'][5]
-            result=sum(kwargs['a'][i] for i in range(8))
+            result = kwargs['arhs'] - kwargs['a'][2] - kwargs['a'][5]
+            ##result=sum(kwargs['a'][i] for i in range(8))
             self.solver.Minimize(result)
         elif self.problem==23:
             def distance(i, j):
