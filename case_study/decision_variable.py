@@ -90,7 +90,15 @@ class DecisionVariables:
             self.variables['facttodepot']=[[self.solver.IntVar(0,self.solver.infinity(),f'factory{i} to depot{j}') for j in range(4)] for i in range(2)]
             self.variables['facttocust']=[[self.solver.IntVar(0,self.solver.infinity(),f'factory{i} to cust{j}') for j in range(6)] for i in range(2)]
             self.variables['depottocust']=[[self.solver.IntVar(0,self.solver.infinity(),f'depot{i} to cust{j}') for j in range(6)] for i in range(4)]
-
+        if self.problem==20:
+            self.variables['facttodepot']=[[self.solver.IntVar(0,self.solver.infinity(),f'factory{i} to depot{j}') for j in range(6)] for i in range(2)]
+            self.variables['facttocust']=[[self.solver.IntVar(0,self.solver.infinity(),f'factory{i} to cust{j}') for j in range(6)] for i in range(2)]
+            self.variables['depottocust']=[[self.solver.IntVar(0,self.solver.infinity(),f'depot{i} to cust{j}') for j in range(6)] for i in range(6)]
+            self.variables['bristol']=self.solver.BoolVar(f'being built bristol')
+            self.variables['north']=self.solver.BoolVar(f'being built north')
+            self.variables['brimg']=self.solver.BoolVar(f'being expand brimg')
+            self.variables['newcastle']=self.solver.BoolVar(f'being not closed new')
+            self.variables['exter']=self.solver.BoolVar(f'being not  closed exter')
         if self.problem==17:
             self.variables['lines']=[self.solver.BoolVar(f'line {i} has all same ') for i in range(49)]
             self.variables['cell']=[self.solver.BoolVar(f'cell layer{i} is black') for i in range(27)] 

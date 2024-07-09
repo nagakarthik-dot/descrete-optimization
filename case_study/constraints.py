@@ -256,28 +256,61 @@ class Constraints:
             ## customer check 
             for i in range(6):
                 self.solver.Add(sum(kwargs['depottocust'][j][i] for j in range(4))+sum(kwargs['facttocust'][j][i] for j in range(2))>=self.data.demand[i])
+                total_supply_to_cust = sum(kwargs['facttocust'][j][i] for j in range(2)) + sum(kwargs['depottocust'][j][i] for j in range(4))
                 if i==0:
-                    for j in range(2):
-                        self.solver.Add(kwargs['facttocust'][0][0]>=kwargs['facttocust'][j][i])
-                    for j in range(4):
-                        self.solver.Add(kwargs['facttocust'][0][0]>=kwargs['depottocust'][j][i])
+                    self.solver.Add(kwargs['facttocust'][0][0]>=0.5*total_supply_to_cust)
+                    
                 if i==1:
-                    for j in range(2):
-                        self.solver.Add(kwargs['depottocust'][0][1]>=kwargs['facttocust'][j][i])
-                    for j in range(4):
-                        self.solver.Add(kwargs['depottocust'][0][1]>=kwargs['depottocust'][j][i])
+                    self.solver.Add(kwargs['depottocust'][0][1]>=0.5*total_supply_to_cust)
+                    
                 if i==4:
-                    for j in range(2):
-                        self.solver.Add(kwargs['depottocust'][1][4]>=kwargs['facttocust'][j][i])
-                    for j in range(4):
-                        self.solver.Add(kwargs['depottocust'][1][4]>=kwargs['depottocust'][j][i])
+                    self.solver.Add(kwargs['depottocust'][1][4]>=0.5*total_supply_to_cust)
+                    
                 if i==5:
-                    for j in range(2):
-                        self.solver.Add(kwargs['depottocust'][2][5]>=kwargs['facttocust'][j][i])
-                        self.solver.Add(kwargs['depottocust'][3][i]>=kwargs['facttocust'][j][i])
-                    for j in range(4):
-                        self.solver.Add(kwargs['depottocust'][2][5]>=kwargs['depottocust'][j][i])
-                        self.solver.Add(kwargs['depottocust'][3][i]>=kwargs['depottocust'][j][i])
+                    self.solver.Add(kwargs['depottocust'][3][i]+kwargs['depottocust'][2][i]>=0.5*total_supply_to_cust)
+        if self.problem ==20:
+            ### have 0 possiblility 
+            self.solver.Add(kwargs['facttodepot'][1][0]==0)
+            self.solver.Add(kwargs['facttocust'][0][1]==0)
+            self.solver.Add(kwargs['facttocust'][0][4]==0)
+            for i in range(1,6):
+                self.solver.Add(kwargs['facttocust'][1][i]==0)
+            self.solver.Add(kwargs['depottocust'][0][0]==0)
+            self.solver.Add(kwargs['depottocust'][0][4]==0)
+            self.solver.Add(kwargs['depottocust'][1][5]==0)
+            self.solver.Add(kwargs['depottocust'][2][0]==0)
+            self.solver.Add(kwargs['depottocust'][2][3]==0)
+            self.solver.Add(kwargs['depottocust'][3][0]==0)
+            self.solver.Add(kwargs['depottocust'][3][1]==0)
+
+            ###   capacity of fcatory check 
+            for i in range(2):
+                temp=0
+                for j in range(4):
+                    temp+=kwargs['facttodepot'][i][j]
+                for j in range(6):
+                    temp+=kwargs['facttocust'][i][j]
+                self.solver.Add(temp<=self.data.f_c[i])
+
+            ###  depot check 
+            for i in range(6):
+                self.solver.Add(sum(kwargs['facttodepot'][j][i] for j in range(2))>=sum(kwargs['depottocust'][i][j] for j in range(6)))
+                if i==2:
+                    self.solver.Add(sum(kwargs['facttodepot'][j][i] for j in range(2))<=self.data.d_c[i])
+            
+
+            ## customer check 
+            for i in range(6):
+                self.solver.Add(sum(kwargs['depottocust'][j][i] for j in range(6))+sum(kwargs['facttocust'][j][i] for j in range(2))>=self.data.demand[i])
+            self.solver.Add(kwargs['depottocust'][4][3]==0)
+            self.solver.Add(kwargs['depottocust'][5][0]==0)
+            self.solver.Add(kwargs['depottocust'][5][2]==0)
+            self.solver.Add(sum(kwargs['facttodepot'][j][0] for j in range(2))<=self.data.d_c[0]*kwargs['newcastle'])   ##newcatle
+            self.solver.Add(sum(kwargs['facttodepot'][j][3] for j in range(2))<=self.data.d_c[3]*kwargs['exter'])
+            self.solver.Add(sum(kwargs['facttodepot'][j][4] for j in range(2))<=self.data.d_c[4]*kwargs['bristol'])
+            self.solver.Add(sum(kwargs['facttodepot'][j][5] for j in range(2))<=self.data.d_c[5]*kwargs['north'])
+            self.solver.Add(sum(kwargs['facttodepot'][j][1] for j in range(2))<=50000+20000*kwargs['brimg'])
+                
         if self.problem ==17:
             self.solver.Add(sum(kwargs['cell'][i] for i in range(27))==14)
             for i in range(49):

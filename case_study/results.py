@@ -2,7 +2,7 @@
 
 import os
 from ortools.linear_solver import pywraplp
-
+from tabulate import tabulate
 class FinalTable:
     def __init__(self, solver, **kwargs):
         self.solver = solver
@@ -113,18 +113,55 @@ class FinalTable:
                     for j in range(3):
                         output += f'Period {i + 1}, Ty {j + 1}:  Num = {self.variables["num"][j][i].solution_value()}\n'
             
-            elif problem == 19:
+         
+            elif problem==19:
+                from tabulate import tabulate
+                facttodepot_table = [["Factory to Depot"] + [f'Depot{j}' for j in range(4)]]
                 for i in range(2):
-                    for j in range(4):
-                        output += f'factory{i} to depot{j} = {self.variables["facttodepot"][i][j].solution_value()}\n'
-                output += '\n'
+                    facttodepot_table.append([f'Factory{i}'] + [self.variables['facttodepot'][i][j].solution_value() for j in range(4)])
+                output+=tabulate(facttodepot_table, headers="firstrow", tablefmt="grid")
+                facttocust_table = [["Factory to Customer"] + [f'Cust{j}' for j in range(6)]]
                 for i in range(2):
-                    for j in range(6):
-                        output += f'factory{i} to cust{j} = {self.variables["facttocust"][i][j].solution_value()}\n'
-                output += '\n'
+                    facttocust_table.append([f'Factory{i}'] + [self.variables['facttocust'][i][j].solution_value() for j in range(6)])
+                output+=(tabulate(facttocust_table, headers="firstrow", tablefmt="grid"))
+                
+
+                # Depot to Customer
+                depottocust_table = [["Depot to Customer"] + [f'Cust{j}' for j in range(6)]]
                 for i in range(4):
-                    for j in range(6):
-                        output += f'depot{i} to cust{j} = {self.variables["depottocust"][i][j].solution_value()}\n'
+                    depottocust_table.append([f'Depot{i}'] + [self.variables['depottocust'][i][j].solution_value() for j in range(6)])
+                output+=tabulate(depottocust_table, headers="firstrow", tablefmt="grid")
+            
+            elif problem==20:
+                from tabulate import tabulate
+                facttodepot_table = [["Factory to Depot"] + [f'Depot{j}' for j in range(6)]]
+                for i in range(2):
+                    facttodepot_table.append([f'Factory{i}'] + [self.variables['facttodepot'][i][j].solution_value() for j in range(4)])
+                output+=tabulate(facttodepot_table, headers="firstrow", tablefmt="grid")
+                facttocust_table = [["Factory to Customer"] + [f'Cust{j}' for j in range(6)]]
+                for i in range(2):
+                    facttocust_table.append([f'Factory{i}'] + [self.variables['facttocust'][i][j].solution_value() for j in range(6)])
+                output+=(tabulate(facttocust_table, headers="firstrow", tablefmt="grid"))
+                
+
+                # Depot to Customer
+                depottocust_table = [["Depot to Customer"] + [f'Cust{j}' for j in range(6)]]
+                for i in range(6):
+                    depottocust_table.append([f'Depot{i}'] + [self.variables['depottocust'][i][j].solution_value() for j in range(6)])
+                output+=tabulate(depottocust_table, headers="firstrow", tablefmt="grid")
+
+                output+=f'newcastle not closed: {self.variables['newcastle'].solution_value()}'
+                output+=f'exter not closed: {self.variables['exter'].solution_value()}'
+                output+=f'bristol built: {self.variables['bristol'].solution_value()}'
+                output+=f'north built: {self.variables['north'].solution_value()}'
+                output+=f'brimg expand : {self.variables['brimg'].solution_value()}'
+
+
+
+
+
+
+
             elif problem ==17:
                 output+="balck: "
                 for i in range(27):
