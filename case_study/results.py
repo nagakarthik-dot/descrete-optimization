@@ -2,7 +2,7 @@
 
 import os
 from ortools.linear_solver import pywraplp
-from tabulate import tabulate
+
 class FinalTable:
     def __init__(self, solver, **kwargs):
         self.solver = solver
