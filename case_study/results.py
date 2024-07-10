@@ -10,6 +10,7 @@ class FinalTable:
         self.months = ["January", "February", "March", "April", "May", "June"]
         self.products1 = ["veg 1", "veg 2", "oil 1", "oil 2", "oil 3"]
         self.products2 = ["Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Product 6", "Product 7"]
+       
 
     def save_output(self, filename, content):
         os.makedirs("case_study/outputs", exist_ok=True)
@@ -17,7 +18,7 @@ class FinalTable:
             file.write(content)
 
     def print_table(self):
-        
+
         if self.solver.Solve() == pywraplp.Solver.OPTIMAL  :
             output = 'Solution:\n'
             output += f'Objective value = {self.solver.Objective().Value()}\n\n'
@@ -136,7 +137,7 @@ class FinalTable:
                 from tabulate import tabulate
                 facttodepot_table = [["Factory to Depot"] + [f'Depot{j}' for j in range(6)]]
                 for i in range(2):
-                    facttodepot_table.append([f'Factory{i}'] + [self.variables['facttodepot'][i][j].solution_value() for j in range(4)])
+                    facttodepot_table.append([f'Factory{i}'] + [self.variables['facttodepot'][i][j].solution_value() for j in range(6)])
                 output+=tabulate(facttodepot_table, headers="firstrow", tablefmt="grid")
                 facttocust_table = [["Factory to Customer"] + [f'Cust{j}' for j in range(6)]]
                 for i in range(2):
@@ -226,9 +227,9 @@ class FinalTable:
                         output+= "-> "
                     output+="\n"
             
+            
 
-
-        
+            
 
 
 

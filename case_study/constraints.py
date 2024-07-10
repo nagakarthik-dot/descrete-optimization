@@ -404,4 +404,6 @@ class Constraints:
                 for j in range(6):
                     if i<=j:
                         self.solver.Add(sum(kwargs['visit'][i][k] for k in range(self.data.num_cities))>=sum(kwargs['visit'][j][k] for k in range(self.data.num_cities)))
+        
+        
                     

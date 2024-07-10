@@ -153,3 +153,6 @@ class Objective:
 
             self.solver.Minimize(total_distance)
         
+
+
+        

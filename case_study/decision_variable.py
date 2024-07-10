@@ -119,6 +119,7 @@ class DecisionVariables:
             self.variables['y'] = [[self.solver.BoolVar(f'goes to city{i} in day {k}') for k in range(data.num_days)] for i in range(data.num_farms)]
             self.variables['u'] = [[self.solver.NumVar(0, 21, f'position of city{i} in day {k}') for k in range(data.num_days)] for i in range(data.num_farms)]
         
+        
 
     def get_variables(self):
         return self.variables
