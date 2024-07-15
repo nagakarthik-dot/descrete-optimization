@@ -226,6 +226,12 @@ class FinalTable:
                         output+= str(i)
                         output+= "-> "
                     output+="\n"
+            elif problem==28:
+                for i in range(50):
+                    for j in range(50):
+                        if self.variables['x'][i][j].solution_value()>0.5:
+                            output+=f'bond between {i+1} and {j+1}'
+                            output+='\n'
             
             
 

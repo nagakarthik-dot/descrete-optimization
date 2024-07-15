@@ -202,6 +202,11 @@ class InputData:
         if problem ==18:
             self.coff=[23, 21, 19, 17, 14, 13, 13, 9]
             self.rhs=70
+        
+        if problem==28:
+            self.hydrophobic_positions = [2, 4, 5, 6, 11, 12, 17, 20, 21, 25, 27, 28, 30, 31, 33, 37, 44, 46]
+            self.n = len(self.hydrophobic_positions)
+            self.m = 50
     
         if problem ==23:
             self.num_farms = 21

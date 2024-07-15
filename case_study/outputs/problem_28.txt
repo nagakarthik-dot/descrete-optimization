@@ -1,0 +1,11 @@
+Solution:
+Objective value = 8.0
+
+bond between 2 and 46
+bond between 4 and 20
+bond between 5 and 17
+bond between 6 and 12
+bond between 21 and 44
+bond between 25 and 37
+bond between 27 and 33
+bond between 28 and 31

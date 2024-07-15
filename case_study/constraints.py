@@ -405,5 +405,33 @@ class Constraints:
                     if i<=j:
                         self.solver.Add(sum(kwargs['visit'][i][k] for k in range(self.data.num_cities))>=sum(kwargs['visit'][j][k] for k in range(self.data.num_cities)))
         
-        
+        if self.problem==28:
+            h = [0 for i in range(self.data.m)]
+
+            for i in range(self.data.m):
+                if i + 1 in self.data.hydrophobic_positions:
+                    h[i] = 1
+                else:
+                    h[i] = 0
+
+            for i in range(self.data.m):
+                for j in range(self.data.m):
+                    if j<=i+1:
+                        self.solver.Add(kwargs['x'][i][j]==0)
                     
+                    elif h[i]+h[j]<=1:
+                        self.solver.Add(kwargs['x'][i][j]==0)
+                    if h[i]==1 and h[j]==1 and self.data.hydrophobic_positions.index(j+1)-self.data.hydrophobic_positions.index(i+1)<=1:
+                        self.solver.Add(kwargs['x'][i][j]==0)
+
+            for i in range(self.data.m):
+                self.solver.Add(sum(kwargs['x'][i][j] for j in range(i , self.data.m)) + sum(kwargs['x'][j][i] for j in range(i)) <= 1)
+                
+            for i in range(self.data.m):
+                for j in range(self.data.m):
+                    for k in range(self.data.m):
+                        for l in range(self.data.m):
+                            if ((i<k<j and l>j) or (k<i and i<l<j)) and (h[i]==1 and h[j]==1 and h[k]==1 and h[l]==1):
+                                self.solver.Add(kwargs['x'][k][l]+kwargs['x'][i][j]<=1) 
+                            #if i<k<j and i<l<j:solver.Add(x[k][l]+x[i][j]<=1)
+                        

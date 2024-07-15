@@ -3,6 +3,7 @@
 
 from gurobipy import Model, GRB
 import math
+import constraints
 class Objective:
     def __init__(self, solver, data, problem):
         self.solver = solver
@@ -152,7 +153,23 @@ class Objective:
                         total_distance += distance(i, j) * kwargs['x'][i][j][k]
 
             self.solver.Minimize(total_distance)
-        
+        elif self.problem==28:
+            m=50
+            h = [0 for i in range(m)]
+
+            for i in range(m):
+                if i + 1 in self.data.hydrophobic_positions:
+                    h[i] = 1
+                else:
+                    h[i] = 0
+            objective = 0
+            
+            for i in range(m):
+                for j in range(m):
+                    if h[i]==1 and h[j]==1:
+                        #objective+=(x[i][j]*(hydrophobic_positions.index(j+1)-hydrophobic_positions.index(i+1)))
+                        objective+=(kwargs['x'][i][j])
+            self.solver.Maximize(objective)        
 
 
         
