@@ -232,6 +232,21 @@ class FinalTable:
                         if self.variables['x'][i][j].solution_value()>0.5:
                             output+=f'bond between {i+1} and {j+1}'
                             output+='\n'
+            elif problem==29:
+                n1=9
+                n2=10
+                for i in range(n1):
+                    for j in range(n2):
+                        for k in range(n1):
+                            for l in range(n2):
+                                if self.variables['w'][i][j][k][l].solution_value()>0.5:
+                                    output+=f'{i}->{k} in edges1 to {j}->{l} in edges 2'
+                                    output+='\n'
+                for i in range(n1):
+                    for j in range(n2):
+                        if self.variables['x'][i][j].solution_value()>0.5:
+                                    output+= f' edges1-> edges2        {i} -> {j}'
+                                    output+='\n'
             
             
 

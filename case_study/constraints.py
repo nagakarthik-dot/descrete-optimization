@@ -434,4 +434,24 @@ class Constraints:
                             if ((i<k<j and l>j) or (k<i and i<l<j)) and (h[i]==1 and h[j]==1 and h[k]==1 and h[l]==1):
                                 self.solver.Add(kwargs['x'][k][l]+kwargs['x'][i][j]<=1) 
                             #if i<k<j and i<l<j:solver.Add(x[k][l]+x[i][j]<=1)
+        if self.problem==29:
+            for i in range(self.data.n1):
+                self.solver.Add(sum(kwargs['x'][i][m] for m in range(self.data.n2)) <= 1)
+            for j in range(self.data.n2):
+                self.solver.Add(sum(kwargs['x'][m][j] for m in range(self.data.n1)) <= 1)
+
+            for i in range(self.data.n1):
+                for j in range(self.data.n2):
+                    for k in range(self.data.n1):
+                        for l in range(self.data.n2):
+                            if (i, k) not in self.data.edges1 or (j,l) not in self.data.edges2:
+                                self.solver.Add(kwargs['w'][i][j][k][l] == 0)
+                            if i < k and j > l and (i, k) in self.data.edges1 and (j, l) in self.data.edges2:
+                                self.solver.Add(kwargs['x'][i][j] + kwargs['x'][k][l] <= 1)
+                                self.solver.Add(kwargs['w'][i][j][k][l]==0)
+                            if (i, k) in self.data.edges1 and (j, l) in self.data.edges2 and i<k and j<l:
+                                self.solver.Add(kwargs['w'][i][j][k][l] <= kwargs['x'][i][j])
+                                self.solver.Add(kwargs['w'][i][j][k][l] <= kwargs['x'][k][l])  
+                            if i < k and j > l :
+                                self.solver.Add(kwargs['x'][i][j] + kwargs['x'][k][l] <= 1)
                         

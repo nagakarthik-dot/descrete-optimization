@@ -1,0 +1,16 @@
+Solution:
+Objective value = 5.000000000000001
+
+0->1 in edges1 to 1->2 in edges 2
+2->3 in edges1 to 3->5 in edges 2
+2->4 in edges1 to 3->6 in edges 2
+4->5 in edges1 to 6->7 in edges 2
+7->8 in edges1 to 8->9 in edges 2
+ edges1-> edges2        0 -> 1
+ edges1-> edges2        1 -> 2
+ edges1-> edges2        2 -> 3
+ edges1-> edges2        3 -> 5
+ edges1-> edges2        4 -> 6
+ edges1-> edges2        5 -> 7
+ edges1-> edges2        7 -> 8
+ edges1-> edges2        8 -> 9

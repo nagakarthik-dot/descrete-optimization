@@ -207,6 +207,11 @@ class InputData:
             self.hydrophobic_positions = [2, 4, 5, 6, 11, 12, 17, 20, 21, 25, 27, 28, 30, 31, 33, 37, 44, 46]
             self.n = len(self.hydrophobic_positions)
             self.m = 50
+        if problem==29:
+            self.n1 = 9
+            self.n2 = 11
+            self.edges1=[(0,1),(1,8),(2,3),(2,4),(4,5),(5,6),(6,8),(7,8)]
+            self.edges2=[(0,3),(1,2),(3,5),(4,5),(3,6),(5,7),(6,7),(6,9),(8,9),(9,10)]
     
         if problem ==23:
             self.num_farms = 21

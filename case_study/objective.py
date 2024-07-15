@@ -169,7 +169,17 @@ class Objective:
                     if h[i]==1 and h[j]==1:
                         #objective+=(x[i][j]*(hydrophobic_positions.index(j+1)-hydrophobic_positions.index(i+1)))
                         objective+=(kwargs['x'][i][j])
-            self.solver.Maximize(objective)        
+            self.solver.Maximize(objective)   
+        elif self.problem==29:
+            obje=0
+            n1=9
+            n2=10
+            for i in range(n1):
+                for j in range(n2):
+                    for k in range(n1):
+                        for l in range(n2):
+                            obje+=kwargs['w'][i][j][k][l]
+            self.solver.Maximize(obje)     
 
 
         

@@ -120,6 +120,9 @@ class DecisionVariables:
             self.variables['u'] = [[self.solver.NumVar(0, 21, f'position of city{i} in day {k}') for k in range(data.num_days)] for i in range(data.num_farms)]
         if self.problem==28:
             self.variables['x'] = [[self.solver.BoolVar(f'{i}_{j}') for j in range(data.m)] for i in range(data.m)]
+        if self.problem==29:
+            self.variables['x'] = [[self.solver.BoolVar(f'x[{i},{j}]') for j in range(data.n2)] for i in range(data.n1)]
+            self.variables['w'] = [[[[self.solver.BoolVar(f'w[{i},{j},{k},{l}]') for l in range(data.n2)] for k in range(data.n1)] for j in range(data.n2)] for i in range(data.n1)]
             
         
         
