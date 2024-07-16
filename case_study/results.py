@@ -248,12 +248,8 @@ class FinalTable:
                                     output+= f' edges1-> edges2        {i} -> {j}'
                                     output+='\n'
             
-            
-
-            
-
-
 
             self.save_output(f'problem_{problem}.txt', output)
+
             
 
