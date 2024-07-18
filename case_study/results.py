@@ -2,7 +2,7 @@
 
 import os
 from ortools.linear_solver import pywraplp
-
+ 
 class FinalTable:
     def __init__(self, solver, **kwargs):
         self.solver = solver
@@ -17,8 +17,9 @@ class FinalTable:
         with open(f"case_study/outputs/{filename}", "w") as file:
             file.write(content)
 
-    def print_table(self):
 
+    def print_table(self):
+        problem = self.variables['problem']
         if self.solver.Solve() == pywraplp.Solver.OPTIMAL  :
             output = 'Solution:\n'
             output += f'Objective value = {self.solver.Objective().Value()}\n\n'
