@@ -1,6 +1,7 @@
 ### prints the final table with all the results 
 
 import os
+import pandas as pd
 from ortools.linear_solver import pywraplp
  
 class FinalTable:
@@ -16,6 +17,11 @@ class FinalTable:
         os.makedirs("case_study/outputs", exist_ok=True)
         with open(f"case_study/outputs/{filename}", "w") as file:
             file.write(content)
+    def save_to_excel(self, df, filename):
+        os.makedirs("case_study/outputs", exist_ok=True)
+        df.to_excel(f"case_study/outputs/{filename}", index=False)
+
+
 
 
     def print_table(self):
@@ -28,16 +34,27 @@ class FinalTable:
             if problem == 1 or problem == 2:
                 header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products1]) + '\n'
                 output += header
-                
+                headers = ["Month"] + [f"{prod}" for prod in self.products1]
+                rows=[]
                 for i in range(6):
                     item_row = f"{self.months[i]:<12}" + "  ".join([f"{self.variables['buy'][i][j].solution_value():<10.2f}" for j in range(5)]) + '\n'
                     sell_row = f"{'':<12}" + "  ".join([f"{self.variables['used'][i][j].solution_value():<10.2f}" for j in range(5)]) + '\n'
                     store_row = f"{'':<12}" + "  ".join([f"{self.variables['store'][i][j].solution_value():<10.2f}" for j in range(5)]) + '\n'
+                    items_row = [self.months[i]] + [self.variables['buy'][i][j].solution_value() for j in range(5)]
+                    sells_row = [""] + [self.variables['used'][i][j].solution_value() for j in range(5)]
+                    stores_row = [""] + [self.variables['store'][i][j].solution_value() for j in range(5)]
+                    rows.append(items_row)
+                    rows.append(sells_row)
+                    rows.append(stores_row)
+                
                     
                     output += item_row
                     output += sell_row
                     output += store_row
                     output += "-" * len(header) + '\n'
+                df = pd.DataFrame(rows, columns=headers)
+                self.save_to_excel(df, f'problem_{problem}.xlsx')
+
             
             elif problem == 3:
                 header = "Month       " + "  ".join([f"{prod:<10}" for prod in self.products2]) + '\n'
@@ -133,7 +150,16 @@ class FinalTable:
                 for i in range(4):
                     depottocust_table.append([f'Depot{i}'] + [self.variables['depottocust'][i][j].solution_value() for j in range(6)])
                 output+=tabulate(depottocust_table, headers="firstrow", tablefmt="grid")
-            
+                            # Convert tables to DataFrames
+                df_facttodepot = pd.DataFrame(facttodepot_table[1:], columns=facttodepot_table[0])
+                df_facttocust = pd.DataFrame(facttocust_table[1:], columns=facttocust_table[0])
+                df_depottocust = pd.DataFrame(depottocust_table[1:], columns=depottocust_table[0])
+
+                # Save the DataFrames to an Excel file with separate sheets
+                with pd.ExcelWriter("case_study\outputs\problem_19.xlsx") as writer:
+                    df_facttodepot.to_excel(writer, sheet_name="Factory to Depot", index=False)
+                    df_facttocust.to_excel(writer, sheet_name="Factory to Customer", index=False)
+                    df_depottocust.to_excel(writer, sheet_name="Depot to Customer", index=False)
             elif problem==20:
                 from tabulate import tabulate
                 facttodepot_table = [["Factory to Depot"] + [f'Depot{j}' for j in range(6)]]
