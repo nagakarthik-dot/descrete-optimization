@@ -160,6 +160,23 @@ class FinalTable:
                     df_facttodepot.to_excel(writer, sheet_name="Factory to Depot", index=False)
                     df_facttocust.to_excel(writer, sheet_name="Factory to Customer", index=False)
                     df_depottocust.to_excel(writer, sheet_name="Depot to Customer", index=False)
+            elif problem ==12:
+                for i in range(7):
+                    if self.variables['s'][i].solution_value()>0.5:
+                        if self.variables['t1'][i].solution_value()>=0.5 and self.variables['t2'][i].solution_value()>=0.5:
+                            output+= (f'gate{i+1} has both input A and input B  as external inputs ')
+                            output+='\n'
+                        elif self.variables['t1'][i].solution_value()<=0.5 and self.variables['t2'][i].solution_value()>=0.5:
+                            output+= (f'gate{i+1} has  input B  as external inputs ')
+                            output+='\n'
+                        elif self.variables['t1'][i].solution_value()>=0.5 and self.variables['t2'][i].solution_value()<=0.5:
+                            output+= (f'gate{i+1} has  input A  as external inputs ')
+                            output+='\n'
+                        else :
+                            output+= (f'gate{i+1} has no  external inputs ')
+                            output+='\n'
+
+
             elif problem==20:
                 from tabulate import tabulate
                 facttodepot_table = [["Factory to Depot"] + [f'Depot{j}' for j in range(6)]]

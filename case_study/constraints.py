@@ -151,6 +151,32 @@ class Constraints:
                 self.solver.Add(kwargs['res'] >= (kwargs['a'] * self.data.x[i] + kwargs['b'] - self.data.y[i]))
                 self.solver.Add(kwargs['res'] >= -(kwargs['a'] * self.data.x[i] + kwargs['b'] - self.data.y[i]))
         
+        if self.problem ==12:
+            for i in range(7):
+                self.solver.Add(kwargs['s'][i]>=kwargs['t1'][i]) ### gate >input 
+                self.solver.Add(kwargs['s'][i]>=kwargs['t2'][i])   ### gate >input 
+            self.solver.Add(kwargs['s'][0]>=1)
+
+            for j in range(4):
+                for i in range(7):
+                    self.solver.Add(kwargs['s'][i]>=kwargs['x'][i][j])
+                    self.solver.Add(self.data.a[j]*kwargs['t1'][i]+kwargs['x'][i][j]<=1)  ## input+output<=1
+                    self.solver.Add(self.data.b[j]*kwargs['t2'][i]+kwargs['x'][i][j]<=1)## input+output<=1
+                    if i>=3:
+                        self.solver.Add(self.data.b[j]*kwargs['t2'][i]+kwargs['x'][i][j]+self.data.a[j]*kwargs['t1'][j]-kwargs['s'][i]>=0)    ### inputs+output-gate>=1
+                    else:
+                        m=self.data.lead[i][0]
+                        n=self.data.lead[i][1]
+                        self.solver.Add(self.data.b[j]*kwargs['t2'][i]+kwargs['x'][i][j]+self.data.a[j]*kwargs['t1'][j]+kwargs['x'][m][j]+kwargs['x'][n][j]-kwargs['s'][i]>=0)  ## done 
+                        self.solver.Add(kwargs['s'][m]+kwargs['s'][n]+kwargs['t1'][i]+kwargs['t2'][i]<=2) ## if gate is pen input is not there 
+                        self.solver.Add(kwargs['x'][m][j]+kwargs['x'][i][j]<=1)## prec + present <=1
+                        self.solver.Add(kwargs['x'][n][j]+kwargs['x'][i][j]<=1)## prec + present <=1
+            self.solver.Add(kwargs['x'][0][0]+kwargs['x'][0][3]<=0)
+            self.solver.Add(kwargs['x'][0][1]+kwargs['x'][0][2]>=2)
+
+
+
+
         if self.problem==13:
             temp1=temp2=temp3=temp4=temp6=temp7=temp8=temp9=t1=t2=t3=t4=t6=t7=0
             for i in range(len(self.data.dict)):

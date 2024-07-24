@@ -102,6 +102,8 @@ class Objective:
         
 
             self.solver.Minimize(result)
+        elif self.problem==12:
+            self.solver.Maximize(sum(kwargs['s'][i] for i in range(7)))
         elif self.problem==20:
             result=0
             for i in range(2):

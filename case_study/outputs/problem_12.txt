@@ -1,0 +1,8 @@
+Solution:
+Objective value = 5.0
+
+gate1 has no  external inputs 
+gate2 has no  external inputs 
+gate3 has both input A and input B  as external inputs 
+gate4 has  input A  as external inputs 
+gate5 has no  external inputs 

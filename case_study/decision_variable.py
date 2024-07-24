@@ -75,6 +75,11 @@ class DecisionVariables:
             self.variables['a']=self.solver.NumVar(-self.solver.infinity(),self.solver.infinity(),'a')
             self.variables['b']=self.solver.NumVar(-self.solver.infinity(),self.solver.infinity(),'b')
             self.variables['res']=self.solver.NumVar(0,self.solver.infinity(),'res')
+        if self.problem==12:
+            self.variables['s']=[self.solver.BoolVar(f'gate {i} is open ') for i in range(7)]
+            self.variables['t1']=[self.solver.BoolVar(f'external inpput A for gate {i}') for i in range(7)]
+            self.variables['t2']=[self.solver.BoolVar(f'external inpput B for gate {i}') for i in range(7)]
+            self.variables['x']=[[self.solver.BoolVar(f'gate{i} row{j}') for j in range(4)] for i in range(7)]
         
         if self.problem ==13:
             self.variables['open'] = [self.solver.BoolVar(f'M{i} belongs to D1') for i in range(23)]
