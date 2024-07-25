@@ -16,10 +16,10 @@ def solve_problem():
     variables = decision_variables.get_variables()
     
     constraints = Constraints(model, data)
-    constraints.add_constraints(variables)
+    constraints.add_constraints(variables['new_price'], variables['new_demand'])
     
     objective = Objective(model, data)
-    objective.set_objective(variables)
+    objective.set_objective(variables['new_price'])
 
     final_table = FinalTable(model, variables)
     table_output = final_table.print_table()
