@@ -25,7 +25,7 @@ def solve_problem():
     table_output = final_table.print_table()
     
     print(table_output)
-    final_table.save_output('problem_21.txt', table_output)
+    final_table.save_output('Agricultural_pricing.txt', table_output)
 
 if __name__ == '__main__':
     solve_problem()
