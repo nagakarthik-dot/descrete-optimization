@@ -84,8 +84,8 @@ def save_output(filename, content):
     saves the output in aiims/output folder 
     
     """
-    os.makedirs("dummy/outputs", exist_ok=True)
-    with open(f"dummy/outputs/{filename}", "w") as file:
+    os.makedirs("aiims/outputs", exist_ok=True)
+    with open(f"aiims/outputs/{filename}", "w") as file:
         file.write(content)
 
 def print_table(model, new_price, new_demand):
