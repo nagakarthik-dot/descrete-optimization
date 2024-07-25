@@ -2,11 +2,7 @@
 import os
 from gurobipy import Model, GRB
 import logging
-class InputData:
-    def __init__(self):
-        self.prices = [297, 720, 1050, 815]
-        self.demand = [4820000, 320000, 210000, 70000]
-        self.e = [0.4, 2.7, 1.1, 0.4, 0.1, 0.4]
+
 
 def create_new_price_vars(model):
     """"
@@ -88,8 +84,8 @@ def save_output(filename, content):
     saves the output in aiims/output folder 
     
     """
-    os.makedirs("aiims/outputs", exist_ok=True)
-    with open(f"aiims/outputs/{filename}", "w") as file:
+    os.makedirs("dummy/outputs", exist_ok=True)
+    with open(f"dummy/outputs/{filename}", "w") as file:
         file.write(content)
 
 def print_table(model, new_price, new_demand):

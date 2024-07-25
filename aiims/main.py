@@ -1,7 +1,7 @@
 # main.py
 
 from gurobipy import Model
-from definitions import InputData
+from input_data import InputData
 from decision_variables import DecisionVariables
 from constraints import Constraints
 from objective import Objective
@@ -11,6 +11,7 @@ def solve_problem():
     model = Model('Optimization Model')
 
     data = InputData()
+    print(data.demand)
     decision_variables = DecisionVariables(model)
     decision_variables.create_variables()
     variables = decision_variables.get_variables()
@@ -25,7 +26,7 @@ def solve_problem():
     table_output = final_table.print_table()
     
     print(table_output)
-    final_table.save_output('Agricultural_pricing.txt', table_output)
+    final_table.save_output('agricultural_pricing.txt', table_output)
 
 if __name__ == '__main__':
     solve_problem()
