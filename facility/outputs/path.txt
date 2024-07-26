@@ -1,0 +1,4 @@
+Solution:
+Objective value = 4275.7226924256665
+
+c               p              
