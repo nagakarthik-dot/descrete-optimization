@@ -13,10 +13,16 @@ class InputData:
         #self.water = nutritional_df.set_index('Item')['Water'].to_dict()
 
         # Read demand and prices
-        DMU_df = pd.read_excel('performance\DMU.xlsx')
-        self.num_dmu=DMU_df["DMU"]
+        df = pd.read_excel('performance\DMU.xlsx')
+        # Perform the required transformations
+        ##df['Total Cost [103$/yr]'] = df['Total Cost [103$/yr]'] / 1000
+        #df['Staff Cost [103$/yr]'] = df['Staff Cost [103$/yr]'] / 1000
+        #df['Non-staff Cost [103$/yr]'] = df['Non-staff Cost [103$/yr]'] / 1000
+        #df['Age of Competition [month]'] = df['Age of Competition [month]'] / 12
+        #df['Revenue [103$/yr]'] = df['Revenue [103$/yr]'] / 1000
+        self.num_dmu=df["DMU"]
         self.weightage={}
         for i in range(30):
-            self.weightage[i]=DMU_df.iloc[i][1:]
+            self.weightage[i]=df.iloc[i][1:]
 
         

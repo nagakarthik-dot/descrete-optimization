@@ -36,15 +36,18 @@ def solve_problem():
 
         ##final_table.save_output(f'dmu_{i + 1}.txt', table_output)
 
-    # Save all results to a single file
+  
+    sorted_results = sorted(results, key=lambda x: x['Objective Value'], reverse=True)
+
     with open('performance/outputs/all_results.txt', 'w') as f:
-        for result in results:
+        for result in sorted_results:
             f.write(f"DMU: {result['DMU']}\n")
             f.write(f"Objective Value: {result['Objective Value']}\n")
             f.write("Proportions:\n")
             for name, value in result['Proportions'].items():
                 f.write(f"  {name}: {value}\n")
             f.write("\n")
+
     
 
 if __name__ == '__main__':

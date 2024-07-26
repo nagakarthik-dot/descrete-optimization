@@ -21,7 +21,11 @@ def efficiency(model, data, new_proportions,num):
     this constarint denotes that efficiency is less than 1
     """
     ##model.addConstr(sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4,6))<=sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4)))
-    model.addConstr(sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4,6))<=1)
+    for k in range(30):
+        model.addConstr(sum(new_proportions[i]*int(data.weightage[k][i]) for i in range(4,6))<=sum(new_proportions[i]*int(data.weightage[k][i]) for i in range(4)))
+        if k==num:
+            model.addConstr(sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4))==1)
+            model.addConstr(sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4,6))<=1)
     #model.addConstr(sum(new_servings[i]*data.calories[i] for i in range(len(data.items)))<=117)
     logging.debug("efficiency is used ")
 
@@ -30,6 +34,7 @@ def weightage_proportion_input(model, data, new_proportions,num):
     this constarint denotes that efficiency weighatge of inputs sums to 1
     """
     model.addConstr(sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4))==1)
+    model.addConstr(sum(new_proportions[i]*int(data.weightage[num][i]) for i in range(4,6))<=1)
     #model.addConstr(sum(new_servings[i]*data.calories[i] for i in range(len(data.items)))<=117)
     logging.debug("efficiency  input is used ")
 
