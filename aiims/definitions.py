@@ -26,21 +26,21 @@ def create_new_demand_vars(model):
     logging.debug("new_demand variable is declared")
     return [model.addVar(lb=0, name=f"demand{i}") for i in range(4)]
 
-def add_constraints_1(model, data, new_demand):
+def max_availability_fat(model, data, new_demand):
     """"
     this constarint denotes the maximum availability of fat that is used to make the items 
     """
     logging.debug("add_constarint_1 is used ")
     model.addConstr(0.04 * new_demand[0] + 0.8 * new_demand[1] + 0.35 * new_demand[2] + 0.25 * new_demand[3] <= 600000)
 
-def add_constraints_2(model, data, new_demand):
+def max_availability_dry(model, data, new_demand):
     """"
     this constarint denotes the maximum availability of dry matter that is used to make the items 
     """
     logging.debug("add_constarint_2 is used ")
     model.addConstr(0.09 * new_demand[0] + 0.02 * new_demand[1] + 0.3 * new_demand[2] + 0.4 * new_demand[3] <= 750000)
 
-def add_constraints_3(model, data, new_price, new_demand):
+def price_elasticity(model, data, new_price, new_demand):
     """
     this constraint denotes the price elasticity of the item 
     E = Percentage decrease in demand/Percentage increase in price .
@@ -50,8 +50,9 @@ def add_constraints_3(model, data, new_price, new_demand):
     for i in range(4):
         model.addConstr(1 - (new_demand[i] / data.demand[i]) == data.e[i] * ((new_price[i] / data.prices[i]) - 1))
 
-def add_constraints_4(model, data, new_price, new_demand):
+def cross_elasticity(model, data, new_price, new_demand):
     """
+
     this constraint denotes the cross-price elasticity between two items A and B
     E_AB = Percentage increase in demand for A/Percentage increase in price of B .
 
@@ -60,7 +61,7 @@ def add_constraints_4(model, data, new_price, new_demand):
     model.addConstr(1 - (new_demand[2] / data.demand[2]) == data.e[4] * (1 - (new_price[3] / data.prices[3])))
     model.addConstr(1 - (new_demand[3] / data.demand[3]) == data.e[5] * (1 - (new_price[2] / data.prices[2])))
 
-def add_constraints_5(model, data, new_price):
+def demand_limitation(model, data, new_price):
     """
     limitation simply demands
 that the new prices must be such that the total cost of last year’s consumption
@@ -93,9 +94,11 @@ def print_table(model, new_price, new_demand):
     if model.status == GRB.OPTIMAL:
         output = 'Solution:\n'
         output += f'Objective value = {model.objVal}\n\n'
-        for i in range(4):
-            output += f'new_demand: {new_demand[i].x}\n'
-            output += f'new_prices: {new_price[i].x}\n'
+        #output += f'Best bound = {model.ObjBound}\n\n'
+        output += '{:<15} {:<15} {:<15}\n'.format('Item', 'New Demand', 'New Price')
+        Food=['Milk','Butter','cheese 1','Cheese 2']
+        for i, item in enumerate(Food):
+            output += '{:<15} {:<15.2f} {:<15.2f}\n'.format(item, new_demand[i].x, new_price[i].x)
         return output
     else:
         return "No optimal solution found."

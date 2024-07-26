@@ -1,11 +1,8 @@
 Solution:
 Objective value = 1981477660.2405393
 
-new_demand: 4792479.999999999
-new_prices: 301.23933609958505
-new_demand: 396625.99999999965
-new_prices: 656.1450000000003
-new_demand: 210000.00000000003
-new_prices: 1050.0
-new_demand: 70000.0
-new_prices: 814.9999999999998
+Item            New Demand      New Price      
+Milk            4792480.00      301.24         
+Butter          396626.00       656.15         
+cheese 1        210000.00       1050.00        
+Cheese 2        70000.00        815.00         

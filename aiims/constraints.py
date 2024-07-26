@@ -1,6 +1,6 @@
 # constraints.py
 
-from definitions import add_constraints_1, add_constraints_2, add_constraints_3, add_constraints_4, add_constraints_5
+from definitions import max_availability_fat, max_availability_dry, price_elasticity, cross_elasticity, demand_limitation
 
 class Constraints:
     def __init__(self, model, data):
@@ -8,8 +8,8 @@ class Constraints:
         self.data = data
 
     def add_constraints(self, new_price, new_demand):
-        add_constraints_1(self.model, self.data, new_demand)
-        add_constraints_2(self.model, self.data, new_demand)
-        add_constraints_3(self.model, self.data, new_price, new_demand)
-        add_constraints_4(self.model, self.data, new_price, new_demand)
-        add_constraints_5(self.model, self.data, new_price)
+        max_availability_fat(self.model, self.data, new_demand)
+        max_availability_dry(self.model, self.data, new_demand)
+        price_elasticity(self.model, self.data, new_price, new_demand)
+        cross_elasticity(self.model, self.data, new_price, new_demand)
+        demand_limitation(self.model, self.data, new_price)
