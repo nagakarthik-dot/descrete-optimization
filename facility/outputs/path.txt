@@ -1,4 +1,11 @@
 Solution:
 Objective value = 4275.7226924256665
 
-c               p              
+c               p               d               z               quantity       
+a               arn             amers           maa             8.00            
+a               arn             amers           gro             4.00            
+a               rott            hag             har             9.00            
+a               rott            utre            gro             3.00            
+b               arn             amers           maa             9.00            
+b               rott            hag             har             10.00           
+b               rott            utre            gro             11.00           

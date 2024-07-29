@@ -142,13 +142,18 @@ def print_table(model, data,x,y,v):
         output = 'Solution:\n'
         output += f'Objective value = {model.objVal}\n\n'
         #output += f'Best bound = {model.ObjBound}\n\n'
-        output += '{:<15} {:<15}\n'.format('c', 'p' ,"d","z","quantity" )
+        output += '{:<15} {:<15} {:<15} {:<15} {:<15}\n'.format('c', 'p' ,"d","z","quantity" )
+        pro=["arn","rott"]
+        com=["a","b"]
+        distri=["ams","hag","utre","gouda","amers","zw","nij"]
+        cus=["maa","har","gro"]
         for i in range(2):
             for j in range(2):
                 for k in range(7):
                     for l in range(3):
                         if x[i][j][k][l].x>0.5:
-                            print(x[i][j][k][l].x)
+                            #print(x[i][j][k][l].x)
+                            output += '{:<15} {:<15} {:<15} {:<15} {:<15.2f} \n'.format(com[i], pro[j],distri[k],cus[l],x[i][j][k][l].x)
         return output
         
     else:
