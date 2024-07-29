@@ -1,0 +1,7 @@
+Solution:
+Objective value = 0.5555128794424461
+
+Item            stock fraction 
+1               0.30            
+2               0.47            
+3               0.23            
