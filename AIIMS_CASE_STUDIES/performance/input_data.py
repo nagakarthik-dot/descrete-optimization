@@ -13,7 +13,7 @@ class InputData:
         #self.water = nutritional_df.set_index('Item')['Water'].to_dict()
 
         # Read demand and prices
-        df = pd.read_excel('performance\DMU.xlsx')
+        df = pd.read_excel('AIIMS_CASE_STUDIES/performance/DMU.xlsx')
         # Perform the required transformations
         ##df['Total Cost [103$/yr]'] = df['Total Cost [103$/yr]'] / 1000
         #df['Staff Cost [103$/yr]'] = df['Staff Cost [103$/yr]'] / 1000

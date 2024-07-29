@@ -39,7 +39,7 @@ def solve_problem():
   
     sorted_results = sorted(results, key=lambda x: x['Objective Value'], reverse=True)
 
-    with open('performance/outputs/all_results.txt', 'w') as f:
+    with open('AIIMS_CASE_STUDIES/performance/outputs/all_results.txt', 'w') as f:
         for result in sorted_results:
             f.write(f"DMU: {result['DMU']}\n")
             f.write(f"Objective Value: {result['Objective Value']}\n")

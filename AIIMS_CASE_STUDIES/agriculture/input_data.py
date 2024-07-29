@@ -13,11 +13,11 @@ class InputData:
         #self.water = nutritional_df.set_index('Item')['Water'].to_dict()
 
         # Read demand and prices
-        demand_prices_df = pd.read_excel('aiims\demand_price.xlsx')
+        demand_prices_df = pd.read_excel('AIIMS_CASE_STUDIES/agriculture/demand_price.xlsx')
         self.prices = demand_prices_df['Price (£/ton)']
         self.demand = demand_prices_df['Domestic consumption (1000 tons)']
         # Read transfer coefficients
-        transfer_df = pd.read_excel('aiims\elasticity.xlsx')
+        transfer_df = pd.read_excel('AIIMS_CASE_STUDIES/agriculture/elasticity.xlsx')
         #self.transfer_coefficients = transfer_df.set_index('Item').to_dict(orient='index')
         self.e = transfer_df['Conversion factor']
 

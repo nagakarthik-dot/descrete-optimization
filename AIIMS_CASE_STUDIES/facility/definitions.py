@@ -132,8 +132,8 @@ def save_output(filename, content):
     saves the output in aiims/output folder 
     
     """
-    os.makedirs("facility/outputs", exist_ok=True)
-    with open(f"facility/outputs/{filename}", "w") as file:
+    os.makedirs("AIIMS_CASE_STUDIES/facility/outputs", exist_ok=True)
+    with open(f"AIIMS_CASE_STUDIES/facility/outputs/{filename}", "w") as file:
         file.write(content)
 
 def print_table(model, data,x,y,v):

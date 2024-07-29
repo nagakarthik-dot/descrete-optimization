@@ -13,7 +13,7 @@ class InputData:
         #self.water = nutritional_df.set_index('Item')['Water'].to_dict()
 
         # Read demand and prices
-        nutritions_df = pd.read_excel('diet_problem/nutrition_data.xlsx')
+        nutritions_df = pd.read_excel('AIIMS_CASE_STUDIES/diet_problem/nutrition_data.xlsx')
         nutrition_df=nutritions_df.head(9)
         self.items=nutrition_df['Item']
         self.calories=nutrition_df['Calories (kcal)']
