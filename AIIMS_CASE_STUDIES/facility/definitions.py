@@ -63,7 +63,7 @@ def supply_zone_count(model,data,y):
     """
     this constarints ansures that each customer gets form exactly one distribution 
     """
-    for i in range(data.c):
+    for i in range(data.z):
         model.addConstr(sum(y[j][i] for j in range(data.d))==1)
 
 def distribution_supply(model, data, x, v):
@@ -99,7 +99,7 @@ def distribution(model,data,x,y):
             for l in range(data.z):
                 quantity=0
                 for j in range(data.p):
-                    quantity+=x[i][j][k][l]
+                    quantity+=x[i][j][k][l]*y[k][l]
                 model.addConstr(quantity>=data.d_cz[i][l]*y[k][l])
 
 

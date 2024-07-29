@@ -1,11 +1,11 @@
 Solution:
-Objective value = 4275.7226924256665
+Objective value = 5448.9407615057835
 
 c               p               d               z               quantity       
-a               arn             amers           maa             8.00            
-a               arn             amers           gro             4.00            
+a               arn             gouda           maa             2.00            
+a               arn             amers           gro             7.00            
 a               rott            hag             har             9.00            
-a               rott            utre            gro             3.00            
-b               arn             amers           maa             9.00            
+a               rott            gouda           maa             6.00            
+b               arn             amers           gro             11.00           
 b               rott            hag             har             10.00           
-b               rott            utre            gro             11.00           
+b               rott            gouda           maa             9.00            
