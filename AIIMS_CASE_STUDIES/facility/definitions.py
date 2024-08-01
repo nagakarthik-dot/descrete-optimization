@@ -142,9 +142,9 @@ def print_table(model, data,x,y,v):
         output = 'Solution:\n'
         output += f'Objective value = {model.objVal}\n\n'
         #output += f'Best bound = {model.ObjBound}\n\n'
-        output += '{:<15} {:<15} {:<15} {:<15} {:<15}\n'.format('Commodities', 'Production Plant' ,"Distribution Center","Customer ","Quantity" )
+        output += '{:<15} {:<20} {:<20} {:<20} {:<20}\n'.format('Commodities', 'Production Plant' ,"Distribution Center","Customer ","Quantity" )
         pro=["Arnhem","Rotterdam"]
-        com=[" Product a","Product b"]
+        com=["Product a","Product b"]
         distri=["Amsterdam","The Hague","Utrecht ","Gouda","Amersfoort","Zwolle ","Nijmegen"]
         cus=["Maastricht","Haarlem","Groningen"]
         for i in range(2):
@@ -153,7 +153,7 @@ def print_table(model, data,x,y,v):
                     for l in range(3):
                         if x[i][j][k][l].x>0.5:
                             #print(x[i][j][k][l].x)
-                            output += '{:<15} {:<15} {:<15} {:<15} {:<15.2f} \n'.format(com[i], pro[j],distri[k],cus[l],x[i][j][k][l].x)
+                            output += '{:<15} {:<20} {:<20} {:<20} {:<20.2f} \n'.format(com[i], pro[j],distri[k],cus[l],x[i][j][k][l].x)
         return output
         
     else:
