@@ -142,11 +142,11 @@ def print_table(model, data,x,y,v):
         output = 'Solution:\n'
         output += f'Objective value = {model.objVal}\n\n'
         #output += f'Best bound = {model.ObjBound}\n\n'
-        output += '{:<15} {:<15} {:<15} {:<15} {:<15}\n'.format('c', 'p' ,"d","z","quantity" )
-        pro=["arn","rott"]
-        com=["a","b"]
-        distri=["ams","hag","utre","gouda","amers","zw","nij"]
-        cus=["maa","har","gro"]
+        output += '{:<15} {:<15} {:<15} {:<15} {:<15}\n'.format('Commodities', 'Production Plant' ,"Distribution Center","Customer ","Quantity" )
+        pro=["Arnhem","Rotterdam"]
+        com=[" Product a","Product b"]
+        distri=["Amsterdam","The Hague","Utrecht ","Gouda","Amersfoort","Zwolle ","Nijmegen"]
+        cus=["Maastricht","Haarlem","Groningen"]
         for i in range(2):
             for j in range(2):
                 for k in range(7):

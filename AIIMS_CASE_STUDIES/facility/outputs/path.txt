@@ -1,11 +1,11 @@
 Solution:
 Objective value = 5448.9407615057835
 
-c               p               d               z               quantity       
-a               arn             gouda           maa             2.00            
-a               arn             amers           gro             7.00            
-a               rott            hag             har             9.00            
-a               rott            gouda           maa             6.00            
-b               arn             amers           gro             11.00           
-b               rott            hag             har             10.00           
-b               rott            gouda           maa             9.00            
+Commodities     Production Plant Distribution Center Customer        Quantity       
+ Product a      Arnhem          Gouda           Maastricht      2.00            
+ Product a      Arnhem          Amersfoort      Groningen       7.00            
+ Product a      Rotterdam       The Hague       Haarlem         9.00            
+ Product a      Rotterdam       Gouda           Maastricht      6.00            
+Product b       Arnhem          Amersfoort      Groningen       11.00           
+Product b       Rotterdam       The Hague       Haarlem         10.00           
+Product b       Rotterdam       Gouda           Maastricht      9.00            
