@@ -1,5 +1,3 @@
-# objective.py
-
 from definitions import set_objective_function
 
 class Objective:
@@ -9,4 +7,5 @@ class Objective:
 
     def set_objective(self, new_waste):
         set_objective_function(self.model, self.data, new_waste)
+
         
