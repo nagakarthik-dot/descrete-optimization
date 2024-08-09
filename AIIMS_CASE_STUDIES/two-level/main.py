@@ -11,7 +11,7 @@ def solve_problem():
 
     # Initial tax rate
     initial_tax = 0.1
-    tolerance = 0.05  # Tolerance level to determine how close we are to the target
+    tolerance = 0.05  
 
     # Iterate to find optimal tax rate
     tax_rate = initial_tax
