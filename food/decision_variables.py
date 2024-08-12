@@ -17,7 +17,6 @@ class DecisionVariables:
         self.waste=create_wastage_of_food_vars(self.model,self.data)
         self.unfull=create_unfullfilleded_demand_vars(self.model,self.data)
         self.sold=create_sold_vars(self.model,self.data)
-        
 
     def get_variables(self):
         return {

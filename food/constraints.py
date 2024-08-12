@@ -13,6 +13,6 @@ class Constraints:
         quantity_sold(self.model, self.data, sold,prepare,inventory)
         unfull_filled_demand(self.model, self.data, sold,unfull,prepare)
         inventory_available(self.model, self.data, sold,inventory,prepare,waste,unfull)
-        wastage_of_food(self.model, self.data,inventory,waste)
+        wastage_of_food(self.model, self.data,inventory,waste,sold,prepare)
 
 

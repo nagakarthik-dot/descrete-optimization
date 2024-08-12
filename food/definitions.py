@@ -117,14 +117,17 @@ def inventory_available(model, data, sold,inventory,prepare,waste,unfull):
                 model.addConstr(inventory[i, h] == sum(prepare[i, t] - sold[i, t] - waste[i, t] for t in range(h)))
     logging.debug("inventory_available is used ")
 
-def wastage_of_food(model, data,inventory,waste):
+def wastage_of_food(model, data,inventory,waste,sold,prepare):
     """"
     this constarint denotes that the quantity of dish[i] wasted  at hour[h] 
     """
     for i in range(data.num_dishes):
         for h in range(data.num_hours):
-            if h >= data.shelf_life[i] and h>=5:
+            if h >= data.shelf_life[i] and h>=5 and h<23:
                 model.addConstr(waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1)))
+            if h==13:
+                model.addConstr(waste[i,h]==prepare[i,h]+inventory[i,h]-sold[i,h])
+            
     logging.debug("wastage_of_food is used ")
 
 
