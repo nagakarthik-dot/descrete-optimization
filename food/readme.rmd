@@ -49,7 +49,6 @@ Constarints:
 Objective:
 
 the objective is to maximize the overall profit 
-
 objective= Max( sum ( profit[i] * sold[i, h] - loss_of_wastage[i] * waste[i, h] - loss_of_demand[i] * unfull[i, h] ) for all i,h )
 
 
