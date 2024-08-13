@@ -23,7 +23,7 @@ class InputData:
         self.requirement = np.zeros((self.num_dishes, self.num_hours), dtype=int)
         #self.requirement = np.zeros((self.num_dishes, self.num_hours), dtype=int)
         #self.requirement[:, 5:] = np.random.randint(0, 11, size=(self.num_dishes, self.num_hours-5))
-        self.requirement[:, 5:]=df1.iloc[:, 1:10].values.astype(int)
+        self.requirement[:, 5:]=df1.iloc[:, 1:self.num_hours-4].values.astype(int)
         
 
                         

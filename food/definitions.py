@@ -99,20 +99,20 @@ def unfull_filled_demand(model, data, sold,unfull,prepare):
             if h<5 :
                 model.addConstr(unfull[i,h]==0)
             else:
-                model.addConstr(unfull[i,h]>=data.requirement[i,h]-sold[i,h])
-                model.addConstr(unfull[i,h]>=-data.requirement[i,h]+sold[i,h])
+                model.addConstr(unfull[i,h]==data.requirement[i,h]-sold[i,h])
+                #model.addConstr(unfull[i,h]>=-data.requirement[i,h]+sold[i,h])
     logging.debug("unfull_filled_demand is used ")
 
 def inventory_available(model, data, sold,inventory,prepare,waste,unfull):
     """"
-    this constarint denotes that the quantity of dish[i] already available  at hour[h] is the difference between the total prepared and (total sold,wasted)
+    this constarint denotes that the quantity of dish[i] already available  at the start of  hour[h] is the difference between the total prepared and (total sold,wasted)
     """
     for i in range(data.num_dishes):
         for h in range(data.num_hours):
             if h==0:
                 model.addConstr(inventory[i,h]==0)
-            elif h<5:
-                model.addConstr(inventory[i,h]==prepare[i,h-1]+inventory[i,h-1])
+            elif h<=5:
+                model.addConstr(inventory[i,h]==prepare[i,h-1]+inventory[i,h-1]-waste[i,h-1])
             else:
                 #model.addConstr(inventory[i, h] == sum(prepare[i, t] - sold[i, t] - waste[i, t] for t in range(h)))
                 model.addConstr(inventory[i,h]==prepare[i,h-1]+inventory[i,h-1]-sold[i,h-1]-waste[i,h-1])
@@ -124,10 +124,10 @@ def wastage_of_food(model, data,inventory,waste,sold,prepare):
     """
     for i in range(data.num_dishes):
         for h in range(data.num_hours):
-            if h >= data.shelf_life[i]  and h<13:
-                model.addConstr(waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1)))
-            if h==13:
-                model.addConstr(waste[i,h]==prepare[i,h]+inventory[i,h]-sold[i,h])
+            if h >= data.shelf_life[i] and h<=data.num_hours-1:
+                #model.addConstr(waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1)))
+                model.addConstr(waste[i, h] ==  sum(prepare[i,h]-sold[i,h] for i in range(h - data.shelf_life[i]+1)) )
+            #if h==data.num_hours-1:model.addConstr(waste[i,h]==sum(prepare[i,h]-sold[i,h] for i in range(h +1)))
             
             
     logging.debug("wastage_of_food is used ")
