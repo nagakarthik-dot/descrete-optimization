@@ -169,7 +169,7 @@ def print_table(model, data, prepare, sold, waste, unfull, inventory):
         writer.writerow(['Dish', 'Hour', 'Requirement', 'Prepare', 'Inventory', 'Waste', 'Unfilled', 'Sold'])
 
         for i in range(data.num_dishes):
-            for h in range( data.num_hours):
+            for h in range(5, data.num_hours):
                 writer.writerow([
                     data.dishes[i],
                     h,
