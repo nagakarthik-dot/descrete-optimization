@@ -11,6 +11,7 @@ def solve_problem():
     model = Model('Optimization Model')
 
     data = InputData()
+    print(data.requirement)
     decision_variables = DecisionVariables(model,data)
     decision_variables.create_variables()
     variables = decision_variables.get_variables()
