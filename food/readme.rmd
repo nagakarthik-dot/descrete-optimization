@@ -43,7 +43,7 @@ Constarints:
         for any dish i before its shelf life from the start of the hour wastage is zero 
         so if h<shelf_life[i] wastage [i,h]=0 for all i 
         if i>=shelf_life[i] then we can say that waste at this hour + waste at the previous hour = sum of inventory of the hour before its shelf life
-            waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1))
+            waste[i, h] ==  sum(prepare[i,t]-sold[i,t] for t in range(h - data.shelf_life[i]+1)) 
         at the last hour whatever the food is remaining that is waste
 
 Objective:
