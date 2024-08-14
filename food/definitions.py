@@ -126,10 +126,11 @@ def wastage_of_food(model, data,inventory,waste,sold,prepare):
         for h in range(data.num_hours):
             if h >= data.shelf_life[i] and h<data.num_hours-1:
                 #model.addConstr(waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1)))
-                #model.addConstr(waste[i, h]+waste[i,h-1] ==  sum(prepare[i,t]-sold[i,t] for t in range(h - data.shelf_life[i]+1)) )
-                model.addConstr(waste[i, h] ==  sum(prepare[i,t]-sold[i,t]-waste[i,t] for t in range(h - data.shelf_life[i]+1)) - sum(prepare[i,t]-sold[i,t]-waste[i,t] for t in range(h - data.shelf_life[i]+1,h+1)))
+                model.addConstr(waste[i, h]+waste[i,h-1] ==  sum(prepare[i,t]-sold[i,t] for t in range(h - data.shelf_life[i]+1)) )
+                
             if h==data.num_hours-1:
                 model.addConstr(waste[i,h]==prepare[i,h]-sold[i,h]+inventory[i,h])
+
             
             
             
