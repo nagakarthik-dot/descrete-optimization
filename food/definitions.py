@@ -152,11 +152,12 @@ def wastage_of_food(model, data, inventory, waste, sold, prepare):
                 # Total food carried forward (including from previous hour)
                 total_prepare_forward = sum(prepare[i, t] for t in range(h - data.shelf_life[i] + 1,h))
                 total_sold_forward = sum(sold[i, t] for t in range(h - data.shelf_life[i] + 1,h))
+                total_waste_forward = sum(waste[i, t] for t in range(h - data.shelf_life[i] + 1,h))
                 
                
                 
                 # Waste calculation for the current hour h
-                model.addConstr(inventory[i,expirehour]+waste[i,h]+total_prepare_forward-total_sold_forward==inventory[i,h])
+                model.addConstr(inventory[i,expirehour]+waste[i,h]+total_prepare_forward-total_sold_forward-total_waste_forward==inventory[i,h])
             
             if h == data.num_hours - 1:
                 # Ensure waste at the last hour accounts for any remaining food not sold
