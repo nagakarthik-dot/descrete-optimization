@@ -15,7 +15,7 @@ class FinalTable:
         
 
     def print_table(self):
-        return print_table(self.model,self.data, self.prepare, self.sold,self.waste,self.unfull,self.inventory)
+        return print_table1(self.model,self.data, self.prepare, self.sold,self.waste,self.unfull,self.inventory)
 
     def save_output(self, filename, content):
         save_output(filename, content)
