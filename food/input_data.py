@@ -16,7 +16,7 @@ class InputData:
         self.loss_of_wastage = pd.to_numeric(df['Loss_on_wastage₹'], errors='coerce').fillna(0).values
         self.shelf_life = pd.to_numeric(df['shelf_life(hr)'], errors='coerce').fillna(0).values
         self.num_dishes = 20
-        self.num_hours = 10
+        self.num_hours = 14
         file='C:/Users/olw09/karthikcase/descrete-optimization/food/requirement.xlsx'
         df1=pd.read_excel(file)
         np.random.seed(0)  
