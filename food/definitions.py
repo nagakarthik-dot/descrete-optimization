@@ -99,7 +99,7 @@ def unfull_filled_demand(model, data, sold,unfull,prepare):
             if h<5 :
                 model.addConstr(unfull[i,h]==0)
             else:
-                model.addConstr(unfull[i,h]>=data.requirement[i,h]-sold[i,h])
+                model.addConstr(unfull[i,h]==data.requirement[i,h]-sold[i,h])
                 #model.addConstr(unfull[i,h]>=-data.requirement[i,h]+sold[i,h])
     logging.debug("unfull_filled_demand is used ")
 
