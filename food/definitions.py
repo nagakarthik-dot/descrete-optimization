@@ -118,23 +118,50 @@ def inventory_available(model, data, sold,inventory,prepare,waste,unfull):
                 model.addConstr(inventory[i,h]==prepare[i,h-1]+inventory[i,h-1]-sold[i,h-1]-waste[i,h-1])
     logging.debug("inventory_available is used ")
 
-def wastage_of_food(model, data,inventory,waste,sold,prepare):
-    """"
-    this constarint denotes that the quantity of dish[i] wasted  at hour[h] 
-    """
-    for i in range(data.num_dishes):
-        for h in range(data.num_hours):
-            if h >= data.shelf_life[i] and h<data.num_hours-1:
-                #model.addConstr(waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1)))
-                model.addConstr(waste[i, h]+waste[i,h-1] ==  sum(prepare[i,t]-sold[i,t] for t in range(h - data.shelf_life[i]+1)) )
+# def wastage_of_food(model, data,inventory,waste,sold,prepare):
+#     """"
+#     this constarint denotes that the quantity of dish[i] wasted  at hour[h] 
+#     """
+#     for i in range(data.num_dishes):
+#         for h in range(data.num_hours):
+#             if h >= data.shelf_life[i] and h<data.num_hours-1:
+#                 #model.addConstr(waste[i, h] + waste[i, h - 1] == sum(inventory[i, t] for t in range(h - data.shelf_life[i]+1)))
+#                 model.addConstr(waste[i, h]+waste[i,h-1]==  sum(prepare[i,t]-sold[i,t] for t in range(h - data.shelf_life[i]+1)) )
                 
-            if h==data.num_hours-1:
-                model.addConstr(waste[i,h]==prepare[i,h]-sold[i,h]+inventory[i,h])
+#             if h==data.num_hours-1:
+#                 model.addConstr(waste[i,h]==prepare[i,h]-sold[i,h]+inventory[i,h])
 
             
             
             
-    logging.debug("wastage_of_food is used ")
+#     logging.debug("wastage_of_food is used ")
+def wastage_of_food(model, data, inventory, waste, sold, prepare):
+    """
+    This constraint denotes that the quantity of dish[i] wasted at hour[h] 
+    is the food prepared before h - shelf_life[i] for dish i that remains.
+    """
+    shelflife=3
+    for i in range(data.num_dishes):
+        for h in range(data.num_hours):
+            if h >= data.shelf_life[i]:
+                # Total food prepared before hour h - shelf_life[i]
+                expirehour = h - data.shelf_life[i] +1
+                
+                
+                
+                # Total food carried forward (including from previous hour)
+                total_carry_forward = sum(waste[i, t] for t in range(h - data.shelf_life[i] + 1,h))
+                
+               
+                
+                # Waste calculation for the current hour h
+                model.addConstr(inventory[i,expirehour]==total_carry_forward)
+            
+            if h == data.num_hours - 1:
+                # Ensure waste at the last hour accounts for any remaining food not sold
+                model.addConstr(waste[i, h] == prepare[i, h] - sold[i, h] + inventory[i, h])
+
+
 
 
 def set_objective_function(model, data, sold,waste,unfull ):
@@ -145,7 +172,7 @@ def set_objective_function(model, data, sold,waste,unfull ):
     losswaste = 0
     losteunfill = 0
     for i in range(data.num_dishes):
-        for h in range(5,data.num_hours):
+        for h in range(data.num_hours):
             profit_bysell += data.profit[i] * sold[i, h]
             losswaste += data.loss_of_wastage[i] * waste[i, h]
             losteunfill += data.loss_of_demand[i] * unfull[i, h]
@@ -189,16 +216,16 @@ def print_table(model, data, prepare, sold, waste, unfull, inventory):
         return "No optimal solution found."
 
 
-#def print_table(model,data, prepare,sold,waste,unfull,inventory):
-#   model.optimize()
-#   if model.status == GRB.OPTIMAL:
-#       output = 'Solution:\n'
-#       output += f'Objective value = {model.objVal}\n\n'
-#       #output += f'Best bound = {model.ObjBound}\n\n'
-#       output += '{:<15} {:<15} {:<15}{:<15} {:<15} {:<15} {:<15} {:<15} \n'.format('Dish','Hour','Requirement','Prepare','Inventory','Waste','Unfilled','Sold')
-#       for i in range(data.num_dishes):
-#           for h in range(5,data.num_hours):
-#               output += '{:<15} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} \n'.format(data.dishes[i],h,data.requirement[i,h],prepare[i, h].X,inventory[i, h].X,waste[i, h].X, unfull[i, h].X,sold[i, h].X)
-#       return output
-#   else:
-#       return "No optimal solution found."
+def print_table1(model,data, prepare,sold,waste,unfull,inventory):
+  model.optimize()
+  if model.status == GRB.OPTIMAL:
+      output = 'Solution:\n'
+      output += f'Objective value = {model.objVal}\n\n'
+      #output += f'Best bound = {model.ObjBound}\n\n'
+      output += '{:<15} {:<15} {:<15}{:<15} {:<15} {:<15} {:<15} {:<15} \n'.format('Dish','Hour','Requirement','Prepare','Inventory','Waste','Unfilled','Sold')
+      for i in range(data.num_dishes):
+          for h in range(data.num_hours):
+              output += '{:<15} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} {:<15.2f} \n'.format(data.dishes[i],h,data.requirement[i,h],prepare[i, h].X,inventory[i, h].X,waste[i, h].X, unfull[i, h].X,sold[i, h].X)
+      return output
+  else:
+      return "No optimal solution found."

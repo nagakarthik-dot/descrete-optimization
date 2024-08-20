@@ -1,6 +1,6 @@
 # results.py
 
-from definitions import print_table, save_output
+from definitions import *
 
 class FinalTable:
     def __init__(self, model, variables,data):
