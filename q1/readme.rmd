@@ -1,0 +1,55 @@
+Input:
+
+we have two excel files as input foodconsumption.xlsx and requirement.xlsx
+from foodconsumption.xlsx we will take the profit,loss_of_demand,loss_of_wastage,shelf_life for each Dish
+from  requirement.xlsx we take the requirement of each dish at a particular hour 
+i  belongs to range(20) h belongs to range(14)  
+1. requirement[i,h] denotes the requirement of dish i at hour h
+2. profit[i] denotes the profit of selling a single dish[i]
+3. loss_of_demand[i] denotes the loss of not full filling the requirement of dish[i]
+4. loss_of_wastage[i] denotes the loss of wastage of dish[i] here wastage means if the dish is available beyond its shelf_life
+5. shelf_life[i] denotes the shelf_life of dish[i]
+
+Decision Variables:
+
+1. prepare[i,h] denotes the amount of dish[i] prepared at hour h
+2. inventory[i,h] denotes the amount of dish[i] available at the start of hour h
+3. waste[i,h] denotes the amount of dish[i] wasted at hour h
+4. unfull[i,h] denotes the amount of dish[i] that we cannot fullfill at hour h
+5. sold[i,h] denotes the amount of dish[i] that is sold at hour h 
+
+Constarints: 
+
+1. prepared_food_multiple_of_10 :
+     this constarint denotes that the quantity of dish[i] prepared at hour h is a multiple of 10
+     so lets create a temparay Decisionvariable temp which is an integer 
+     prepare[i,h]=10* temp for all i,h 
+2. wastage_before_span_life : 
+      this constarint denotes that the quantity of dish[i] wasted at hour h  before spanlife is 0
+      if h < shelf_life[i]  then waste[i,h] =0 for all i,h
+3. quantity_sold: 
+      as given if h<5 then sold[i,h] = 0 for all i 
+      sold[i,h] <= prepare[i,h]+inventory[i,h] for all i,h because the total available amount should be graeter than equal to the amount sold 
+4. unfull_filled_demand:
+       as there is no requirement before h<5 unfull[i,h]=0 for all i 
+       for h>=5 unfull[i,h] = max(requiremnt[i,h]-sold[i,h] ,0)
+5. inventory_available:
+       at the start of first hour there is no food available so inventory[i,0]=0 for all i
+       for h<5 as there is no requirement inventory[i,h] is the sum of the inventory of the previous hour and food prepared at that time 
+                inventory[i,h]=prepare[i,h-1]+inventory[i,h-1]
+        for h>=5 difference between the quantity available during its previous hour and quantity either sold or wasted 
+                inventory[i,h]=prepare[i,h-1]+inventory[i,h-1]-sold[i,h-1]-waste[i,h-1]
+6. wastage_of_food:
+        for any dish i before its shelf life from the start of the hour wastage is zero 
+        so if h<shelf_life[i] wastage [i,h]=0 for all i 
+        if i>=shelf_life[i] then we can say that waste at this hour + waste at the previous hour = sum of inventory of the hour before its shelf life
+            waste[i, h] ==  sum(prepare[i,t]-sold[i,t] for t in range(h - data.shelf_life[i]+1)) 
+        at the last hour whatever the food is remaining that is waste
+
+Objective:
+
+the objective is to maximize the overall profit 
+objective= Max( sum ( profit[i] * sold[i, h] - loss_of_wastage[i] * waste[i, h] - loss_of_demand[i] * unfull[i, h] ) for all i,h )
+
+
+      
