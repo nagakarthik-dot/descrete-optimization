@@ -17,8 +17,8 @@ def create_prepared_food_vars(model,data):
 
 def create_used_vars(model,data):
     """"
-    inventory[i,h]
-    creates a new variable inventory  which denotes the amount of dish[i] already available  at hour h 
+    used[i,h,k]
+    creates a new variable inventory  which denotes the amount of dish[i] sold   at hour k that is prepared at hour h 
     type:
     integer
 
@@ -56,29 +56,6 @@ def prepared_food_multiple_of_10(model, data, prepare, used,unfull,waste):
         for h in range(data.num_hours):
             dummy = model.addVar(lb=0, vtype=GRB.INTEGER, name=f'dish{i}_hour{h}')
             model.addConstr(prepare[i, h] == 10 * dummy)
-            # inventory_future=0
-            # sold=0
-            # for k in range(data.num_hours):
-            #     if h<5 and k<5:
-            #         model.addConstr(used[i,h,k]==0)
-            #     if k not in range(h,h+data.shelf_life[i]):
-            #         model.addConstr(used[i,h,k]==0)
-            #     if k<=h+(data.shelf_life[i]-1) and k>h and k<data.num_hours:
-            #         inventory_future+=used[i,h,k]
-            #     if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
-            #         sold+=used[i,k,h]
-            # model.addConstr(sold<=data.requirement[i,h])
-            # if h+data.shelf_life[i]<data.num_hours:
-            #     model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future+used[i,h,h+data.shelf_life[i]])
-            # else:
-            #     model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future)
-            # if h-(data.shelf_life[i])>=0:
-            #     model.addConstr(waste[i,h]==used[i,h-(data.shelf_life[i]),h])
-            # else:
-            #     model.addConstr(waste[i,h]==0)
-
-            # model.addConstr(unfull[i,h]==data.requirement[i,h]-sold)
-            
             
     logging.debug("prepared_food_multiple_of_10 is used ")
 
@@ -167,7 +144,6 @@ def print_table(model, data, prepare, used, waste, unfull):
     if model.status == GRB.OPTIMAL:
         output = io.StringIO()
         writer = csv.writer(output)
-###  prepare+inventory==sold+wastaed-unfullfilled 
         writer.writerow(['Dish', 'Hour', 'Requirement', 'Prepare','inventory available', 'Waste', 'Unfilled', 'used'])
         writer.writerow(["Optimal Profit", model.objVal])
         for i in range(data.num_dishes):
@@ -177,8 +153,6 @@ def print_table(model, data, prepare, used, waste, unfull):
                 for k in range(data.num_hours):
                     if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
                         sold+=used[i,k,h].X
-                    #inventory=sold-used[i,h,h].X+waste[i,h].X
-                    #prepare[i,h].X+inventory==sold+waste[i,h].X+sum(used[i,h,k] for k in range(h+1,min(data.num_hours,h+data.shelf_life[i]+1)))
                 if h>=5:
                     for j in range(h):
                         for k in range(h,data.num_hours):
