@@ -77,25 +77,23 @@ def pattern_requiremnets(model, data,trucks, select):
     day_indices = {day: i for i, day in enumerate(data.days)}
 
     for i in range(data.num_locations):
-        total_weight = sum(data.truck_types[t] * trucks[i, d, t] 
-                           for d in range(data.num_days) 
-                           for t in range(len(data.truck_types)))
-
+        total_weight = (data.W[i]//30)*30
         for d in data.patterns[1]:
-            model.addConstr(sum(data.truck_types[t] * trucks[i, day_indices[d], t]  
-                                for t in range(len(data.truck_types))) >= total_weight * select[i, 1], name=f"once_a_week_{i}")
-    
+            #model.addConstr(sum(data.truck_types[t] * trucks[i, day_indices[d], t]  for t in range(len(data.truck_types))) >= total_weight * select[i, 1], name=f"once_a_week_{i}")
+            model.addGenConstrIndicator(select[i, 1], True,
+            sum(data.truck_types[t] * trucks[i, day_indices[d], t] for t in range(len(data.truck_types))) == total_weight, name=f"once_a_week_{i}")
+
         for d in data.patterns[2]:
-            model.addConstr(sum(data.truck_types[t] * trucks[i, day_indices[d], t]  
-                                for t in range(len(data.truck_types))) >= total_weight* select[i, 2] / 2, name=f"twice_a_week_{i}")
+            model.addGenConstrIndicator(select[i, 2], True,
+            sum(data.truck_types[t] * trucks[i, day_indices[d], t] for t in range(len(data.truck_types))) == total_weight / 2, name=f"twice_a_week_{i}")
 
         for d in data.patterns[3]:
-            model.addConstr(sum(data.truck_types[t] * trucks[i, day_indices[d], t]  
-                                for t in range(len(data.truck_types))) >= total_weight* select[i, 3] / 3, name=f"thrice_a_week_{i}")
+            model.addGenConstrIndicator(select[i, 3], True,
+            sum(data.truck_types[t] * trucks[i, day_indices[d], t] for t in range(len(data.truck_types))) == total_weight / 3, name=f"thrice_a_week_{i}")
 
         for d in data.patterns[0]:
-            model.addConstr(sum(data.truck_types[t] * trucks[i, day_indices[d], t]  
-                                for t in range(len(data.truck_types))) >= total_weight * select[i, 0] / 5, name=f"five_times_a_week_{i}")
+            model.addGenConstrIndicator(select[i, 0], True,
+            sum(data.truck_types[t] * trucks[i, day_indices[d], t] for t in range(len(data.truck_types))) == total_weight / 5, name=f"five_a_week_{i}")
         
         logging.debug("pattern_requiremnets")
     

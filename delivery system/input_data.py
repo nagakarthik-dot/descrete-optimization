@@ -9,7 +9,7 @@ class InputData:
     def load_data(self):
         file_path = 'delivery system/truckdata.xlsx'
         df = pd.read_excel(file_path)
-        self.num_locations=10
+        self.num_locations=100
         df=df.head(self.num_locations)
         self.days = ['M', 'T', 'W', 'R', 'F']
         self.num_days = len(self.days)
