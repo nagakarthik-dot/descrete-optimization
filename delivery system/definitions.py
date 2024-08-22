@@ -52,7 +52,7 @@ def weekly_weight_requirement(model, data, trucks,select):
     This constraint denotes that total weight delivered by both the trucks in a week is exactly equal to W[i]
     """
     for i in range(data.num_locations):
-        weight=(data.W[i]//30)*30
+        weight=(data.W[i]//150)*150
         model.addConstr(sum(data.truck_types[t] * trucks[i, d, t] 
                                 for d in range(data.num_days) 
                                 for t in range(len(data.truck_types))) == weight, 
@@ -77,7 +77,7 @@ def pattern_requiremnets(model, data,trucks, select):
     day_indices = {day: i for i, day in enumerate(data.days)}
 
     for i in range(data.num_locations):
-        total_weight = (data.W[i]//30)*30
+        total_weight = (data.W[i]//150)*150
         for d in data.patterns[1]:
             #model.addConstr(sum(data.truck_types[t] * trucks[i, day_indices[d], t]  for t in range(len(data.truck_types))) >= total_weight * select[i, 1], name=f"once_a_week_{i}")
             model.addGenConstrIndicator(select[i, 1], True,
