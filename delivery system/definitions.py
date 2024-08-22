@@ -114,7 +114,7 @@ def set_objective_function(model, data, trucks,min_trucks):
     model.setObjectiveN(sum(data.truck_costs[t] * trucks[i, d, t] 
                                for i in range(data.num_locations) 
                                for d in range(data.num_days) 
-                               for t in range(len(data.truck_types))), priority=2, index=0, weight=1) 
+                               for t in range(len(data.truck_types))), priority=1, index=0, weight=1) 
     model.setObjectiveN(min_trucks,priority=2, index=0, weight=1)
 
     logging.debug("set_objective_function is used")
@@ -139,7 +139,10 @@ def print_table(model, data,trucks,select):
         writer = csv.writer(output)
         schedule_type = ["Five times a week", "Once a week", "Twice a week", "Thrice a week"]
         writer.writerow(['Location', 'Day', 'number of 15 trucks','number of 10 trucks', 'Pattern selected'])
-        writer.writerow(["Optimal Profit", model.objVal])
+        writer.writerow(["Optimal Profit",sum(data.truck_costs[t] * trucks[i, d, t].x 
+                               for i in range(data.num_locations) 
+                               for d in range(data.num_days) 
+                               for t in range(len(data.truck_types)))])
         for i in range(data.num_locations):
             for d in range(data.num_days):
                 if trucks[i,d,0].x + trucks[i,d,1].x >0:

@@ -1,5 +1,5 @@
 Location,Day,number of 15 trucks,number of 10 trucks,Pattern selected
-Optimal Profit,0.0
+Optimal Profit,466560.0
 0,M,1.0,6.0,Twice a week
 0,R,3.0,3.0,Twice a week
 1,M,10.0,-0.0,Twice a week
