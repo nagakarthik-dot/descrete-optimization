@@ -72,17 +72,14 @@ def prepared_food_multiple_of_10(model, data, prepare, used,unfull,waste):
             inventory_future=0
             sold=0
             for k in range(data.num_hours):
-                if k not in range(h,h+data.shelf_life[i]):
+                if k not in range(h,h+data.shelf_life[i]+1):
                     model.addConstr(used[i,h,k]==0)
-                if k<=h+(data.shelf_life[i]-1) and k>h and k<data.num_hours:
+                if k<=h+(data.shelf_life[i]) and k>h and k<data.num_hours:
                     inventory_future+=used[i,h,k]
                 if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
                     sold+=used[i,k,h]
             model.addConstr(sold<=data.requirement[i,h])
-            if h+data.shelf_life[i]<data.num_hours:
-                model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future+used[i,h,h+data.shelf_life[i]])
-            else:
-                model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future)
+            model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future)
             if h-(data.shelf_life[i])>=0:
                 model.addConstr(waste[i,h]==used[i,h-(data.shelf_life[i]),h])
             else:
@@ -127,23 +124,25 @@ def print_table(model, data, prepare, used, waste, unfull):
     if model.status == GRB.OPTIMAL:
         output = io.StringIO()
         writer = csv.writer(output)
-###  prepare+inventory==sold+wastaed-unfullfilled 
-        writer.writerow(['Dish', 'Hour', 'Requirement', 'Prepare','inventory', 'Waste', 'Unfilled', 'used'])
+        writer.writerow(['Dish', 'Hour', 'Requirement', 'Prepare','inventory available', 'Waste', 'Unfilled', 'used'])
         writer.writerow(["Optimal Profit", model.objVal])
         for i in range(data.num_dishes):
             for h in range(data.num_hours):
-                
-                sold=0                   
-                for k in range(data.num_hours):
+                sold=0 
+                inventory=0 
+                for k in range(h+1):
                     if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
                         sold+=used[i,k,h].X
+                for j in range(h):
+                    for k in range(h,data.num_hours):
+                        inventory+=used[i,j,k].X
                 writer.writerow([
                     data.dishes[i],
                     h,
                     data.requirement[i, h],
                     prepare[i, h].X,
-                    sold+waste[i,h].X-prepare[i,h].X,
-                    waste[i, h].X,
+                    inventory,
+                    waste[i,h].X,
                     unfull[i, h].X,
                     sold
                 ])
@@ -151,6 +150,7 @@ def print_table(model, data, prepare, used, waste, unfull):
         return output.getvalue()
     else:
         return "No optimal solution found."
+   
 
 
 # def print_table1(model,data, prepare,sold,waste,unfull,inventory):

@@ -1,7 +1,7 @@
 Location,Day,Truck Type (tons),Number of Trucks,Delivery Schedule
 1,,,,Once a week
 2,,,,Once a week
-3,,,,Thrice a week
+3,,,,Once a week
 4,,,,Once a week
 5,,,,Once a week
 6,,,,Once a week
@@ -15,9 +15,9 @@ Location,Day,Truck Type (tons),Number of Trucks,Delivery Schedule
 14,,,,Once a week
 15,,,,Once a week
 16,,,,Once a week
-17,,,,Five times a week
+17,,,,Once a week
 18,,,,Once a week
-19,,,,Twice a week
+19,,,,Once a week
 20,,,,Once a week
 21,,,,Once a week
 22,,,,Once a week
@@ -25,14 +25,14 @@ Location,Day,Truck Type (tons),Number of Trucks,Delivery Schedule
 24,,,,Once a week
 25,,,,Once a week
 26,,,,Once a week
-27,,,,Thrice a week
+27,,,,Once a week
 28,,,,Once a week
 29,,,,Once a week
 30,,,,Once a week
-31,,,,Twice a week
+31,,,,Once a week
 32,,,,Once a week
-33,,,,Twice a week
-34,,,,Twice a week
+33,,,,Once a week
+34,,,,Once a week
 35,,,,Once a week
 36,,,,Once a week
 37,,,,Once a week
@@ -43,7 +43,7 @@ Location,Day,Truck Type (tons),Number of Trucks,Delivery Schedule
 42,,,,Once a week
 43,,,,Once a week
 44,,,,Once a week
-45,,,,Thrice a week
+45,,,,Once a week
 46,,,,Once a week
 47,,,,Once a week
 48,,,,Once a week
@@ -57,14 +57,14 @@ Location,Day,Truck Type (tons),Number of Trucks,Delivery Schedule
 56,,,,Once a week
 57,,,,Once a week
 58,,,,Once a week
-59,,,,Twice a week
+59,,,,Once a week
 60,,,,Once a week
 61,,,,Once a week
 62,,,,Once a week
-63,,,,Twice a week
-64,,,,Thrice a week
+63,,,,Once a week
+64,,,,Once a week
 65,,,,Once a week
-66,,,,Five times a week
+66,,,,Once a week
 67,,,,Once a week
 68,,,,Once a week
 69,,,,Once a week
@@ -80,14 +80,14 @@ Location,Day,Truck Type (tons),Number of Trucks,Delivery Schedule
 79,,,,Once a week
 80,,,,Once a week
 81,,,,Once a week
-82,,,,Thrice a week
+82,,,,Once a week
 83,,,,Once a week
 84,,,,Once a week
 85,,,,Once a week
 86,,,,Once a week
 87,,,,Once a week
 88,,,,Once a week
-89,,,,Thrice a week
+89,,,,Once a week
 90,,,,Once a week
 91,,,,Once a week
 92,,,,Once a week
