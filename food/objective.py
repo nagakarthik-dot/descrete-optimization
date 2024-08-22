@@ -7,6 +7,6 @@ class Objective:
         self.model = model
         self.data = data
 
-    def set_objective(self, sold,waste,unfull):
-        set_objective_function(self.model, self.data, sold,waste,unfull)
+    def set_objective(self, used,waste,unfull):
+        set_objective_function(self.model, self.data, used,waste,unfull)
         

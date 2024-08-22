@@ -14,4 +14,4 @@ class Constraints:
         wastage_of_food(self.model, self.data, waste, used)
        
 
-
+     

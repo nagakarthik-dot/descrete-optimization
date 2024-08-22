@@ -9,7 +9,7 @@ from results import FinalTable
 
 def solve_problem():
     model = Model('Optimization Model')
-
+    model.Params.MIPGap = 0.0012
     data = InputData()
     decision_variables = DecisionVariables(model,data)
     decision_variables.create_variables()

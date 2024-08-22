@@ -66,22 +66,31 @@ def quantity_sold(model, data, used,prepare):
     """
     for i in range(data.num_dishes):
         for h in range(data.num_hours):
+            inventory_avail=0
+            for j in range(h):
+                for k in range(h,data.num_hours):
+                    inventory_avail+=used[i,j,k]
+
             inventory_future=0
             sold=0
             for k in range(data.num_hours):
+                ## before fifth hour there is no requirement 
                 if h<5 and k<5:
                     model.addConstr(used[i,h,k]==0)
-                if k not in range(h,h+data.shelf_life[i]):
+                ## if a dish is 
+                ##if k not in range(h,h+data.shelf_life[i]+1):
+                if not (k>=h and k<=h+(data.shelf_life[i])):
                     model.addConstr(used[i,h,k]==0)
-                if k<=h+(data.shelf_life[i]-1) and k>h and k<data.num_hours:
+                if k<=h+(data.shelf_life[i]) and k>h :
                     inventory_future+=used[i,h,k]
-                if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
+                if k<=h and k>=h-(data.shelf_life[i]-1) :
                     sold+=used[i,k,h]
+            
+            
+            
             model.addConstr(sold<=data.requirement[i,h])
-            if h+data.shelf_life[i]<data.num_hours:
-                model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future+used[i,h,h+data.shelf_life[i]])
-            else:
-                model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future)
+            model.addConstr(sold<=prepare[i,h]+inventory_avail)
+            model.addConstr(prepare[i,h]==used[i,h,h]+inventory_future)
 
 def unfull_filled_demand(model, data, used,unfull):
     """"
@@ -91,9 +100,10 @@ def unfull_filled_demand(model, data, used,unfull):
         for h in range(data.num_hours):
             sold=0
             for k in range(data.num_hours):
-                if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
+                if k<=h and k>=h-(data.shelf_life[i]-1):
                     sold+=used[i,k,h]
-            model.addConstr(unfull[i,h]==data.requirement[i,h]-sold)
+            model.addConstr(unfull[i,h]>=data.requirement[i,h]-sold)
+          
     logging.debug("unfull_filled_demand is used ")
 
 def wastage_of_food(model, data, waste, used):
@@ -108,24 +118,30 @@ def wastage_of_food(model, data, waste, used):
             if h >= data.shelf_life[i]:
                 model.addConstr(waste[i,h]==used[i,h-(data.shelf_life[i]),h])
 
-
-
-def set_objective_function(model, data, used,waste,unfull ):
+def set_objective_function(model, data, used, waste, unfull):
     """
-    The objective is to determine the quantity prepared,sold,wasted in order to get maximum profits
+    The objective is to determine the quantity prepared, sold, wasted in order to get maximum profits
+    while also minimizing the total wastage.
     """
     profit_bysell = 0
     losswaste = 0
     losteunfill = 0
+    
     for i in range(data.num_dishes):
         for h in range(data.num_hours):
-            for k in range(h-(data.shelf_life[i]-1),h+1):
-                if k>=0:
-                    profit_bysell += data.profit[i] * used[i,k,h]
-            losswaste += data.loss_of_wastage[i] * waste[i, h]
+            for k in range(h - (data.shelf_life[i] - 1), h + 1):
+                if k >= 0:
+                    profit_bysell += data.profit[i] * used[i, k, h]
+            losswaste += data.loss_of_wastage[i] * waste[i,h]
             losteunfill += data.loss_of_demand[i] * unfull[i, h]
-    model.setObjective(profit_bysell-losswaste-losteunfill, GRB.MAXIMIZE)
-    logging.debug("set_objective_functio is used ")
+          
+
+    model.setObjective(
+        (profit_bysell - losswaste - losteunfill) ,
+        GRB.MAXIMIZE
+    )
+    logging.debug("set_objective_function is used")
+
 
 def save_output(filename, content):
     """
@@ -153,19 +169,16 @@ def print_table(model, data, prepare, used, waste, unfull):
                 for k in range(data.num_hours):
                     if k<=h and k>=h-(data.shelf_life[i]-1) and k>=0:
                         sold+=used[i,k,h].X
-                if h>=5:
-                    for j in range(h):
-                        for k in range(h,data.num_hours):
-                            inventory+=used[i,j,k].X
-                else:
-                    inventory=sum(prepare[i,j].X for j in range(h))
+                for j in range(h):
+                    for k in range(h,data.num_hours):
+                        inventory+=used[i,j,k].X
                 writer.writerow([
                     data.dishes[i],
                     h,
                     data.requirement[i, h],
                     prepare[i, h].X,
                     inventory,
-                    waste[i, h].X,
+                    waste[i,h].X,
                     unfull[i, h].X,
                     sold
                 ])

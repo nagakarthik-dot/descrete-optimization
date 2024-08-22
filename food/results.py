@@ -7,15 +7,17 @@ class FinalTable:
         self.model = model
         self.data=data
         self.prepare=variables['prepare']
-        self.sold=variables['sold']
-        self.inventory=variables['inventory']
+        self.used=variables['used']
+        
         self.waste=variables['waste']
         self.unfull=variables['unfull']
 
         
 
     def print_table(self):
-        return print_table(self.model,self.data, self.prepare, self.sold,self.waste,self.unfull,self.inventory)
+        return print_table(self.model,self.data, self.prepare, self.used,self.waste,self.unfull)
+    def print_table1(self):
+        return 
 
     def save_output(self, filename, content):
         save_output(filename, content)

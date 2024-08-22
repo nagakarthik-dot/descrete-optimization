@@ -1,0 +1,33 @@
+\ Model TruckDeliveryOptimization_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Minimize
+ 
+Subject To
+ R0: x[0,0,0] <= 60
+ R1: x[0,0,1] <= 90
+ R2: x[0,1,0] <= 60
+ R3: x[0,1,1] <= 90
+ R4: x[0,2,0] <= 60
+ R5: x[0,2,1] <= 90
+ R6: x[0,3,0] <= 60
+ R7: x[0,3,1] <= 90
+ R8: x[0,4,0] <= 60
+ R9: x[0,4,1] <= 90
+ weekly_weight_0: 15 x[0,0,0] + 10 x[0,0,1] + 15 x[0,1,0] + 10 x[0,1,1]
+   + 15 x[0,2,0] + 10 x[0,2,1] + 15 x[0,3,0] + 10 x[0,3,1] + 15 x[0,4,0]
+   + 10 x[0,4,1] >= 12510
+Bounds
+ x[0,0,0] free
+ x[0,0,1] free
+ x[0,1,0] free
+ x[0,1,1] free
+ x[0,2,0] free
+ x[0,2,1] free
+ x[0,3,0] free
+ x[0,3,1] free
+ x[0,4,0] free
+ x[0,4,1] free
+Generals
+ x[0,0,0] x[0,0,1] x[0,1,0] x[0,1,1] x[0,2,0] x[0,2,1] x[0,3,0] x[0,3,1]
+ x[0,4,0] x[0,4,1]
+End
