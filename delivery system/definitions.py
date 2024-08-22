@@ -25,25 +25,25 @@ def create_select_vars(model,data):
     """
     return model.addVars(data.num_locations, len(data.patterns), vtype=GRB.BINARY, name=f"whether location i selects pattern h or not ")
 
-def create_min_10_trucks_vars(model,data):
+def create_min_trucks_vars(model,data):
     """"
-    min_10
-    creates a new variable min_10 denotes the min number of 10 type trucks needed for satisfying all day requiremnets 
+    min_trucks
+    creates a new variable min_10 denotes the min number of 15 trucks - 10 type trucks needed for satisfying all day requiremnets 
     type:
     Integer
 
     """
-    return model.addVar(vtype=GRB.INTEGER, name=f"min 10 ton trucks")
+    return model.addVar(vtype=GRB.INTEGER, name=f"min trucks needed ")
 
-def create_min_15_trucks_vars(model,data):
-    """"
-    min_10
-    creates a new variable min_15 denotes the min number of 15 type trucks needed for satisfying all day requiremnets 
-    type:
-    Integer
+# def create_min_15_trucks_vars(model,data):
+#     """"
+#     min_10
+#     creates a new variable min_15 denotes the min number of 15 type trucks needed for satisfying all day requiremnets 
+#     type:
+#     Integer
 
-    """
-    return model.addVar(vtype=GRB.INTEGER, name=f"min 15 ton trucks")
+#     """
+#     return model.addVar(vtype=GRB.INTEGER, name=f"min 15 ton trucks")
 
 
 
@@ -99,16 +99,17 @@ def pattern_requiremnets(model, data,trucks, select):
         
         logging.debug("pattern_requiremnets")
     
-def min_requiremnets(model, data,trucks, min_10,min_15):
+def min_requiremnets(model, data,trucks, min_trucks):
     """"
     this constarint denotes the min number of trucks requirement to satisfy the requiremnts over all days 
     """ 
     for j in range(data.num_days):
-        model.addConstr(min_10>=sum(trucks[i,j,1] for i in range(data.num_locations)))
-        model.addConstr(min_15>=sum(trucks[i,j,0] for i in range(data.num_locations)))
+        #model.addConstr(min_10>=sum(trucks[i,j,1] for i in range(data.num_locations)))
+        model.addConstr(min_trucks>=sum(trucks[i,j,0]-trucks[i,j,1] for i in range(data.num_locations)))
+        model.addConstr(min_trucks>=-sum(trucks[i,j,0]-trucks[i,j,1] for i in range(data.num_locations)))
     
 
-def set_objective_function(model, data, trucks,min_10,min_15):
+def set_objective_function(model, data, trucks,min_trucks):
     """
     The objective is to minimize the truck costs and also minimizing the total number of trucks 
     """
@@ -116,7 +117,7 @@ def set_objective_function(model, data, trucks,min_10,min_15):
                                for i in range(data.num_locations) 
                                for d in range(data.num_days) 
                                for t in range(len(data.truck_types))), priority=2, index=0, weight=1) 
-    model.setObjectiveN(min_10+min_15,priority=2, index=0, weight=1)
+    model.setObjectiveN(min_trucks,priority=2, index=0, weight=1)
 
     logging.debug("set_objective_function is used")
 

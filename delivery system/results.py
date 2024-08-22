@@ -9,8 +9,7 @@ class FinalTable:
         self.trucks=variables['trucks']
         self.select=variables['select']
         
-        self.min_10=variables['min_10']
-        self.min_15=variables['min_15']
+        self.min_trucks=variables['min_trucks']
 
         
 

@@ -7,6 +7,6 @@ class Objective:
         self.model = model
         self.data = data
 
-    def set_objective(self, trucks,min_10,min_15):
-        set_objective_function(self.model, self.data, trucks,min_10,min_15)
+    def set_objective(self, trucks,min_trucks):
+        set_objective_function(self.model, self.data, trucks,min_trucks)
         

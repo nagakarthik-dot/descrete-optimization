@@ -16,10 +16,10 @@ def solve_problem():
     variables = decision_variables.get_variables()
     
     constraints = Constraints(model, data)
-    constraints.add_constraints(variables['trucks'],variables['select'],variables['min_10'],variables['min_15'] )
+    constraints.add_constraints(variables['trucks'],variables['select'],variables['min_trucks'] )
     
     objective = Objective(model, data)
-    objective.set_objective(variables['trucks'],variables['min_10'],variables['min_15'])
+    objective.set_objective(variables['trucks'],variables['min_trucks'])
 
     final_table = FinalTable(model, variables,data)
     table_output = final_table.print_table()
