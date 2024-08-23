@@ -132,29 +132,78 @@ def save_output(filename, content):
 import io
 import csv
 
-def print_table(model, data,trucks,select):
+# def print_table(model, data,trucks,select):
+#     model.optimize()
+#     if model.status == GRB.OPTIMAL:
+#         output = io.StringIO()
+#         writer = csv.writer(output)
+#         schedule_type = ["Five times a week", "Once a week", "Twice a week", "Thrice a week"]
+#         writer.writerow(['Location', 'Day', 'number of 15 trucks','number of 10 trucks', 'Pattern selected'])
+#         writer.writerow(["Optimal Profit",sum(data.truck_costs[t] * trucks[i, d, t].x 
+#                                for i in range(data.num_locations) 
+#                                for d in range(data.num_days) 
+#                                for t in range(len(data.truck_types)))])
+#         for i in range(data.num_locations):
+#             for d in range(data.num_days):
+#                 if trucks[i,d,0].x + trucks[i,d,1].x >0:
+#                     row=[i,data.days[d],trucks[i,d,0].x,trucks[i,d,1].x]
+#                     for s in range(4):
+#                         if select[i,s].x>0:
+#                             row.append(schedule_type[s])
+#                     writer.writerow(row)
+        
+#         return output.getvalue()
+#     else:
+#         return "No optimal solution found."
+
+import io
+import csv
+from gurobipy import GRB
+
+def print_table(model, data, trucks, select):
     model.optimize()
     if model.status == GRB.OPTIMAL:
         output = io.StringIO()
         writer = csv.writer(output)
         schedule_type = ["Five times a week", "Once a week", "Twice a week", "Thrice a week"]
-        writer.writerow(['Location', 'Day', 'number of 15 trucks','number of 10 trucks', 'Pattern selected'])
-        writer.writerow(["Optimal Profit",sum(data.truck_costs[t] * trucks[i, d, t].x 
-                               for i in range(data.num_locations) 
-                               for d in range(data.num_days) 
-                               for t in range(len(data.truck_types)))])
+        
+        # Write header
+        writer.writerow(['Location', 'Number of Trucks', 'Pattern Selected'])
+        
+        # Write total cost (or rename to Total Cost if appropriate)
+        total_cost = sum(data.truck_costs[t] * trucks[i, d, t].x 
+                         for i in range(data.num_locations) 
+                         for d in range(data.num_days) 
+                         for t in range(len(data.truck_types)))
+        writer.writerow(["Total Cost", total_cost, ''])
+        
         for i in range(data.num_locations):
+            temp = ''
             for d in range(data.num_days):
-                if trucks[i,d,0].x + trucks[i,d,1].x >0:
-                    row=[i,data.days[d],trucks[i,d,0].x,trucks[i,d,1].x]
-                    for s in range(4):
-                        if select[i,s].x>0:
-                            row.append(schedule_type[s])
-                    writer.writerow(row)
+                num_15_ton_trucks = trucks[i, d, 0].x
+                num_10_ton_trucks = trucks[i, d, 1].x
+                
+                if num_15_ton_trucks > 0 or num_10_ton_trucks > 0:
+                    temp += f'{data.days[d]} :\n\n'
+                    temp += f'  - Number of 15 ton trucks: {num_15_ton_trucks} \n\n'
+                    temp += f'  - Number of 10 ton trucks: {num_10_ton_trucks} \n\n'
+            
+            # Check if temp is not empty before proceeding
+            if temp:
+                ss = None
+                for s in range(4):
+                    if select[i, s].x > 0:
+                        ss = s
+                        break  # assuming only one schedule type is selected per location
+                
+                if ss is not None:
+                    writer.writerow([i, temp.strip(), schedule_type[ss]])
         
         return output.getvalue()
     else:
         return "No optimal solution found."
+
+
 
 
 # def print_table1(model,data, prepare,sold,waste,unfull,inventory):

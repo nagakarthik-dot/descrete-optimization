@@ -1,240 +1,1336 @@
-Location,Day,number of 15 trucks,number of 10 trucks,Pattern selected
-Optimal Profit,466560.0
-0,M,1.0,6.0,Twice a week
-0,R,3.0,3.0,Twice a week
-1,M,10.0,-0.0,Twice a week
-1,R,2.0,12.0,Twice a week
-2,M,6.0,-0.0,Five times a week
-2,T,6.0,-0.0,Five times a week
-2,W,6.0,-0.0,Five times a week
-2,R,0.0,9.0,Five times a week
-2,F,-0.0,9.0,Five times a week
-3,M,-0.0,15.0,Twice a week
-3,R,10.0,0.0,Twice a week
-4,M,20.0,0.0,Twice a week
-4,R,0.0,30.0,Twice a week
-5,M,10.0,0.0,Once a week
-6,M,10.0,0.0,Twice a week
-6,R,-0.0,15.0,Twice a week
-7,M,1.0,21.0,Twice a week
-7,R,15.0,-0.0,Twice a week
-8,M,15.0,0.0,Twice a week
-8,R,15.0,-0.0,Twice a week
-9,M,8.0,0.0,Five times a week
-9,T,-0.0,12.0,Five times a week
-9,W,-0.0,12.0,Five times a week
-9,R,0.0,12.0,Five times a week
-9,F,-0.0,12.0,Five times a week
-10,M,3.0,18.0,Twice a week
-10,R,1.0,21.0,Twice a week
-11,M,10.0,0.0,Twice a week
-11,R,-0.0,15.0,Twice a week
-12,M,9.0,24.0,Twice a week
-12,R,3.0,33.0,Twice a week
-14,M,6.0,0.0,Five times a week
-14,T,-0.0,9.0,Five times a week
-14,W,6.0,-0.0,Five times a week
-14,R,0.0,9.0,Five times a week
-14,F,-0.0,9.0,Five times a week
-15,M,2.0,0.0,Five times a week
-15,T,-0.0,3.0,Five times a week
-15,W,-0.0,3.0,Five times a week
-15,R,2.0,-0.0,Five times a week
-15,F,-0.0,3.0,Five times a week
-17,M,10.0,-0.0,Five times a week
-17,T,0.0,15.0,Five times a week
-17,W,-0.0,15.0,Five times a week
-17,R,10.0,-0.0,Five times a week
-17,F,10.0,-0.0,Five times a week
-18,M,5.0,-0.0,Twice a week
-18,R,5.0,-0.0,Twice a week
-19,M,25.0,0.0,Twice a week
-19,R,25.0,-0.0,Twice a week
-20,M,5.0,-0.0,Twice a week
-20,R,5.0,-0.0,Twice a week
-21,M,-0.0,30.0,Twice a week
-21,R,-0.0,30.0,Twice a week
-22,M,1.0,6.0,Twice a week
-22,R,1.0,6.0,Twice a week
-23,M,-0.0,60.0,Once a week
-24,M,1.0,6.0,Twice a week
-24,R,1.0,6.0,Twice a week
-25,M,-0.0,60.0,Once a week
-26,M,15.0,0.0,Twice a week
-26,R,1.0,21.0,Twice a week
-27,M,0.0,15.0,Once a week
-28,M,10.0,0.0,Five times a week
-28,T,10.0,-0.0,Five times a week
-28,W,-0.0,15.0,Five times a week
-28,R,10.0,0.0,Five times a week
-28,F,10.0,-0.0,Five times a week
-29,M,25.0,0.0,Twice a week
-29,R,1.0,36.0,Twice a week
-30,M,20.0,0.0,Twice a week
-30,R,20.0,-0.0,Twice a week
-31,M,0.0,45.0,Twice a week
-31,R,30.0,-0.0,Twice a week
-32,M,10.0,-0.0,Five times a week
-32,T,10.0,-0.0,Five times a week
-32,W,10.0,-0.0,Five times a week
-32,R,10.0,-0.0,Five times a week
-32,F,10.0,-0.0,Five times a week
-33,M,20.0,-0.0,Thrice a week
-33,W,20.0,-0.0,Thrice a week
-33,F,20.0,-0.0,Thrice a week
-34,M,2.0,-0.0,Five times a week
-34,T,-0.0,3.0,Five times a week
-34,W,2.0,-0.0,Five times a week
-34,R,2.0,0.0,Five times a week
-34,F,2.0,-0.0,Five times a week
-36,M,25.0,-0.0,Twice a week
-36,R,25.0,-0.0,Twice a week
-37,M,2.0,0.0,Five times a week
-37,T,2.0,-0.0,Five times a week
-37,W,2.0,-0.0,Five times a week
-37,R,2.0,-0.0,Five times a week
-37,F,2.0,-0.0,Five times a week
-38,M,0.0,15.0,Once a week
-39,M,2.0,-0.0,Five times a week
-39,T,-0.0,3.0,Five times a week
-39,W,2.0,-0.0,Five times a week
-39,R,2.0,-0.0,Five times a week
-39,F,2.0,-0.0,Five times a week
-40,M,10.0,-0.0,Five times a week
-40,T,10.0,-0.0,Five times a week
-40,W,10.0,-0.0,Five times a week
-40,R,0.0,15.0,Five times a week
-40,F,-0.0,15.0,Five times a week
-41,M,12.0,0.0,Five times a week
-41,T,12.0,-0.0,Five times a week
-41,W,12.0,-0.0,Five times a week
-41,R,0.0,18.0,Five times a week
-41,F,12.0,-0.0,Five times a week
-42,M,25.0,0.0,Twice a week
-42,R,1.0,36.0,Twice a week
-43,M,-0.0,60.0,Once a week
-44,M,0.0,18.0,Five times a week
-44,T,12.0,-0.0,Five times a week
-44,W,12.0,-0.0,Five times a week
-44,R,-0.0,18.0,Five times a week
-44,F,12.0,-0.0,Five times a week
-45,M,10.0,0.0,Once a week
-46,M,0.0,15.0,Once a week
-47,M,0.0,15.0,Thrice a week
-47,W,-0.0,15.0,Thrice a week
-47,F,10.0,-0.0,Thrice a week
-48,M,25.0,0.0,Twice a week
-48,R,1.0,36.0,Twice a week
-49,M,-0.0,15.0,Twice a week
-49,R,-0.0,15.0,Twice a week
-50,M,20.0,0.0,Once a week
-51,M,15.0,0.0,Twice a week
-51,R,1.0,21.0,Twice a week
-52,M,-0.0,15.0,Twice a week
-52,R,-0.0,15.0,Twice a week
-53,M,0.0,15.0,Thrice a week
-53,W,10.0,-0.0,Thrice a week
-53,F,0.0,15.0,Thrice a week
-54,M,25.0,0.0,Twice a week
-54,R,1.0,36.0,Twice a week
-55,M,0.0,15.0,Thrice a week
-55,W,-0.0,15.0,Thrice a week
-55,F,10.0,-0.0,Thrice a week
-56,M,15.0,0.0,Twice a week
-56,R,1.0,21.0,Twice a week
-57,M,1.0,6.0,Twice a week
-57,R,1.0,6.0,Twice a week
-58,M,0.0,30.0,Twice a week
-58,R,-0.0,30.0,Twice a week
-60,M,30.0,0.0,Once a week
-61,M,5.0,-0.0,Twice a week
-61,R,5.0,-0.0,Twice a week
-62,M,2.0,-0.0,Five times a week
-62,T,2.0,-0.0,Five times a week
-62,W,2.0,-0.0,Five times a week
-62,R,2.0,-0.0,Five times a week
-62,F,-0.0,3.0,Five times a week
-63,M,2.0,12.0,Thrice a week
-63,W,-0.0,15.0,Thrice a week
-63,F,-0.0,15.0,Thrice a week
-64,M,14.0,9.0,Twice a week
-64,R,20.0,-0.0,Twice a week
-65,M,10.0,-0.0,Twice a week
-65,R,10.0,-0.0,Twice a week
-66,M,30.0,-0.0,Twice a week
-66,R,30.0,-0.0,Twice a week
-68,M,0.0,15.0,Once a week
-69,M,30.0,-0.0,Twice a week
-69,R,20.0,15.0,Twice a week
-70,M,4.0,0.0,Five times a week
-70,T,4.0,-0.0,Five times a week
-70,W,4.0,-0.0,Five times a week
-70,R,4.0,0.0,Five times a week
-70,F,4.0,-0.0,Five times a week
-72,M,20.0,-0.0,Twice a week
-72,R,20.0,-0.0,Twice a week
-73,M,10.0,0.0,Twice a week
-73,R,10.0,-0.0,Twice a week
-74,M,15.0,0.0,Twice a week
-74,R,15.0,-0.0,Twice a week
-75,M,20.0,-0.0,Twice a week
-75,R,20.0,-0.0,Twice a week
-76,M,0.0,30.0,Once a week
-77,M,10.0,-0.0,Twice a week
-77,R,10.0,-0.0,Twice a week
-78,M,0.0,30.0,Once a week
-79,M,10.0,-0.0,Five times a week
-79,T,-0.0,15.0,Five times a week
-79,W,-0.0,15.0,Five times a week
-79,R,10.0,-0.0,Five times a week
-79,F,10.0,-0.0,Five times a week
-80,M,0.0,30.0,Twice a week
-80,R,0.0,30.0,Twice a week
-81,M,6.0,-0.0,Five times a week
-81,T,-0.0,9.0,Five times a week
-81,W,-0.0,9.0,Five times a week
-81,R,6.0,-0.0,Five times a week
-81,F,-0.0,9.0,Five times a week
-82,M,4.0,39.0,Once a week
-83,M,5.0,-0.0,Twice a week
-83,R,5.0,-0.0,Twice a week
-84,M,15.0,-0.0,Twice a week
-84,R,15.0,-0.0,Twice a week
-85,M,6.0,1.0,Thrice a week
-85,W,-0.0,10.0,Thrice a week
-85,F,-0.0,10.0,Thrice a week
-86,M,0.0,30.0,Twice a week
-86,R,20.0,-0.0,Twice a week
-87,M,25.0,-0.0,Twice a week
-87,R,25.0,-0.0,Twice a week
-88,M,10.0,-0.0,Thrice a week
-88,W,10.0,-0.0,Thrice a week
-88,F,-0.0,15.0,Thrice a week
-89,M,25.0,-0.0,Twice a week
-89,R,25.0,-0.0,Twice a week
-90,M,5.0,-0.0,Twice a week
-90,R,5.0,-0.0,Twice a week
-91,M,6.0,-0.0,Five times a week
-91,T,-0.0,9.0,Five times a week
-91,W,6.0,-0.0,Five times a week
-91,R,4.0,3.0,Five times a week
-91,F,-0.0,9.0,Five times a week
-92,M,10.0,-0.0,Five times a week
-92,T,10.0,-0.0,Five times a week
-92,W,10.0,-0.0,Five times a week
-92,R,0.0,15.0,Five times a week
-92,F,10.0,-0.0,Five times a week
-93,M,0.0,30.0,Twice a week
-93,R,20.0,-0.0,Twice a week
-94,M,5.0,-0.0,Twice a week
-94,R,5.0,-0.0,Twice a week
-95,M,0.0,30.0,Twice a week
-95,R,20.0,-0.0,Twice a week
-96,M,25.0,0.0,Twice a week
-96,R,25.0,-0.0,Twice a week
-97,M,5.0,-0.0,Twice a week
-97,R,5.0,-0.0,Twice a week
-98,M,3.0,3.0,Twice a week
-98,R,5.0,-0.0,Twice a week
-99,M,0.0,30.0,Twice a week
-99,R,20.0,-0.0,Twice a week
+Location,Number of Trucks,Pattern Selected
+Total Cost,466560.0,
+0,"M :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0 
+
+R :
+
+  - Number of 15 ton trucks: 3.0 
+
+  - Number of 10 ton trucks: 3.0",Twice a week
+1,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: 12.0",Twice a week
+2,"M :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0",Five times a week
+3,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0",Twice a week
+4,"M :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0",Twice a week
+5,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0",Once a week
+6,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Twice a week
+7,"M :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 21.0 
+
+R :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+8,"M :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+9,"M :
+
+  - Number of 15 ton trucks: 8.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 12.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 12.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 12.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 12.0",Five times a week
+10,"M :
+
+  - Number of 15 ton trucks: 3.0 
+
+  - Number of 10 ton trucks: 18.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 21.0",Twice a week
+11,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Twice a week
+12,"M :
+
+  - Number of 15 ton trucks: 9.0 
+
+  - Number of 10 ton trucks: 24.0 
+
+R :
+
+  - Number of 15 ton trucks: 3.0 
+
+  - Number of 10 ton trucks: 33.0",Twice a week
+14,"M :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+W :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0",Five times a week
+15,"M :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 3.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 3.0 
+
+R :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 3.0",Five times a week
+17,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+18,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+19,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+20,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+21,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 30.0",Twice a week
+22,"M :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0",Twice a week
+23,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 60.0",Once a week
+24,"M :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0",Twice a week
+25,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 60.0",Once a week
+26,"M :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 21.0",Twice a week
+27,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0",Once a week
+28,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+29,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 36.0",Twice a week
+30,"M :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+31,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 45.0 
+
+R :
+
+  - Number of 15 ton trucks: 30.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+32,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+33,"M :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Thrice a week
+34,"M :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 3.0 
+
+W :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+F :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+36,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+37,"M :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+38,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0",Once a week
+39,"M :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 3.0 
+
+W :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+40,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Five times a week
+41,"M :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 18.0 
+
+F :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+42,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 36.0",Twice a week
+43,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 60.0",Once a week
+44,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 18.0 
+
+T :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 18.0 
+
+F :
+
+  - Number of 15 ton trucks: 12.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+45,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0",Once a week
+46,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0",Once a week
+47,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Thrice a week
+48,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 36.0",Twice a week
+49,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Twice a week
+50,"M :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: 0.0",Once a week
+51,"M :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 21.0",Twice a week
+52,"M :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Twice a week
+53,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+W :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0",Thrice a week
+54,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 36.0",Twice a week
+55,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Thrice a week
+56,"M :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 21.0",Twice a week
+57,"M :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0 
+
+R :
+
+  - Number of 15 ton trucks: 1.0 
+
+  - Number of 10 ton trucks: 6.0",Twice a week
+58,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 30.0",Twice a week
+60,"M :
+
+  - Number of 15 ton trucks: 30.0 
+
+  - Number of 10 ton trucks: 0.0",Once a week
+61,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+62,"M :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 3.0",Five times a week
+63,"M :
+
+  - Number of 15 ton trucks: 2.0 
+
+  - Number of 10 ton trucks: 12.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Thrice a week
+64,"M :
+
+  - Number of 15 ton trucks: 14.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+65,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+66,"M :
+
+  - Number of 15 ton trucks: 30.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 30.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+68,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0",Once a week
+69,"M :
+
+  - Number of 15 ton trucks: 30.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: 15.0",Twice a week
+70,"M :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+T :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+F :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+72,"M :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+73,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+74,"M :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+75,"M :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+76,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0",Once a week
+77,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+78,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0",Once a week
+79,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+R :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+80,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0",Twice a week
+81,"M :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+R :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0",Five times a week
+82,"M :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: 39.0",Once a week
+83,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+84,"M :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 15.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+85,"M :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: 1.0 
+
+W :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 10.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 10.0",Thrice a week
+86,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+87,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+88,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 15.0",Thrice a week
+89,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+90,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+91,"M :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0 
+
+W :
+
+  - Number of 15 ton trucks: 6.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 4.0 
+
+  - Number of 10 ton trucks: 3.0 
+
+F :
+
+  - Number of 15 ton trucks: -0.0 
+
+  - Number of 10 ton trucks: 9.0",Five times a week
+92,"M :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+T :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+W :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 15.0 
+
+F :
+
+  - Number of 15 ton trucks: 10.0 
+
+  - Number of 10 ton trucks: -0.0",Five times a week
+93,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+94,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+95,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+96,"M :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: 0.0 
+
+R :
+
+  - Number of 15 ton trucks: 25.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+97,"M :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+98,"M :
+
+  - Number of 15 ton trucks: 3.0 
+
+  - Number of 10 ton trucks: 3.0 
+
+R :
+
+  - Number of 15 ton trucks: 5.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week
+99,"M :
+
+  - Number of 15 ton trucks: 0.0 
+
+  - Number of 10 ton trucks: 30.0 
+
+R :
+
+  - Number of 15 ton trucks: 20.0 
+
+  - Number of 10 ton trucks: -0.0",Twice a week

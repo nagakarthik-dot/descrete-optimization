@@ -17,7 +17,7 @@ def create_prepared_food_vars(model,data):
 
 def create_used_vars(model,data):
     """"
-    inventory[i,h]
+    used[i,h,k]
     creates a new variable inventory  which denotes the amount of dish[i] already available  at hour h 
     type:
     integer
