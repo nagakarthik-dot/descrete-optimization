@@ -184,9 +184,12 @@ def print_table(model, data, trucks, select):
                 num_10_ton_trucks = trucks[i, d, 1].x
                 
                 if num_15_ton_trucks > 0 or num_10_ton_trucks > 0:
-                    temp += f'{data.days[d]} :\n\n'
-                    temp += f'  - Number of 15 ton trucks: {num_15_ton_trucks} \n\n'
-                    temp += f'  - Number of 10 ton trucks: {num_10_ton_trucks} \n\n'
+                    temp += f'{data.days[d]} :\n'
+
+                    if num_15_ton_trucks>=1:
+                        temp += f'  - Number of 15 ton trucks: {num_15_ton_trucks} \n'
+                    if num_10_ton_trucks>=1:
+                        temp += f'  - Number of 10 ton trucks: {num_10_ton_trucks} \n'
             
             # Check if temp is not empty before proceeding
             if temp:

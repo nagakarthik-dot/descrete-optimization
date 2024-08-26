@@ -1,1336 +1,506 @@
 Location,Number of Trucks,Pattern Selected
 Total Cost,466560.0,
-0,"M :
-
+0,"Monday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 3.0 
-
   - Number of 10 ton trucks: 3.0",Twice a week
-1,"M :
-
+1,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 2.0 
-
   - Number of 10 ton trucks: 12.0",Twice a week
-2,"M :
-
+2,"Monday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 9.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 9.0",Five times a week
-3,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+3,"Monday :
   - Number of 10 ton trucks: 15.0 
-
-R :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0",Twice a week
-4,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 10.0",Twice a week
+4,"Monday :
   - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 30.0",Twice a week
-5,"M :
-
+5,"Monday :
+  - Number of 15 ton trucks: 10.0",Once a week
+6,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0",Once a week
-6,"M :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 15.0",Twice a week
-7,"M :
-
+7,"Monday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 21.0 
-
-R :
-
+Thursday :
+  - Number of 15 ton trucks: 15.0",Twice a week
+8,"Monday :
   - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-8,"M :
-
-  - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-9,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 15.0",Twice a week
+9,"Monday :
   - Number of 15 ton trucks: 8.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 12.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 12.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 12.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 12.0",Five times a week
-10,"M :
-
+10,"Monday :
   - Number of 15 ton trucks: 3.0 
-
   - Number of 10 ton trucks: 18.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 21.0",Twice a week
-11,"M :
-
+11,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 15.0",Twice a week
-12,"M :
-
+12,"Monday :
   - Number of 15 ton trucks: 9.0 
-
   - Number of 10 ton trucks: 24.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 3.0 
-
   - Number of 10 ton trucks: 33.0",Twice a week
-14,"M :
-
+14,"Monday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 9.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 9.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 9.0",Five times a week
-15,"M :
-
+15,"Monday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 3.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 3.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 3.0",Five times a week
-17,"M :
-
+17,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
-  - Number of 15 ton trucks: 0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 15.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 15.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-18,"M :
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Five times a week
+18,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-19,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+19,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-20,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 25.0",Twice a week
+20,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-21,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+21,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 30.0",Twice a week
-22,"M :
-
+22,"Monday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0",Twice a week
-23,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+23,"Monday :
   - Number of 10 ton trucks: 60.0",Once a week
-24,"M :
-
+24,"Monday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0",Twice a week
-25,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+25,"Monday :
   - Number of 10 ton trucks: 60.0",Once a week
-26,"M :
-
+26,"Monday :
   - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 21.0",Twice a week
-27,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+27,"Monday :
   - Number of 10 ton trucks: 15.0",Once a week
-28,"M :
-
+28,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 15.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-29,"M :
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Five times a week
+29,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 36.0",Twice a week
-30,"M :
-
+30,"Monday :
   - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-31,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+31,"Monday :
   - Number of 10 ton trucks: 45.0 
-
-R :
-
-  - Number of 15 ton trucks: 30.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-32,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 30.0",Twice a week
+32,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-33,"M :
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Five times a week
+33,"Monday :
   - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Thrice a week
-34,"M :
-
+Friday :
+  - Number of 15 ton trucks: 20.0",Thrice a week
+34,"Monday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 3.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-F :
-
-  - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-36,"M :
-
+Friday :
+  - Number of 15 ton trucks: 2.0",Five times a week
+36,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-37,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 25.0",Twice a week
+37,"Monday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-38,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Friday :
+  - Number of 15 ton trucks: 2.0",Five times a week
+38,"Monday :
   - Number of 10 ton trucks: 15.0",Once a week
-39,"M :
-
+39,"Monday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 3.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-40,"M :
-
+Friday :
+  - Number of 15 ton trucks: 2.0",Five times a week
+40,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 15.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 15.0",Five times a week
-41,"M :
-
+41,"Monday :
   - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 18.0 
-
-F :
-
-  - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-42,"M :
-
+Friday :
+  - Number of 15 ton trucks: 12.0",Five times a week
+42,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 36.0",Twice a week
-43,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+43,"Monday :
   - Number of 10 ton trucks: 60.0",Once a week
-44,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+44,"Monday :
   - Number of 10 ton trucks: 18.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 18.0 
-
-F :
-
-  - Number of 15 ton trucks: 12.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-45,"M :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0",Once a week
-46,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Friday :
+  - Number of 15 ton trucks: 12.0",Five times a week
+45,"Monday :
+  - Number of 15 ton trucks: 10.0",Once a week
+46,"Monday :
   - Number of 10 ton trucks: 15.0",Once a week
-47,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+47,"Monday :
   - Number of 10 ton trucks: 15.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 15.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Thrice a week
-48,"M :
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Thrice a week
+48,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 36.0",Twice a week
-49,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+49,"Monday :
   - Number of 10 ton trucks: 15.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 15.0",Twice a week
-50,"M :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: 0.0",Once a week
-51,"M :
-
+50,"Monday :
+  - Number of 15 ton trucks: 20.0",Once a week
+51,"Monday :
   - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 21.0",Twice a week
-52,"M :
-
-  - Number of 15 ton trucks: -0.0 
-
+52,"Monday :
   - Number of 10 ton trucks: 15.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 15.0",Twice a week
-53,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+53,"Monday :
   - Number of 10 ton trucks: 15.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 0.0 
-
+Friday :
   - Number of 10 ton trucks: 15.0",Thrice a week
-54,"M :
-
+54,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 36.0",Twice a week
-55,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+55,"Monday :
   - Number of 10 ton trucks: 15.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 15.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Thrice a week
-56,"M :
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Thrice a week
+56,"Monday :
   - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 21.0",Twice a week
-57,"M :
-
+57,"Monday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 1.0 
-
   - Number of 10 ton trucks: 6.0",Twice a week
-58,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+58,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: -0.0 
-
+Thursday :
   - Number of 10 ton trucks: 30.0",Twice a week
-60,"M :
-
-  - Number of 15 ton trucks: 30.0 
-
-  - Number of 10 ton trucks: 0.0",Once a week
-61,"M :
-
+60,"Monday :
+  - Number of 15 ton trucks: 30.0",Once a week
+61,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-62,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+62,"Monday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 2.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 3.0",Five times a week
-63,"M :
-
+63,"Monday :
   - Number of 15 ton trucks: 2.0 
-
   - Number of 10 ton trucks: 12.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 15.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 15.0",Thrice a week
-64,"M :
-
+64,"Monday :
   - Number of 15 ton trucks: 14.0 
-
   - Number of 10 ton trucks: 9.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-65,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+65,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-66,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 10.0",Twice a week
+66,"Monday :
   - Number of 15 ton trucks: 30.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 30.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-68,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 30.0",Twice a week
+68,"Monday :
   - Number of 10 ton trucks: 15.0",Once a week
-69,"M :
-
+69,"Monday :
   - Number of 15 ton trucks: 30.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 20.0 
-
   - Number of 10 ton trucks: 15.0",Twice a week
-70,"M :
-
+70,"Monday :
   - Number of 15 ton trucks: 4.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 4.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 4.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 4.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-F :
-
-  - Number of 15 ton trucks: 4.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-72,"M :
-
+Friday :
+  - Number of 15 ton trucks: 4.0",Five times a week
+72,"Monday :
   - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-73,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+73,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-74,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 10.0",Twice a week
+74,"Monday :
   - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-75,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 15.0",Twice a week
+75,"Monday :
   - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-76,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+76,"Monday :
   - Number of 10 ton trucks: 30.0",Once a week
-77,"M :
-
+77,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-78,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 10.0",Twice a week
+78,"Monday :
   - Number of 10 ton trucks: 30.0",Once a week
-79,"M :
-
+79,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 15.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 15.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-80,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Five times a week
+80,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 30.0",Twice a week
-81,"M :
-
+81,"Monday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 9.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 9.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 9.0",Five times a week
-82,"M :
-
+82,"Monday :
   - Number of 15 ton trucks: 4.0 
-
   - Number of 10 ton trucks: 39.0",Once a week
-83,"M :
-
+83,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-84,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+84,"Monday :
   - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 15.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-85,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 15.0",Twice a week
+85,"Monday :
   - Number of 15 ton trucks: 6.0 
-
   - Number of 10 ton trucks: 1.0 
-
-W :
-
-  - Number of 15 ton trucks: -0.0 
-
+Wednesday :
   - Number of 10 ton trucks: 10.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 10.0",Thrice a week
-86,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+86,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-87,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+87,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-88,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 25.0",Twice a week
+88,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 15.0",Thrice a week
-89,"M :
-
+89,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-90,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 25.0",Twice a week
+90,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-91,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+91,"Monday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
-  - Number of 15 ton trucks: -0.0 
-
+Tuesday :
   - Number of 10 ton trucks: 9.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 6.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
+Thursday :
   - Number of 15 ton trucks: 4.0 
-
   - Number of 10 ton trucks: 3.0 
-
-F :
-
-  - Number of 15 ton trucks: -0.0 
-
+Friday :
   - Number of 10 ton trucks: 9.0",Five times a week
-92,"M :
-
+92,"Monday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-T :
-
+Tuesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-W :
-
+Wednesday :
   - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
   - Number of 10 ton trucks: 15.0 
-
-F :
-
-  - Number of 15 ton trucks: 10.0 
-
-  - Number of 10 ton trucks: -0.0",Five times a week
-93,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Friday :
+  - Number of 15 ton trucks: 10.0",Five times a week
+93,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-94,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+94,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-95,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+95,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-96,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
+96,"Monday :
   - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: 0.0 
-
-R :
-
-  - Number of 15 ton trucks: 25.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-97,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 25.0",Twice a week
+97,"Monday :
   - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-98,"M :
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+98,"Monday :
   - Number of 15 ton trucks: 3.0 
-
   - Number of 10 ton trucks: 3.0 
-
-R :
-
-  - Number of 15 ton trucks: 5.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
-99,"M :
-
-  - Number of 15 ton trucks: 0.0 
-
+Thursday :
+  - Number of 15 ton trucks: 5.0",Twice a week
+99,"Monday :
   - Number of 10 ton trucks: 30.0 
-
-R :
-
-  - Number of 15 ton trucks: 20.0 
-
-  - Number of 10 ton trucks: -0.0",Twice a week
+Thursday :
+  - Number of 15 ton trucks: 20.0",Twice a week
