@@ -136,7 +136,7 @@ def print_table(model, data, prepare, used, waste, unfull):
                 for j in range(h):
                     for k in range(h,data.num_hours):
                         inventory+=used[i,j,k].X
-                writer.writerow([
+                row=[
                     data.dishes[i],
                     h,
                     data.requirement[i, h],
@@ -145,7 +145,10 @@ def print_table(model, data, prepare, used, waste, unfull):
                     waste[i,h].X,
                     unfull[i, h].X,
                     sold
-                ])
+                ]
+                for j in range(min(data.num_hours,h+data.shelf_life[i])):
+                    row.append(used[i,h,j].X)
+                writer.writerow(row)
         
         return output.getvalue()
     else:

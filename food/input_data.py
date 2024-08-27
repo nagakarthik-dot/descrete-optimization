@@ -9,7 +9,7 @@ class InputData:
     def load_data(self):
         file_path = 'C:/Users/olw09/karthikcase/descrete-optimization/food/foodconsumption.xlsx'
         df = pd.read_excel(file_path)
-        self.num_dishes = 10
+        self.num_dishes = 2
         df=df.head(self.num_dishes)
 
         self.dishes = df['Dishes']
