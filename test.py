@@ -1,123 +1,81 @@
 import gurobipy as gp
 from gurobipy import GRB
-import random
+import numpy as np
 
-# Parameters
-locations = 20  # Number of delivery locations
-days = ['M', 'T', 'W', 'R', 'F']  # Days of the week
-twice_pairs = [('M', 'R'), ('T', 'F')]  # Pairs of days for twice-a-week deliveries
-thrice_pairs = ['M', 'W', 'F']  # Days for thrice-a-week deliveries
-five_times_pair = ['M', 'T', 'W', 'R', 'F']  # Days for five-times-a-week deliveries
+min_value = 2
+max_value = 7
+hour = 15
+work_hours = 9
+employee_cost = 80
 
-# Truck capacities and costs
-truck_capacity = {15: 15, 10: 10}  # Truck capacities (tons)
-truck_cost = {15: 180, 10: 120}  # Cost for each truck type
+requirement = np.random.randint(min_value, max_value + 1, size=hour)
 
-# Example weight requirements for each location (randomly generated)
-random.seed(1)
-W = {i: random.randint(1, 50) for i in range(locations)}
-print("Weight requirements for each location:", W)
+num_employees = 30
 
-# Model initialization
-model = gp.Model("Truck_Delivery_Optimization")
+model = gp.Model('Shift Scheduling')
 
-# Decision Variables
+work = {}
+overnight = {}
 
-# 1. `Select[i, t]`: Binary variable indicating if location `i` follows delivery routine `t`
-#    `t` can be 1 (once a week), 2 (twice a week), 3 (thrice a week), or 5 (five times a week).
-Select = model.addVars(locations, [1, 2, 3, 5], vtype=GRB.BINARY, name="Select")
-
-# 2. `A[i, day, t]`: Binary variable indicating if location `i` receives a delivery on `day`
-#    according to routine `t`.
-A = model.addVars(locations, days, [1, 2, 3, 5], vtype=GRB.BINARY, name="A")
-
-# 3. `N_15[day]`: Integer variable representing the number of 15-ton trucks used on `day`.
-N_15 = model.addVars(days, vtype=GRB.INTEGER, name="N_15")
-
-# 4. `N_10[day]`: Integer variable representing the number of 10-ton trucks used on `day`.
-N_10 = model.addVars(days, vtype=GRB.INTEGER, name="N_10")
-
-# 5. `min_trucks_10`: Auxiliary integer variable representing the minimum number of 10-ton trucks used across all days.
-min_trucks_10 = model.addVar(vtype=GRB.INTEGER, lb=0, name="min_trucks_10")
-
-# 6. `min_trucks_15`: Auxiliary integer variable representing the minimum number of 15-ton trucks used across all days.
-min_trucks_15 = model.addVar(vtype=GRB.INTEGER, lb=0, name="min_trucks_15")
+for i in range(num_employees):
+    overnight[i] = model.addVar(vtype=GRB.BINARY, name=f'employee_{i}_works_overnight')
+    for j in range(hour - work_hours + 1):
+        for k in range(j, j + work_hours):
+            work[(i, j, k)] = model.addVar(vtype=GRB.BINARY, name=f'employee_{i}_start_{j}_work_{k}')
 
 # Constraints
+for i in range(num_employees):
+    for j in range(hour - work_hours + 1):
+        model.addConstr(gp.quicksum(work[(i, j, k)] for k in range(j, j + work_hours)) == 8 * work[(i, j, j)])
 
-# 1. Ensure that the minimum number of trucks required (across all days) is correctly recorded.
-for d in days:
-    model.addConstr(min_trucks_15 >= N_15[d], f"MinTrucks15_{d}")
-    model.addConstr(min_trucks_10 >= N_10[d], f"MinTrucks10_{d}")
+for i in range(num_employees):
+    model.addConstr(gp.quicksum(work[(i, j, j)] for j in range(hour - work_hours + 1)) <= 1)
 
-# 2. Ensure that each location selects exactly one delivery routine.
-for i in range(locations):
-    model.addConstr(Select.sum(i, '*') == 1, f"SelectSum_{i}")
+for i in range(num_employees):
+    for j in range(6):
+        for k in range(j, 6):
+            model.addConstr(overnight[i] >= work[(i, j, k)])
 
-# 3. Ensure the correct routine is selected for each location, based on the delivery days.
-for i in range(locations):
-    for t in [1, 2, 3, 5]:
-        model.addConstr(
-            Select[i, t] == gp.quicksum(A[i, day, t] / t for day in days),
-            f"Select_{i}_{t}"
-        )
+for i in range(num_employees):
+    for j in range(hour - work_hours + 1):
+        model.addConstr(gp.quicksum(work[(i, j, k)] for k in range(j + 3, j + 6)) == 2 * work[(i, j, j)])
 
-# 4. Ensure that the daily truck capacity meets the demand for all locations.
-for day in days:
-    model.addConstr(
-        N_15[day] * truck_capacity[15] + N_10[day] * truck_capacity[10] >=
-        gp.quicksum(A[i, day, t] * W[i] / t for i in range(locations) for t in [1, 2, 3, 5]),
-        f"Capacity_{day}"
-    )
+for k in range(hour):
+    model.addConstr(gp.quicksum(work[(i, j, k)] for i in range(num_employees)
+                                for j in range(max(0, k - work_hours + 1), k + 1)
+                                if (i, j, k) in work) >= requirement[k])
 
-# 5. Routine-specific constraints for twice-a-week deliveries.
-for i in range(locations):
-    for j in twice_pairs:
-        model.addConstr(A[i, j[0], 2] == A[i, j[1], 2], f"TwicePair_{i}_{j}")
-
-# 6. Routine-specific constraints for thrice-a-week deliveries.
-    model.addConstr(A[i, thrice_pairs[0], 3] == A[i, thrice_pairs[1], 3], f"ThricePair_{i}_1")
-    model.addConstr(A[i, thrice_pairs[1], 3] == A[i, thrice_pairs[2], 3], f"ThricePair_{i}_2")
-
-# 7. Routine-specific constraints for five-times-a-week deliveries.
-    for k in range(len(five_times_pair) - 1):
-        model.addConstr(A[i, five_times_pair[k], 5] == A[i, five_times_pair[k + 1], 5], f"FiveTimesPair_{i}_{k}")
-
-# Objective Function: Multi-objective optimization
-
-# 1. Objective 1: Minimize the total cost of trucks used
-model.setObjectiveN(
-    gp.quicksum(N_15[day] * truck_cost[15] + N_10[day] * truck_cost[10] for day in days),
-    priority=2, index=0, weight=1
-)
-
-# Set a time limit for the first objective
-env_0 = model.getMultiobjEnv(0)
-env_0.setParam("TimeLimit", 3)
-
-# 2. Objective 2: Minimize the total number of trucks used across all days
-model.setObjectiveN(
-    expr=min_trucks_10 + min_trucks_15,
-    priority=1, index=1, weight=1
-)
+# Objective Function
+model.setObjective(10 * (gp.quicksum(work[(i, j, k)] for i in range(num_employees)
+                                     for j in range(hour - work_hours + 1)
+                                     for k in range(j, j + work_hours)))
+                   + 20 * (gp.quicksum(overnight[i] for i in range(num_employees))),
+                   GRB.MINIMIZE)
 
 # Optimize the model
 model.optimize()
 
-# Check the solution status and print the results
-if model.status not in [GRB.UNBOUNDED, GRB.INFEASIBLE, GRB.INF_OR_UNBD]:
-    if model.status == GRB.OPTIMAL:
-        print(f"Optimal cost: {model.objVal}")
-    else:
-        print(f"Feasible cost: {model.objVal}")
+# Check if the solution is optimal
+if model.status == GRB.OPTIMAL:
+    print(f'Optimal objective value (total cost): {model.objVal}')
 
-    # Output truck usage per day
-    for day in days:
-        print(f"{day}: 15-ton trucks = {N_15[day].X}, 10-ton trucks = {N_10[day].X}")
+    for i in range(num_employees):
+        for j in range(hour - work_hours + 1):
+            if work[(i, j, j)].x > 0.5:
+                for k in range(j, j + work_hours):
+                    if work[(i, j, k)].x < 0.5:
+                        print(f'Employee {i} starts at hour {j} and takes a break at hour {k}')
 
-    # Output selected decision variables
-    for var in model.getVars():
-        if var.X > 0.1:
-            print(f"{var.VarName} = {var.X}")
+    arr = []
+    for k in range(hour):
+        sumi = 0
+        for j in range(max(0, k - work_hours + 1), k + 1):
+            for i in range(num_employees):
+                if (i, j, k) in work:
+                    sumi += int(work[(i, j, k)].x)
+        arr.append(sumi)
+
+    print("Employees working each hour:", arr)
+    print("Hourly requirements:", requirement)
 else:
-    print("No optimal solution found.")
+    print('No optimal solution found.')
