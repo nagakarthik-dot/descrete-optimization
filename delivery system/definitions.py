@@ -200,7 +200,7 @@ def print_table(model, data, trucks, select):
                         break  # assuming only one schedule type is selected per location
                 
                 if ss is not None:
-                    writer.writerow([i, temp.strip(), schedule_type[ss]])
+                    writer.writerow([i+1, temp.strip(), schedule_type[ss]])
         
         return output.getvalue()
     else:
